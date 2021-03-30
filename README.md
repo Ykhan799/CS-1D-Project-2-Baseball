@@ -1,3 +1,6 @@
 # CS-1D-Project-2-Baseball
-Spring 2021
-
+Group Members:
+Liam Knight - Scrum Master
+Yaseen Khan - Product Owner
+Allison Chu
+Justin Bowen
