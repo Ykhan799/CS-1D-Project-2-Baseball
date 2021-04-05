@@ -4,3 +4,4 @@
 * Yaseen Khan - Product Owner/Programmer
 * Allison Chu - Programmer
 * Justin Bowen - Programmer
+* Quan Nguyen - Programmer
