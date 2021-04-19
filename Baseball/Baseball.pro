@@ -9,14 +9,23 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    custompath.cpp \
+    dodgerpath.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    marlinspath.cpp
 
 HEADERS += \
-    mainwindow.h
+    custompath.h \
+    dodgerpath.h \
+    mainwindow.h \
+    marlinspath.h
 
 FORMS += \
-    mainwindow.ui
+    custompath.ui \
+    dodgerpath.ui \
+    mainwindow.ui \
+    marlinspath.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
