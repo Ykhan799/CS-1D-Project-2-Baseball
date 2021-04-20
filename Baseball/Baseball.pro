@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     custompath.cpp \
     dodgerpath.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     marlinspath.cpp
@@ -18,12 +19,14 @@ SOURCES += \
 HEADERS += \
     custompath.h \
     dodgerpath.h \
+    login.h \
     mainwindow.h \
     marlinspath.h
 
 FORMS += \
     custompath.ui \
     dodgerpath.ui \
+    login.ui \
     mainwindow.ui \
     marlinspath.ui
 
