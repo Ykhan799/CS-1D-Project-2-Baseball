@@ -49,6 +49,13 @@ private slots:
     //!
     void on_TeamStadiumByDate_clicked();
 
+    //!
+    //! \brief on_TeamStadiumBySmallDistCtrField_clicked
+    //! Displays the team, stadium names, and distance to
+    //! center field by smallest to largest distance
+    //!
+    void on_TeamStadiumBySmallDistCtrField_clicked();
+
 
 private:
     Ui::DataBase *ui;

@@ -19,8 +19,8 @@
      <rect>
       <x>-70</x>
       <y>10</y>
-      <width>801</width>
-      <height>541</height>
+      <width>871</width>
+      <height>531</height>
      </rect>
     </property>
     <widget class="QWidget" name="tab">
@@ -30,8 +30,8 @@
      <widget class="QTableView" name="tableView">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>30</y>
+        <x>140</x>
+        <y>0</y>
         <width>671</width>
         <height>321</height>
        </rect>
@@ -41,7 +41,7 @@
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>370</y>
+        <y>330</y>
         <width>231</width>
         <height>32</height>
        </rect>
@@ -50,8 +50,8 @@
      <widget class="QPushButton" name="viewTeam">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>370</y>
+        <x>300</x>
+        <y>330</y>
         <width>111</width>
         <height>31</height>
        </rect>
@@ -63,8 +63,8 @@
      <widget class="QPushButton" name="TeamStadiumByTeam">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>410</y>
+        <x>70</x>
+        <y>370</y>
         <width>301</width>
         <height>41</height>
        </rect>
@@ -76,8 +76,8 @@
      <widget class="QPushButton" name="TeamStadiumByStadium">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>460</y>
+        <x>70</x>
+        <y>410</y>
         <width>331</width>
         <height>41</height>
        </rect>
@@ -89,14 +89,27 @@
      <widget class="QPushButton" name="TeamStadiumByDate">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>410</y>
+        <x>70</x>
+        <y>450</y>
         <width>301</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Display Teams and Stadiums by Date Opened</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="TeamStadiumBySmallDistCtrField">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>370</y>
+        <width>421</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Teams and Stadiums by Distance to Center Field(Smallest)</string>
       </property>
      </widget>
     </widget>

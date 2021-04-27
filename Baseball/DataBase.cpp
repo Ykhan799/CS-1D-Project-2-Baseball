@@ -113,7 +113,7 @@ void DataBase::on_TeamStadiumByStadium_clicked()
 
 
 /*************************************************************************
- * void on_TeamStadiumByStadium_clicked()
+ * void on_TeamStadiumByDate_clicked()
  * -----------------------------------------------------------------------
  * Lets a Baseball Fan or Administrator view the Team names and Stadium names
  * from date opened. Oldest stadiums and teams are displayed at the top while
@@ -126,6 +126,31 @@ void DataBase::on_TeamStadiumByDate_clicked()
 
     // Creates the Headers before information is displayed
     QString columnNames[] = {"Team Name", "Stadium Name", "Date Opened"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
+    ui->tableView->setModel(model);
+    ui->tableView->setColumnWidth(0, 216);
+    ui->tableView->setColumnWidth(1, 216);
+    ui->tableView->setColumnWidth(2, 216);
+}
+
+/*************************************************************************
+ * void on_TeamStadiumBySmallDistCtrField()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * by smallest distance to center field to largest distance to center field.
+ ************************************************************************/
+void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
+{
+    // Gets the sorted team and stadium names by date
+    auto model = database->getTeamsbySmallDistToCenterField();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "Distance to Center Field(Smallest)"};
     for (int i = 0; i < 3; i++)
     {
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
