@@ -55,9 +55,8 @@ public:
 
     //!
     //! \brief getTeamsbySmallDistToCenterField
-    //! \return model containing teams, stadiums,
-    //! and distance to center field which is sorted
-    //! from smallest to largest distance
+    //! \return model containing team with the smallest
+    //! distance to the center field
     //!
     QSqlQueryModel* getTeamsbySmallDistToCenterField();
 

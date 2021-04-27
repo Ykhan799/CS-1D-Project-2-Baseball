@@ -142,7 +142,7 @@ void DataBase::on_TeamStadiumByDate_clicked()
  * void on_TeamStadiumBySmallDistCtrField()
  * -----------------------------------------------------------------------
  * Lets a Baseball Fan or Administrator view the Team names and Stadium names
- * by smallest distance to center field to largest distance to center field.
+ * with the smallest distance to the center field.
  ************************************************************************/
 void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
 {

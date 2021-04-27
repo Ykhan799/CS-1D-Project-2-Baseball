@@ -52,7 +52,7 @@ private slots:
     //!
     //! \brief on_TeamStadiumBySmallDistCtrField_clicked
     //! Displays the team, stadium names, and distance to
-    //! center field by smallest to largest distance
+    //! center field of the smallest distance
     //!
     void on_TeamStadiumBySmallDistCtrField_clicked();
 

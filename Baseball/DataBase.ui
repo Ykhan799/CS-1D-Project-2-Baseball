@@ -104,12 +104,12 @@
        <rect>
         <x>380</x>
         <y>370</y>
-        <width>421</width>
+        <width>441</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>Display Teams and Stadiums by Distance to Center Field(Smallest)</string>
+       <string>Display Teams and Stadiums with Distance to Center Field(Smallest)</string>
       </property>
      </widget>
     </widget>

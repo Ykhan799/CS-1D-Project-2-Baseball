@@ -128,8 +128,7 @@ QSqlQueryModel* manageDB::getTeamsbyDate()
 /*************************************************************************
  * QSqlQueryModel* getTeamsbySmallDistToCenterField()
  * -----------------------------------------------------------------------
- * Gets all the stadiums, teams, and distance to center field and sorts the
- * teams and stadiums by smallest distance to center field.
+ * Gets all the stadiums, teams, and smallest distance to center field.
  ************************************************************************/
 QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
 {
@@ -138,7 +137,7 @@ QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
     QSqlQuery query;
 
     // Gets the team, stadium names, and date opened from the database
-    query.prepare("SELECT TeamName, StadiumName, DistToCentField FROM TEAMS ORDER BY DistToCentField");
+    query.prepare("SELECT TeamName, StadiumName, MIN(DistToCentField) FROM TEAMS");
     query.exec();
 
     // Assigned to the model and is returned
