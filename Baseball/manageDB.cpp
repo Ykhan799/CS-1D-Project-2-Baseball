@@ -104,3 +104,24 @@ QSqlQueryModel* manageDB::getTeamsSortedbyStadiums()
     return model;
 }
 
+/*************************************************************************
+ * QSqlQueryModel* getTeamsbyDate()
+ * -----------------------------------------------------------------------
+ * Gets all the stadiums and teams from the database and sorts it by oldest
+ * date opened to newest date opened.
+ ************************************************************************/
+QSqlQueryModel* manageDB::getTeamsbyDate()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names, and date opened from the database
+    query.prepare("SELECT TeamName, StadiumName, DateOpened FROM TEAMS ORDER BY DateOpened");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+

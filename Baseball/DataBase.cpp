@@ -111,3 +111,29 @@ void DataBase::on_TeamStadiumByStadium_clicked()
     ui->tableView->setColumnWidth(1, 325);
 }
 
+
+/*************************************************************************
+ * void on_TeamStadiumByStadium_clicked()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * from date opened. Oldest stadiums and teams are displayed at the top while
+ * the newer stadiums and teams are displayed at the bottom.
+ ************************************************************************/
+void DataBase::on_TeamStadiumByDate_clicked()
+{
+    // Gets the sorted team and stadium names by date
+    auto model = database->getTeamsbyDate();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "Date Opened"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
+    ui->tableView->setModel(model);
+    ui->tableView->setColumnWidth(0, 216);
+    ui->tableView->setColumnWidth(1, 216);
+    ui->tableView->setColumnWidth(2, 216);
+}

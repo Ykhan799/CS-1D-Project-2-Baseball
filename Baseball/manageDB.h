@@ -46,6 +46,14 @@ public:
     //!
     QSqlQueryModel* getTeamsSortedbyStadiums();
 
+    //!
+    //! \brief getTeamsbyDate
+    //! \return model containing teams and stadiums
+    //! sorted by oldest date opened to newest date opened
+    //!
+    QSqlQueryModel* getTeamsbyDate();
+
+
 private:
 
     //!

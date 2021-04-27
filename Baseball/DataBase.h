@@ -41,6 +41,14 @@ private slots:
     //!
     void on_TeamStadiumByStadium_clicked();
 
+    //!
+    //! \brief on_TeamStadiumByDate_clicked
+    //! Displays the team names and stadium names
+    //! in the order of date opened. The date opened
+    //! for each team is also displayed(Oldest to Newest).
+    //!
+    void on_TeamStadiumByDate_clicked();
+
 
 private:
     Ui::DataBase *ui;
