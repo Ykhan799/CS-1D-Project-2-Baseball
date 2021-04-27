@@ -63,6 +63,20 @@ private slots:
     //!
     void on_TeamStadiumByLargeDistCtrField_clicked();
 
+    //!
+    //! \brief on_AmericanLeagueTeams_clicked
+    //! Displays all the teams and their stadiums
+    //! that play in the American League sorted by
+    //! Team Name
+    void on_AmericanLeagueTeams_clicked();
+
+    //!
+    //! \brief on_NationalLeagueTeams_clicked
+    //! Displays all the teams and their stadiums
+    //! that play in the National League sorted by
+    //! Stadium Name
+    void on_NationalLeagueTeams_clicked();
+
 
 private:
     Ui::DataBase *ui;

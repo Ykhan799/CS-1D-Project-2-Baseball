@@ -136,7 +136,7 @@ QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
     QSqlQueryModel* model = new QSqlQueryModel;
     QSqlQuery query;
 
-    // Gets the team, stadium names, and date opened from the database
+    // Gets the team, stadium names, and smallest distance to center field
     query.prepare("SELECT TeamName, StadiumName, MIN(DistToCentField) FROM TEAMS");
     query.exec();
 
@@ -156,8 +156,50 @@ QSqlQueryModel* manageDB::getTeamsbyLargeDistToCenterField()
     QSqlQueryModel* model = new QSqlQueryModel;
     QSqlQuery query;
 
-    // Gets the team, stadium names, and date opened from the database
+    // Gets the team, stadium names, and largest distance to center field
     query.prepare("SELECT TeamName, StadiumName, MAX(DistToCentField) FROM TEAMS");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
+/*************************************************************************
+ * QSqlQueryModel* getAmericanLeagueTeams()
+ * -----------------------------------------------------------------------
+ * Gets all the teams and corresponding stadium names sorted by team name
+ * that play in the American League
+ ************************************************************************/
+QSqlQueryModel* manageDB::getAmericanLeagueTeams()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names that play in the American League
+    query.prepare("SELECT TeamName, StadiumName, TeamLeague FROM TEAMS WHERE TeamLeague = 'American' ORDER BY TeamName");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
+/*************************************************************************
+ * QSqlQueryModel* getAmericanLeagueTeams()
+ * -----------------------------------------------------------------------
+ * Gets all the teams and corresponding stadium names sorted by stadium name
+ * that play in the National League
+ ************************************************************************/
+QSqlQueryModel* manageDB::getNationalLeagueTeams()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names that play in the National League
+    query.prepare("SELECT TeamName, StadiumName, TeamLeague FROM TEAMS WHERE TeamLeague = 'National' ORDER BY StadiumName");
     query.exec();
 
     // Assigned to the model and is returned

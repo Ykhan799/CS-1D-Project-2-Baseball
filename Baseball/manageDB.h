@@ -67,6 +67,22 @@ public:
     //!
     QSqlQueryModel* getTeamsbyLargeDistToCenterField();
 
+    //!
+    //! \brief getAmericanLeagueTeams
+    //! \return model containing the teams
+    //! and stadiums sorted by team name that
+    //! play in the American League
+    //!
+    QSqlQueryModel* getAmericanLeagueTeams();
+
+    //!
+    //! \brief getNationalLeagueTeams
+    //! \return model containing the teams
+    //! and stadiums sorted by stadium name
+    //! that play in the National League
+    //!
+    QSqlQueryModel* getNationalLeagueTeams();
+
 
 private:
 

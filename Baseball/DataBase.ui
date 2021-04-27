@@ -20,7 +20,7 @@
       <x>-70</x>
       <y>10</y>
       <width>871</width>
-      <height>531</height>
+      <height>541</height>
      </rect>
     </property>
     <widget class="QWidget" name="tab">
@@ -123,6 +123,32 @@
       </property>
       <property name="text">
        <string>Display Teams and Stadiums with Distance to Center Field(Largest)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="AmericanLeagueTeams">
+      <property name="geometry">
+       <rect>
+        <x>390</x>
+        <y>450</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display American League Teams</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="NationalLeagueTeams">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>450</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display National League Teams</string>
       </property>
      </widget>
     </widget>
