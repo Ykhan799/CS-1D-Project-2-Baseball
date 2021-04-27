@@ -6,6 +6,8 @@
 #include "marlinspath.h"
 #include "dodgerpath.h"
 #include "login.h"
+#include "DataBase.h"
+#include "manageDB.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -32,14 +34,25 @@ private slots:
     void on_pushButton_4_clicked();
 
     //!
+    //! \brief on_viewTeamsSouvenirs_clicked
+    //! Launches the window to view teams and souvenirs.
+    //!
+    void on_viewTeamsSouvenirs_clicked();
+
+    //!
     //! \brief on_LogOut_clicked
     //! Launches the Log Out window once administrator logs in.
+    //!
     void on_LogOut_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     login* admin;
+
+    DataBase* database;
+
+    manageDB *data;
 
     bool isAdmin;
 };

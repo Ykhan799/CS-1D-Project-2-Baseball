@@ -98,6 +98,19 @@
      <string>Log Out</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="viewTeamsSouvenirs">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>440</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View Teams and Souvenirs</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
