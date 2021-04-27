@@ -1,0 +1,377 @@
+1
+Coors Field
+9
+580
+Globe Life Park in Arlington
+28
+870
+Minute Maid Park
+11
+1115
+Oakland-Alameda County Coliseum
+20
+650
+Petco Park
+23
+300
+
+2
+Great American Ball Park
+7
+375
+Nationals Park
+30
+560
+Marlins Park
+15
+600
+Globe Life Park in Arlington
+28
+740
+
+3
+Nationals Park
+30
+50
+Citizens Bank Park
+21
+90
+
+4
+Citi Field
+18
+195
+Marlins Park
+15
+1255
+Rogers Centre
+29
+430
+
+5
+Guaranteed Rate Field
+6
+50
+Miller Park
+16
+80
+Kauffman Stadium
+12
+415
+
+6
+Comercia Park
+10
+240
+Great American Ball Park
+7
+250
+Wrigley Field
+5
+50
+
+7
+PNC Park
+22
+260
+Progressive Field
+8
+225
+Guarenteed Rate Field
+6
+250
+Tropicana Field
+27
+790
+Suntrust Park
+2
+375
+Busch Stadium
+26
+310
+
+8
+PNC Park
+22
+115
+Comerica Park
+10
+90
+Great American Ball Park
+7
+225
+
+9
+Kauffman Stadium
+12
+560
+Globe Life Park in Arlington
+28
+650
+Chase Field
+1
+580
+Petco Park
+23
+830
+
+10
+Guaranteed Rate Field
+6
+240
+Rogers Centre
+29
+210
+Progressive Field
+8
+90
+
+11
+Globe Life Park in Arlington
+28
+230
+Tropicana Field
+27
+790
+Marlins Park
+15
+965
+Busch Stadium
+26
+680
+Chase Field
+1
+1115
+
+12
+Busch Stadium
+26
+235
+Globe Life Park in Arlington
+28
+460
+Wrigley Field
+5
+415
+Coors Field
+9
+560
+
+13
+Petco Park
+23
+110
+Dodger Stadium
+14
+50
+
+14
+Angel Stadium
+13
+50
+Target Field
+17
+1500
+Oakland-Alameda County Coliseum
+20
+340
+
+15
+Suntrust Park
+2
+600
+Tropicana Field
+27
+210
+Nationals Park
+30
+930
+Fenway Park
+4
+1255
+Minute Maid PArk
+11
+965
+
+16
+Rogers Centre
+29
+430
+Wrigley Field
+5
+80
+Target Field
+17
+300
+
+17
+Dodger Stadium
+14
+1500
+Busch Stadium
+26
+465
+Miller Park
+16
+300
+Safeco Field
+25
+1390
+
+18
+Fenway Park
+4
+195
+Yankee Stadium
+19
+50
+
+19
+PNC Park
+22
+315
+Citizens Bank Park
+21
+80
+Citi Field
+18
+50
+
+20
+Oracle Park
+14
+50
+Dodger Stadium
+14
+340
+Chase Field
+1
+650
+
+21
+Yankee Stadium
+19
+80
+Oriole Park at Camden Yards
+3
+90
+
+22
+Nationals Park
+30
+195
+Rogers Centre
+29
+225
+Progressive Field
+8
+115
+Great American Ball Park
+7
+260
+Yankee Stadium
+19
+315
+
+23
+Coors Field
+9
+830
+Chase Field
+1
+300
+Angel Stadium
+13
+110
+
+24
+Safeco Field
+25
+680
+Oakland–Alameda County Coliseum
+20
+50
+
+25
+Rogers Centre
+29
+2070
+Target Field
+17
+1390
+Oracle Park
+14
+680
+
+26
+Minute Maid Park
+11
+680
+Great American Ball Park
+7
+310
+Target Field
+17
+465
+Kauffman Stadium
+12
+235
+
+27
+Great American Ball Park
+7
+790
+Marlins Park
+15
+210
+Minute Maid Park
+11
+790
+
+28
+Chase Field
+1
+870
+Kauffman Stadium
+12
+460
+Suntrust Park
+2
+740
+Minute Maid Park
+11
+230
+Coors Field
+9
+650
+
+29
+PNC Park
+22
+225
+Miller Park
+16
+430
+Comerica Park
+10
+210
+Fenway Park
+4
+430
+Safeco Field
+25
+2070
+
+30
+Oriole Park at Camden Yards
+3
+50
+PNC Park
+22
+195
+SunTrust Park
+2
+560
+Marlins Park
+15
+930

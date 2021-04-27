@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,26 +9,37 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    DataBase.cpp \
     custompath.cpp \
     dodgerpath.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    marlinspath.cpp
+    manageDB.cpp \
+    marlinspath.cpp \
+    modifySouvenirs.cpp \
+    modifyTeams.cpp
 
 HEADERS += \
+    DataBase.h \
     custompath.h \
     dodgerpath.h \
     login.h \
     mainwindow.h \
-    marlinspath.h
+    manageDB.h \
+    marlinspath.h \
+    modifySouvenirs.h \
+    modifyTeams.h
 
 FORMS += \
+    DataBase.ui \
     custompath.ui \
     dodgerpath.ui \
     login.ui \
     mainwindow.ui \
-    marlinspath.ui
+    marlinspath.ui \
+    modifySouvenirs.ui \
+    modifyTeams.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

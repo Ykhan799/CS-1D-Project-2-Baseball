@@ -6,8 +6,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // sets isAdmin to false and the Admin function to false
     isAdmin = false;
     ui->LogOut->setVisible(false);
+
+    // Gets the name of the database
+    const QString FILE_NAME = "mlbTeams.db";
+    QString dbPath = qApp->applicationDirPath();
+    dbPath.append('/' + FILE_NAME);
+
+     // open database with file path
+     data = new manageDB(dbPath);
+     qDebug() << "Database should be located at: " << dbPath;
 }
 
 MainWindow::~MainWindow()
@@ -21,14 +32,21 @@ MainWindow::~MainWindow()
  * Opens a window prompting for the user to enter a username and password.
  * If entered correctly, the user becomes an admin and is given special
  * privileges for the remainder of the program unless the user logs out.
+ * -----------------------------------------------------------------------
+ * Username: Admin or admin
+ *
+ * Valid passwords:
+ * Teqnify1894
+ * password
  ************************************************************************/
 void MainWindow::on_LogIn_clicked()
 {
+    // Shows the Login screen.
     admin = new login();
     admin->exec();
-    isAdmin = admin->loggedIn();
 
     // Checks if user is logged in
+    isAdmin = admin->loggedIn();
     if (isAdmin)
     {
         // Sets the Login button invisible but sets the Log Out button visible.
@@ -37,6 +55,7 @@ void MainWindow::on_LogIn_clicked()
     }
     delete admin;
 }
+
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -55,6 +74,19 @@ void MainWindow::on_pushButton_4_clicked()
     auto* marlins = new marlinsPath();
     marlins -> show();
 
+}
+
+/*************************************************************************
+ * void on_viewTeamsSouvenirs_clicked()
+ * -----------------------------------------------------------------------
+ * Allows the baseball fan or administrator to view the information for
+ * all baseball teams and souvenirs for each team.
+ ************************************************************************/
+void MainWindow::on_viewTeamsSouvenirs_clicked()
+{
+    // displays the database of teams and souvenirs
+    database = new DataBase();
+    database->show();
 }
 
 /*************************************************************************
