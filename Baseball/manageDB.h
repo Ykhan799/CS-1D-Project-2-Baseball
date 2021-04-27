@@ -60,6 +60,13 @@ public:
     //!
     QSqlQueryModel* getTeamsbySmallDistToCenterField();
 
+    //!
+    //! \brief getTeamsbyLargeDistToCenterField
+    //! \return model containing teams with the largest
+    //! distance to the center field
+    //!
+    QSqlQueryModel* getTeamsbyLargeDistToCenterField();
+
 
 private:
 

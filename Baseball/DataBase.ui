@@ -112,6 +112,19 @@
        <string>Display Teams and Stadiums with Distance to Center Field(Smallest)</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="TeamStadiumByLargeDistCtrField">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>410</y>
+        <width>431</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Teams and Stadiums with Distance to Center Field(Largest)</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">

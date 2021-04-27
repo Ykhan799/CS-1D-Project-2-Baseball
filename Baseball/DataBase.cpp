@@ -162,3 +162,28 @@ void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
     ui->tableView->setColumnWidth(1, 216);
     ui->tableView->setColumnWidth(2, 216);
 }
+
+/*************************************************************************
+ * void on_TeamStadiumByLargeDistCtrField()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * with the largest distance to the center field.
+ ************************************************************************/
+void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
+{
+    // Gets the sorted team and stadium names by date
+    auto model = database->getTeamsbyLargeDistToCenterField();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "Distance to Center Field(Largest)"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
+    ui->tableView->setModel(model);
+    ui->tableView->setColumnWidth(0, 216);
+    ui->tableView->setColumnWidth(1, 216);
+    ui->tableView->setColumnWidth(2, 216);
+}

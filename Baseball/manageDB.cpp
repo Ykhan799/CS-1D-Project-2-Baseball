@@ -128,7 +128,7 @@ QSqlQueryModel* manageDB::getTeamsbyDate()
 /*************************************************************************
  * QSqlQueryModel* getTeamsbySmallDistToCenterField()
  * -----------------------------------------------------------------------
- * Gets all the stadiums, teams, and smallest distance to center field.
+ * Gets all the stadiums and teams with smallest distance to center field.
  ************************************************************************/
 QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
 {
@@ -138,6 +138,26 @@ QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
 
     // Gets the team, stadium names, and date opened from the database
     query.prepare("SELECT TeamName, StadiumName, MIN(DistToCentField) FROM TEAMS");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
+/*************************************************************************
+ * QSqlQueryModel* getTeamsbyLargeDistToCenterField()
+ * -----------------------------------------------------------------------
+ * Gets all the stadiums and teams with Largest distance to the center field
+ ************************************************************************/
+QSqlQueryModel* manageDB::getTeamsbyLargeDistToCenterField()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names, and date opened from the database
+    query.prepare("SELECT TeamName, StadiumName, MAX(DistToCentField) FROM TEAMS");
     query.exec();
 
     // Assigned to the model and is returned
