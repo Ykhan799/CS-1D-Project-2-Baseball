@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>850</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,17 +17,20 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>-70</x>
-      <y>10</y>
-      <width>871</width>
-      <height>541</height>
+      <x>-50</x>
+      <y>0</y>
+      <width>941</width>
+      <height>641</height>
      </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>View Teams</string>
      </attribute>
-     <widget class="QTableView" name="tableView">
+     <widget class="QTableView" name="TeamtableView">
       <property name="geometry">
        <rect>
         <x>140</x>
@@ -65,7 +68,7 @@
        <rect>
         <x>70</x>
         <y>370</y>
-        <width>301</width>
+        <width>311</width>
         <height>41</height>
        </rect>
       </property>
@@ -78,7 +81,7 @@
        <rect>
         <x>70</x>
         <y>410</y>
-        <width>331</width>
+        <width>311</width>
         <height>41</height>
        </rect>
       </property>
@@ -89,9 +92,9 @@
      <widget class="QPushButton" name="TeamStadiumByDate">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>450</x>
         <y>450</y>
-        <width>301</width>
+        <width>441</width>
         <height>41</height>
        </rect>
       </property>
@@ -102,7 +105,7 @@
      <widget class="QPushButton" name="TeamStadiumBySmallDistCtrField">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>450</x>
         <y>370</y>
         <width>441</width>
         <height>41</height>
@@ -115,9 +118,9 @@
      <widget class="QPushButton" name="TeamStadiumByLargeDistCtrField">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>450</x>
         <y>410</y>
-        <width>431</width>
+        <width>441</width>
         <height>41</height>
        </rect>
       </property>
@@ -128,9 +131,9 @@
      <widget class="QPushButton" name="AmericanLeagueTeams">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>70</x>
         <y>450</y>
-        <width>221</width>
+        <width>311</width>
         <height>41</height>
        </rect>
       </property>
@@ -141,9 +144,9 @@
      <widget class="QPushButton" name="NationalLeagueTeams">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>450</y>
-        <width>221</width>
+        <x>70</x>
+        <y>500</y>
+        <width>311</width>
         <height>41</height>
        </rect>
       </property>
@@ -151,11 +154,109 @@
        <string>Display National League Teams</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="TeamStadiumByCapacity">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>500</y>
+        <width>441</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Teams and Stadiums by Seating Capacity</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="TeamStadiumByTypology">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>550</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Teams by BallPark Typology</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="OpenRoofTeams">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>550</y>
+        <width>451</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Teams with Open Roofs</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="seatingCapacity">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>0</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Total Seating Capacity</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="totalSeats">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>30</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>View Souvenirs</string>
      </attribute>
+     <widget class="QTableView" name="SouvenirTableView">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>20</y>
+        <width>821</width>
+        <height>471</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="Souvenircombobox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>510</y>
+        <width>231</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewSouvenirs">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>510</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Display Souvenirs</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -164,7 +265,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>850</width>
      <height>22</height>
     </rect>
    </property>

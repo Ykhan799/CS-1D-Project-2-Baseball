@@ -6,12 +6,15 @@ DataBase::DataBase(manageDB* db, QWidget *parent) :
     ui(new Ui::DataBase)
 {
     ui->setupUi(this);
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     database = db;
 
     // populates the comboBox for viewing Teams
     for (auto &i: database->getTeamNames())
     {
         ui->TeamcomboBox->addItem(i);
+        ui->Souvenircombobox->addItem(i);
     }
 }
 
@@ -29,6 +32,8 @@ DataBase::~DataBase()
  ************************************************************************/
 void DataBase::on_viewTeam_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Checks if Team is not selected
     if (ui->TeamcomboBox->currentText() == "")
     {
@@ -49,17 +54,17 @@ void DataBase::on_viewTeam_clicked()
        }
 
        // Displays the Team and adjusts the columns
-       ui->tableView->setModel(model);
-       ui->tableView->setColumnWidth(0, 250);
-       ui->tableView->setColumnWidth(1, 200);
-       ui->tableView->setColumnWidth(2, 200);
-       ui->tableView->setColumnWidth(3, 200);
-       ui->tableView->setColumnWidth(4, 200);
-       ui->tableView->setColumnWidth(5, 200);
-       ui->tableView->setColumnWidth(6, 200);
-       ui->tableView->setColumnWidth(7, 200);
-       ui->tableView->setColumnWidth(8, 200);
-       ui->tableView->setColumnWidth(9, 200);
+       ui->TeamtableView->setModel(model);
+       ui->TeamtableView->setColumnWidth(0, 250);
+       ui->TeamtableView->setColumnWidth(1, 200);
+       ui->TeamtableView->setColumnWidth(2, 200);
+       ui->TeamtableView->setColumnWidth(3, 200);
+       ui->TeamtableView->setColumnWidth(4, 200);
+       ui->TeamtableView->setColumnWidth(5, 200);
+       ui->TeamtableView->setColumnWidth(6, 200);
+       ui->TeamtableView->setColumnWidth(7, 200);
+       ui->TeamtableView->setColumnWidth(8, 200);
+       ui->TeamtableView->setColumnWidth(9, 200);
    }
 }
 
@@ -71,6 +76,8 @@ void DataBase::on_viewTeam_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByTeam_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names
     auto model = database->getTeamsSortedbyTeams();
 
@@ -82,9 +89,9 @@ void DataBase::on_TeamStadiumByTeam_clicked()
     }
 
     // Displays the team and stadium names and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 325);
-    ui->tableView->setColumnWidth(1, 325);
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 325);
+    ui->TeamtableView->setColumnWidth(1, 325);
 }
 
 /*************************************************************************
@@ -95,6 +102,8 @@ void DataBase::on_TeamStadiumByTeam_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByStadium_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names
     auto model = database->getTeamsSortedbyStadiums();
 
@@ -106,9 +115,9 @@ void DataBase::on_TeamStadiumByStadium_clicked()
     }
 
     // Displays the team and stadium names and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 325);
-    ui->tableView->setColumnWidth(1, 325);
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 325);
+    ui->TeamtableView->setColumnWidth(1, 325);
 }
 
 
@@ -121,6 +130,8 @@ void DataBase::on_TeamStadiumByStadium_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByDate_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names by date
     auto model = database->getTeamsbyDate();
 
@@ -132,10 +143,10 @@ void DataBase::on_TeamStadiumByDate_clicked()
     }
 
     // Displays the team, stadium names, and Date Opened, and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 216);
-    ui->tableView->setColumnWidth(1, 216);
-    ui->tableView->setColumnWidth(2, 216);
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
 }
 
 /*************************************************************************
@@ -146,6 +157,8 @@ void DataBase::on_TeamStadiumByDate_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names by smallest distance to center field
     auto model = database->getTeamsbySmallDistToCenterField();
 
@@ -156,11 +169,11 @@ void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
     }
 
-    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 216);
-    ui->tableView->setColumnWidth(1, 216);
-    ui->tableView->setColumnWidth(2, 216);
+    // Displays the team, stadium names, and distance to denter field, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
 }
 
 /*************************************************************************
@@ -171,6 +184,8 @@ void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names by largest distance to center field
     auto model = database->getTeamsbyLargeDistToCenterField();
 
@@ -181,11 +196,11 @@ void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
     }
 
-    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 216);
-    ui->tableView->setColumnWidth(1, 216);
-    ui->tableView->setColumnWidth(2, 216);
+    // Displays the team, stadium names, and distance to center field and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
 }
 
 /*************************************************************************
@@ -196,6 +211,8 @@ void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
  ************************************************************************/
 void DataBase::on_AmericanLeagueTeams_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names that play in the American League
     auto model = database->getAmericanLeagueTeams();
 
@@ -206,11 +223,11 @@ void DataBase::on_AmericanLeagueTeams_clicked()
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
     }
 
-    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 216);
-    ui->tableView->setColumnWidth(1, 216);
-    ui->tableView->setColumnWidth(2, 216);
+    // Displays the team, stadium names, and League, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
 }
 
 /*************************************************************************
@@ -221,6 +238,8 @@ void DataBase::on_AmericanLeagueTeams_clicked()
  ************************************************************************/
 void DataBase::on_NationalLeagueTeams_clicked()
 {
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
     // Gets the sorted team and stadium names that play in the National League
     auto model = database->getNationalLeagueTeams();
 
@@ -231,9 +250,105 @@ void DataBase::on_NationalLeagueTeams_clicked()
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
     }
 
-    // Displays the team, stadium names, and Date Opened, and adjusts the column widths
-    ui->tableView->setModel(model);
-    ui->tableView->setColumnWidth(0, 216);
-    ui->tableView->setColumnWidth(1, 216);
-    ui->tableView->setColumnWidth(2, 216);
+    // Displays the team, stadium names, and League, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
 }
+
+/*************************************************************************
+ * void on_TeamStadiumByCapacity_clicked()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * sorted by seating capacity. The total seating capacity is also displayed.
+ ************************************************************************/
+void DataBase::on_TeamStadiumByCapacity_clicked()
+{
+    ui->seatingCapacity->setVisible(true);
+    ui->totalSeats->setVisible(true);
+    // Gets the sorted team and stadium names that play in the National League
+    auto model = database->getTeamsBySeatingCapacity();
+
+    auto models = database->getSeatingCapacity();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "Seating Capacity"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and seating capacity, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 162);
+    ui->TeamtableView->setColumnWidth(1, 162);
+    ui->TeamtableView->setColumnWidth(2, 162);
+
+    // Sets new header and dislays the total seating capacity
+    model->setHeaderData(3, Qt::Horizontal, "Total Seating Capacity");
+    ui->seatingCapacity->setText("Total Seating Capacity");
+    ui->totalSeats->setText(QString::number(models, 10) + " Seats");
+}
+
+/*************************************************************************
+ * void on_TeamStadiumByTypology_clicked()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * sorted by Ballpark Typology
+ ************************************************************************/
+void DataBase::on_TeamStadiumByTypology_clicked()
+{
+    ui->seatingCapacity->setVisible(false);
+    ui->totalSeats->setVisible(false);
+    // Gets the sorted team and stadium names sorted by Typology
+    auto model = database->getTeamsByBallParkTypology();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "BallPark Typology"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and BallPark Typology, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 216);
+    ui->TeamtableView->setColumnWidth(1, 216);
+    ui->TeamtableView->setColumnWidth(2, 216);
+}
+
+/*************************************************************************
+ * void on_OpenRoofTeams_clicked()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the Team names and Stadium names
+ * that have an open roof. Also displays the total number of teams with an open roof
+ ************************************************************************/
+void DataBase::on_OpenRoofTeams_clicked()
+{
+    ui->seatingCapacity->setVisible(true);
+    ui->totalSeats->setVisible(true);
+    // Gets the sorted team and stadium names with an Open Roof
+    auto model = database->getTeamsWithOpenRoof();
+
+    auto models = database->getNumOpenRoofs();
+
+    // Creates the Headers before information is displayed
+    QString columnNames[] = {"Team Name", "Stadium Name", "Roof Type"};
+    for (int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the team, stadium names, and Roof Type, and adjusts the column widths
+    ui->TeamtableView->setModel(model);
+    ui->TeamtableView->setColumnWidth(0, 162);
+    ui->TeamtableView->setColumnWidth(1, 162);
+    ui->TeamtableView->setColumnWidth(2, 162);
+
+    // Sets new header and Displaus the Numver of Teams with an Open Roof
+    model->setHeaderData(3, Qt::Horizontal, "Total Number of Open Roofs");
+    ui->seatingCapacity->setText("Teams with Open Roofs");
+    ui->totalSeats->setText(QString::number(models, 10) + " Teams");
+}
+

@@ -26,6 +26,22 @@ public:
     vector<QString> getTeamNames();
 
     //!
+    //! \brief getSeatingCapacity
+    //! \return int representing
+    //! the sum of the seating capacity
+    //! for the entire team
+    //!
+    int getSeatingCapacity();
+
+    //!
+    //! \brief getNumOpenRoofs
+    //! \return int representing
+    //! the total number of teams
+    //! with an open roof
+    //!
+    int getNumOpenRoofs();
+
+    //!
     //! \brief getTeamModel
     //! \param team - QString indicating the team information being accessed.
     //! \return model containing the information specific to the value of team.
@@ -82,6 +98,30 @@ public:
     //! that play in the National League
     //!
     QSqlQueryModel* getNationalLeagueTeams();
+
+    //!
+    //! \brief getTeamsBySeatingCapacity
+    //! \return model containing the team names
+    //! and their stadium names by smallest to largest
+    //! seating capacity.
+    //!
+    QSqlQueryModel* getTeamsBySeatingCapacity();
+
+    //!
+    //! \brief getTeamsByBallParkTypology
+    //! \return model containing the team
+    //! names and their stadium names
+    //! sorted by ballPark typology.
+    //!
+    QSqlQueryModel* getTeamsByBallParkTypology();
+
+    //!
+    //! \brief getTeamsWithOpenRoof
+    //! \return model containing all the teams
+    //! and their stadiums with an open roof sorted
+    //! by team name
+    //!
+    QSqlQueryModel* getTeamsWithOpenRoof();
 
 
 private:

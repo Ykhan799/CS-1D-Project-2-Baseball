@@ -40,6 +40,50 @@ vector<QString> manageDB::getTeamNames()
 }
 
 /*************************************************************************
+ * int getSeatingCapacity()
+ * -----------------------------------------------------------------------
+ * Gets the sum of the seating capacity for the whole team
+ ************************************************************************/
+int manageDB::getSeatingCapacity()
+{
+    int totalCapacity = 0;
+
+    // Gets the seating capacity for each team
+    QSqlQuery query("SELECT SeatingCapacity FROM TEAMS");
+
+    // Sums up the seating capacity for all baseball teams
+    while (query.next())
+    {
+        int temp = query.value(0).toInt();
+        totalCapacity += temp;
+    }
+    // returns an int of the seating capacity for all baseball teams
+    return totalCapacity;
+
+}
+
+/*************************************************************************
+ * int getNumOpenRoofs()
+ * -----------------------------------------------------------------------
+ * Gets the number of teams with an open roof.
+ ************************************************************************/
+int manageDB::getNumOpenRoofs()
+{
+    int openRoofs = 0;
+
+    // Gets all the Open Roofs
+    QSqlQuery query("SELECT RoofType FROM TEAMS WHERE RoofType = 'Open'");
+
+    // Increments the roof
+    while (query.next())
+    {
+        openRoofs+=1;
+    }
+    // returns number of open roofs
+    return openRoofs;
+}
+
+/*************************************************************************
  * QSqlQueryModel* getTeamModel()
  * -----------------------------------------------------------------------
  * Gets the specific information for a team such as the stadium name, location,
@@ -137,7 +181,7 @@ QSqlQueryModel* manageDB::getTeamsbySmallDistToCenterField()
     QSqlQuery query;
 
     // Gets the team, stadium names, and smallest distance to center field
-    query.prepare("SELECT TeamName, StadiumName, MIN(DistToCentField) FROM TEAMS");
+    query.prepare("SELECT TeamName, StadiumName, DistToCentField FROM TEAMS WHERE DistToCentField = (SELECT MIN(DistToCentField) FROM TEAMS)");
     query.exec();
 
     // Assigned to the model and is returned
@@ -157,7 +201,7 @@ QSqlQueryModel* manageDB::getTeamsbyLargeDistToCenterField()
     QSqlQuery query;
 
     // Gets the team, stadium names, and largest distance to center field
-    query.prepare("SELECT TeamName, StadiumName, MAX(DistToCentField) FROM TEAMS");
+    query.prepare("SELECT TeamName, StadiumName, DistToCentField FROM TEAMS WHERE DistToCentField = (SELECT MAX(DistToCentField) FROM TEAMS)");
     query.exec();
 
     // Assigned to the model and is returned
@@ -206,4 +250,67 @@ QSqlQueryModel* manageDB::getNationalLeagueTeams()
     model->setQuery(query);
     return model;
 }
+
+/*************************************************************************
+ * QSqlQueryModel* getTeamsBySeatingCapacity()
+ * -----------------------------------------------------------------------
+ * Gets all the teams and corresponding stadium names sorted from smallest
+ * seating capacity to largest seating capacity.
+ ************************************************************************/
+QSqlQueryModel* manageDB::getTeamsBySeatingCapacity()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names, and sorts by seating capacity for each team
+    query.prepare("SELECT TeamName, StadiumName, SeatingCapacity FROM TEAMS ORDER BY SeatingCapacity");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
+/*************************************************************************
+ * QSqlQueryModel* getTeamsByBallParkTypology()
+ * -----------------------------------------------------------------------
+ * Gets all the teams and corresponding stadium names sorted by BallPark
+ * Typology
+ ************************************************************************/
+QSqlQueryModel* manageDB::getTeamsByBallParkTypology()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names, and sorts by BallPark Typology for each team
+    query.prepare("SELECT TeamName, StadiumName, BallparkTypology FROM TEAMS ORDER BY BallparkTypology");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
+/*************************************************************************
+ * QSqlQueryModel* getTeamsWithOpenRoof()
+ * -----------------------------------------------------------------------
+ * Gets all the teams and corresponding stadium names with an Open Roof Type.
+ ************************************************************************/
+QSqlQueryModel* manageDB::getTeamsWithOpenRoof()
+{
+    // Creates a new model
+    QSqlQueryModel* model = new QSqlQueryModel;
+    QSqlQuery query;
+
+    // Gets the team, stadium names that have an open roof
+    query.prepare("SELECT TeamName, StadiumName, RoofType FROM TEAMS WHERE RoofType = 'Open' ORDER BY TeamName");
+    query.exec();
+
+    // Assigned to the model and is returned
+    model->setQuery(query);
+    return model;
+}
+
 

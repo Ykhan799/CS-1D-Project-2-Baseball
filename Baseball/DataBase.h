@@ -68,6 +68,7 @@ private slots:
     //! Displays all the teams and their stadiums
     //! that play in the American League sorted by
     //! Team Name
+    //!
     void on_AmericanLeagueTeams_clicked();
 
     //!
@@ -75,7 +76,31 @@ private slots:
     //! Displays all the teams and their stadiums
     //! that play in the National League sorted by
     //! Stadium Name
+    //!
     void on_NationalLeagueTeams_clicked();
+
+    //!
+    //! \brief on_TeamStadiumByCapacity_clicked
+    //! Displays all the teams and their stadium names
+    //! by smallest to largest seating capacity. The total
+    //! seating capacity of all the teams is also displayed.
+    //!
+    void on_TeamStadiumByCapacity_clicked();
+
+    //!
+    //! \brief on_TeamStadiumByTypology_clicked
+    //! Displays all the teams and their stadium names
+    //! sorted by Ballpark Typology.
+    //!
+    void on_TeamStadiumByTypology_clicked();
+
+    //!
+    //! \brief on_OpenRoofTeams_clicked
+    //! Displays all the teams and their stadium names
+    //! with an open roof type. Additionally, the total number
+    //! of teams with an open roof type is also displayed.
+    //!
+    void on_OpenRoofTeams_clicked();
 
 
 private:
