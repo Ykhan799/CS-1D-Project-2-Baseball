@@ -1,7 +1,7 @@
 #include "DataBase.h"
 #include "ui_DataBase.h"
 
-DataBase::DataBase(manageDB* db, QWidget *parent) :
+DataBase::DataBase(manageDB* db, bool adminUser, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::DataBase)
 {
@@ -9,6 +9,18 @@ DataBase::DataBase(manageDB* db, QWidget *parent) :
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
     database = db;
+    isAdmin = adminUser;
+
+    if (!isAdmin)
+    {
+        ui->modifySouvenirs->setVisible(false);
+        ui->modifyTeams->setVisible(false);
+    }
+    else
+    {
+        ui->modifySouvenirs->setVisible(true);
+        ui->modifyTeams->setVisible(true);
+    }
 
     // populates the comboBox for viewing Teams
     for (auto &i: database->getTeamNames())
@@ -108,7 +120,7 @@ void DataBase::on_TeamStadiumByStadium_clicked()
     auto model = database->getTeamsSortedbyStadiums();
 
     // Creates the Headers before information is displayed
-    QString columnNames[] = {"Team Name", "Stadium Name"};
+    QString columnNames[] = {"Stadium Name", "Team Name"};
     for (int i = 0; i < 2; i++)
     {
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
@@ -244,7 +256,7 @@ void DataBase::on_NationalLeagueTeams_clicked()
     auto model = database->getNationalLeagueTeams();
 
     // Creates the Headers before information is displayed
-    QString columnNames[] = {"Team Name", "Stadium Name", "League"};
+    QString columnNames[] = {"Stadium Name", "Team Name", "League"};
     for (int i = 0; i < 3; i++)
     {
         model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
@@ -352,3 +364,75 @@ void DataBase::on_OpenRoofTeams_clicked()
     ui->totalSeats->setText(QString::number(models, 10) + " Teams");
 }
 
+/*************************************************************************
+ * void on_viewSouvenirs_clicked()
+ * -----------------------------------------------------------------------
+ * Lets a Baseball Fan or Administrator view the souvenir names and prices for
+ * any team selected
+ ************************************************************************/
+void DataBase::on_viewSouvenirs_clicked()
+{
+    // Checks if Team is not selected
+    if (ui->Souvenircombobox->currentText() == "")
+    {
+        QMessageBox::warning(this, "Error", "Please select a Team.");
+    }
+
+    else
+    {
+        // gets the Team name and souvenir information for each team
+       QString name = ui->Souvenircombobox->currentText();
+       auto model = database->getSouvenirsByTeam(name);
+
+       // Creates the columns before information is displayed
+       QString columnNames[] = {"Team Name", "Souvenir Name", "Price"};
+       for(int i = 0; i < 3; i++)
+       {
+           model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+       }
+
+       // Displays the Team and adjusts the columns
+       ui->SouvenirTableView->setModel(model);
+       ui->SouvenirTableView->setColumnWidth(0, 266);
+       ui->SouvenirTableView->setColumnWidth(1, 266);
+       ui->SouvenirTableView->setColumnWidth(2, 266);
+   }
+}
+
+/*************************************************************************
+ * void on_viewSouvenirs_clicked()
+ * -----------------------------------------------------------------------
+ * Lets an Administrator Add, Delete or modify a souvenir. Each of these changes
+ * are saved into the database and is displayed to the baseball fan.
+ ************************************************************************/
+void DataBase::on_modifySouvenirs_clicked()
+{
+    // creates a new modifySouvenirs object
+    modify = new modifySouvenirs(nullptr, database);
+    modify->exec();
+    delete modify;
+
+    // Sets the model after each change.
+    QString name = ui->Souvenircombobox->currentText();
+    auto model = database->getSouvenirsByTeam(name);
+
+    // Sets the header names
+    QString columnNames[] = {"Team Name", "Souvenir Name", "Price"};
+    for(int i = 0; i < 3; i++)
+    {
+        model->setHeaderData(i, Qt::Horizontal, columnNames[i]);
+    }
+
+    // Displays the Team and Souvenirs and adjusts the columns
+    ui->SouvenirTableView->setModel(model);
+    ui->SouvenirTableView->setColumnWidth(0, 266);
+    ui->SouvenirTableView->setColumnWidth(1, 266);
+    ui->SouvenirTableView->setColumnWidth(2, 266);
+}
+
+void DataBase::on_modifyTeams_clicked()
+{
+    teamModify = new modifyTeams(nullptr, database);
+    modify->exec();
+    delete modify;
+}

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include "manageDB.h"
+#include "modifySouvenirs.h"
+#include "modifyTeams.h"
 
 namespace Ui {
 class DataBase;
@@ -14,7 +16,7 @@ class DataBase : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit DataBase(manageDB* db = nullptr, QWidget *parent = nullptr);
+    explicit DataBase(manageDB* db = nullptr, bool adminUser = false, QWidget *parent = nullptr);
     ~DataBase();
 
 private slots:
@@ -102,10 +104,29 @@ private slots:
     //!
     void on_OpenRoofTeams_clicked();
 
+    //!
+    //! \brief on_viewSouvenirs_clicked
+    //! Displays the Souvenirs and their prices
+    //! for any team selected
+    //!
+    void on_viewSouvenirs_clicked();
+
+    //!
+    //! \brief on_modifySouvenirs_clicked
+    //! Allows the Administrator to add, delete,
+    //! or modify the souvenir for any baseball team
+    //!
+    void on_modifySouvenirs_clicked();
+
+    void on_modifyTeams_clicked();
 
 private:
     Ui::DataBase *ui;
     manageDB *database;
+    modifySouvenirs* modify;
+    modifyTeams* teamModify;
+
+    bool isAdmin;
 
 };
 

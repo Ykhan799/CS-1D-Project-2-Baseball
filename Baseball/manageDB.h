@@ -123,6 +123,61 @@ public:
     //!
     QSqlQueryModel* getTeamsWithOpenRoof();
 
+    //!
+    //! \brief getSouvenirsByTeam
+    //! \param team - QString indicating the souvenirs being accessed
+    //! \return model containing all the souvenirs for a given team
+    //!
+    QSqlQueryModel* getSouvenirsByTeam(const QString& team);
+
+    //!
+    //! \brief getTeamSouvenirs
+    //! \param team - QString indicating the souvenirs being accessed.
+    //! \return vector of strings containing all the souvenirs for a team
+    //!
+    vector<QString> getTeamSouvenirs(const QString& team);
+
+    //!
+    //! \brief getSouvenirPrice
+    //! \param souvenir - QString representing the name of a souvenir
+    //! \param team - QString representing the team name of the souvenir.
+    //! \return A double representing the price of a given souvenir.
+    //!
+    double getSouvenirPrice(const QString& souvenir, const QString& team);
+
+    //!
+    //! \brief addSouvenir
+    //! \param team - team that souvenir belongs to
+    //! \param souvenirName - name of new souvenir being added
+    //! \param price - Price of the new souvenir
+    //!
+    void addSouvenir(const QString& team, const QString& souvenirName, const double& price);
+
+    //!
+    //! \brief removeSouvenir
+    //! \param team - team that the souvenir belongs to
+    //! \param souvenirName - The name of the souvenir being removed.
+    //!
+    void removeSouvenir(const QString& team, const QString& souvenirName);
+
+    //!
+    //! \brief souvExists
+    //! Checks if a souvenir exists
+    //! \param team - team that souvenir belongs to
+    //! \param souvenirName - souvenir to check
+    //! \return true if souvenir exists for a given team
+    //!
+    bool souvExists(QString& team, QString& souvenirName);
+
+    //!
+    //! \brief updateSouvenirs
+    //! \param team - team that souvenir belongs to
+    //! \param oldName - Original Souvenir's Name
+    //! \param newName - New Souvenir's Name
+    //! \param newPrice - New Price of the souvenir
+    //!
+    void updateSouvenirs(const QString& team, const QString& oldName, const QString& newName, const double& newPrice);
+
 
 private:
 

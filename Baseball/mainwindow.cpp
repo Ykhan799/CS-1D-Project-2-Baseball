@@ -85,7 +85,7 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_viewTeamsSouvenirs_clicked()
 {
     // displays the database of teams and souvenirs
-    database = new DataBase();
+    database = new DataBase(nullptr, isAdmin);
     database->show();
 }
 
