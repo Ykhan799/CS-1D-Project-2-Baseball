@@ -64,26 +64,26 @@ public:
 	string name;
 	bool operator>(const anythingelse b) const
 	{
-		return distance > b.distance;
+		return distance < b.distance;
 	}
 	bool operator<(const anythingelse b) const
 	{
-		return distance < b.distance;
+		return distance > b.distance;
 	}
 	bool operator>=(const anythingelse b) const
 	{
-		return distance >= b.distance;
+		return distance <= b.distance;
 	}
 	bool operator <=(const anythingelse b) const
 	{
-		return distance <= b.distance;
+		return distance >= b.distance;
 	}
 };
 
 class stadium
 {
 private:
-	int key;
+	int key = 0;
 	string teamName;
 	string stadiumName;
 	int seatingCapacity;
@@ -128,9 +128,27 @@ public:
 			return distances;
 		}
 
+	void getAll(int &k, string &a, string &b, int &c, string &d, string &e, string &f, int &g, int &h, string &i, string &j) //set everything EXCEPT its distances and souvenirs
+	{
+		k = key;
+		a = teamName;
+		b = stadiumName;
+		c = seatingCapacity;
+		d = location;
+		e = playingSurface;
+		f = League;
+		g = dateOpened;
+		h = DTCF;
+		i = Typology;
+		j = roofType;
+	}
 };
 
 void expandData(stadium a[40], string fileName);
 void fileRead(stadium a[40], int);
+void fileSave(stadium a[40], int);
+void DFS(int v, bool visited[40], stadium a[40]);
+void BFS(int v, bool visited[40], stadium a[40]);
+void getDistance(string &name, int &distance, int &key, int index, priority_queue<anythingelse> a);
 
 #endif /* DATABASE_H_ */

@@ -6,9 +6,9 @@
  */
 
 
-#include "functions.h"
 #include <bits/stdc++.h>
 #include <fstream>
+#include "functions.h"
 
 using namespace std;
 
@@ -114,7 +114,7 @@ void fileRead(stadium a[40], int loops)
  * 			If the previous assumption isnt met, the info at the key value will be replaced
  *
  *************************************************************************************************************/
-void expandData(stadium a[40], string fileName)
+void expandData(stadium a[40], string fileName, int &count)
 {
 	int key;
 	int key2;
@@ -161,4 +161,133 @@ void expandData(stadium a[40], string fileName)
 			infile.ignore(1000, '\n');
 			a[key].addDistance(key2, distance, stadiumName);
 		}
+		count++;
 }
+
+void fileSave(stadium a[40], int loops)
+{
+	int key;
+	int key2;
+	int distance;
+	string teamName;
+	string stadiumName;
+	int seatingCapacity;
+	string location;
+	string playingSurface;
+	string League;
+	int dateOpened;
+	int DTCF; //Distance to center Field
+	string Typology;
+	string roofType;
+	fstream infile;
+	infile.open("Stadiums.txt");
+
+	for(int i = 1; i <= loops; i++)
+	{
+		a[i].getAll(key, teamName, stadiumName, seatingCapacity, location, playingSurface, League, dateOpened, DTCF, Typology, roofType);
+		infile << key << endl;
+		infile << teamName << endl;
+		infile << stadiumName << endl;
+		infile << seatingCapacity << endl;
+		infile << location << endl;
+		infile << playingSurface << endl;
+		infile << League << endl;
+		infile << dateOpened << endl;
+		infile << DTCF << endl;
+		infile << Typology << endl;
+		infile << roofType << endl << endl;
+	}
+
+	infile.close();
+	infile.open("Distances.txt");
+
+
+
+	for(int i = 1; i <= loops; i++)
+	{
+		infile << i << endl;
+		for(unsigned int j = 0; j < a[i].getDistance().size(); j++)
+		{
+			getDistance(stadiumName, distance, key2, j, a[i].getDistance());
+			infile << stadiumName << endl;
+			infile << key2 << endl;
+			infile << distance << endl << endl;
+		}
+	}
+}
+
+void DFS(int v, bool visited[40], stadium a[40])
+{
+	int key;
+	int distance;
+	string stadium;
+    // Mark the current node as visited and
+    // print it
+    visited[v] = true;
+    a[v].printName();//Test line
+
+    // Recur for all the vertices adjacent
+    // to this vertex
+   for (unsigned int i = 0; i != a[v].getDistance().size(); ++i)
+   {
+	   getDistance(stadium, distance, key, i, a[v].getDistance());
+           if (!visited[key])
+           {
+               DFS(key, visited, a);
+           }
+   }
+
+}
+
+void BFS(int s, bool visited[40], stadium a[40])
+{
+
+    // Create a queue for BFS
+    list<int> queue;
+    int key;
+    int distance;
+    string stadium = "Chase Field";
+
+    // Mark the current node as visited and enqueue it
+    visited[s] = true;
+    queue.push_back(s);
+
+    // 'i' will be used to get all adjacent
+    // vertices of a vertex
+
+    while(!queue.empty())
+    {
+        // Dequeue a vertex from queue and print it
+
+        s = *queue.begin();
+        queue.erase(queue.begin());
+        a[s].printName();
+
+
+        // Get all adjacent vertices of the dequeued
+        // vertex s. If a adjacent has not been visited,
+        // then mark it visited and enqueue it
+        for (unsigned int i = 0; i != a[s].getDistance().size(); ++i)
+        {
+        	getDistance(stadium, distance, key, i, a[s].getDistance());
+        	if (visited[key] == false)
+            {
+                visited[key] = true;
+                queue.push_back(key);
+            }
+        }
+    }
+}
+
+void getDistance(string &name, int &distance, int &key, int index, priority_queue<anythingelse> a)
+{
+	for(int i = 0; i < index; i++)
+	{
+		a.pop();
+	}
+	name = a.top().name;
+	key = a.top().key;
+	distance = a.top().distance;
+}
+
+
