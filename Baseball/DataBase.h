@@ -118,7 +118,13 @@ private slots:
     //!
     void on_modifySouvenirs_clicked();
 
-    void on_modifyTeams_clicked();
+    void on_modifyteams_clicked();
+
+    //!
+    //! \brief on_cancelView_clicked
+    //! Allows the user and Administrator
+    //! to go back to the home page.
+    void on_cancelView_clicked();
 
 private:
     Ui::DataBase *ui;

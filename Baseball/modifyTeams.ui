@@ -7,17 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>595</width>
-    <height>409</height>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Teams</string>
   </property>
   <widget class="QDialogButtonBox" name="buttons">
    <property name="geometry">
     <rect>
      <x>240</x>
-     <y>380</y>
+     <y>390</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,10 +32,10 @@
   <widget class="QTabWidget" name="AddModifyTabs">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
+     <x>20</x>
+     <y>10</y>
      <width>541</width>
-     <height>371</height>
+     <height>381</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -45,108 +45,6 @@
     <attribute name="title">
      <string>Modify Teams</string>
     </attribute>
-    <widget class="QWidget" name="formLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>10</y>
-       <width>371</width>
-       <height>291</height>
-      </rect>
-     </property>
-     <layout class="QFormLayout" name="form">
-      <item row="0" column="0">
-       <widget class="QLabel" name="labels">
-        <property name="text">
-         <string>Team</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="teamsComboBox"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="labels_3">
-        <property name="text">
-         <string>Stadium Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="stadiumLineEdit"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="labels_2">
-        <property name="text">
-         <string>Seating Capacity</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QSpinBox" name="seatingspinBox"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="locationLineEdit"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="labels_4">
-        <property name="text">
-         <string>Location</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QComboBox" name="roofComboBox"/>
-      </item>
-      <item row="4" column="1">
-       <widget class="QComboBox" name="surfaceComboBox"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Playing Surface</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="labels_6">
-        <property name="text">
-         <string>Date Opened</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QSpinBox" name="datespinBox"/>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="labels_5">
-        <property name="text">
-         <string>Distance to Center Field</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QSpinBox" name="distancespinBox"/>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Roof Type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="QComboBox" name="typologyComboBox"/>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Ballpark typology</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
     <widget class="QPushButton" name="modify">
      <property name="geometry">
       <rect>
@@ -158,6 +56,213 @@
      </property>
      <property name="text">
       <string>Modify</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>102</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Seating Capacity</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="seatingspinBox">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>70</y>
+       <width>267</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="locationLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>100</y>
+       <width>267</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels_4">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>100</y>
+       <width>52</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Location</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>94</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Playing Surface</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="surfaceComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>130</y>
+       <width>273</width>
+       <height>32</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>170</y>
+       <width>80</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Date Opened</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="datespinBox">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>170</y>
+       <width>267</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>144</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Distance to Center Field</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="distancespinBox">
+     <property name="geometry">
+      <rect>
+       <x>176</x>
+       <y>200</y>
+       <width>271</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>104</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ballpark typology</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="typologyComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>230</y>
+       <width>281</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>270</y>
+       <width>62</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Roof Type</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="roofComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>270</y>
+       <width>271</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>33</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Team</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="teamsComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>10</y>
+       <width>273</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labels_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>88</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stadium Name</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="stadiumLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>40</y>
+       <width>267</width>
+       <height>21</height>
+      </rect>
      </property>
     </widget>
    </widget>

@@ -14,6 +14,12 @@ login::~login()
     delete ui;
 }
 
+/*************************************************************************
+ * void on_logInButton_clicked()
+ * -----------------------------------------------------------------------
+ * Checks if the admin has the correct username and password. Valid usernames are
+ * admin and Admin. Valid passwords are password and Teqnify1894
+ ************************************************************************/
 void login::on_logInButton_clicked()
 {
    QString usernameInput = ui->usernameField->text();
@@ -33,7 +39,22 @@ void login::on_logInButton_clicked()
    }
 }
 
+/*************************************************************************
+ * bool loggedIn()
+ * -----------------------------------------------------------------------
+ * Returns true if admin is logged in. Returns false otherwise.
+ ************************************************************************/
 bool login::loggedIn()
 {
     return isLoggedIn;
+}
+
+/*************************************************************************
+ * void on_cancelLogin_clicked()
+ * -----------------------------------------------------------------------
+ * Lets an Baseball fan or admin to close the login screen button.
+ ************************************************************************/
+void login::on_cancelLogin_clicked()
+{
+    this->close();
 }

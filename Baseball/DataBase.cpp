@@ -14,12 +14,12 @@ DataBase::DataBase(manageDB* db, bool adminUser, QWidget *parent) :
     if (!isAdmin)
     {
         ui->modifySouvenirs->setVisible(false);
-        ui->modifyTeams->setVisible(false);
+        ui->modifyteams->setVisible(false);
     }
     else
     {
         ui->modifySouvenirs->setVisible(true);
-        ui->modifyTeams->setVisible(true);
+        ui->modifyteams->setVisible(true);
     }
 
     // populates the comboBox for viewing Teams
@@ -238,8 +238,8 @@ void DataBase::on_AmericanLeagueTeams_clicked()
     // Displays the team, stadium names, and League, and adjusts the column widths
     ui->TeamtableView->setModel(model);
     ui->TeamtableView->setColumnWidth(0, 216);
-    ui->TeamtableView->setColumnWidth(1, 216);
-    ui->TeamtableView->setColumnWidth(2, 216);
+    ui->TeamtableView->setColumnWidth(1, 232);
+    ui->TeamtableView->setColumnWidth(2, 200);
 }
 
 /*************************************************************************
@@ -294,8 +294,8 @@ void DataBase::on_TeamStadiumByCapacity_clicked()
     // Displays the team, stadium names, and seating capacity, and adjusts the column widths
     ui->TeamtableView->setModel(model);
     ui->TeamtableView->setColumnWidth(0, 162);
-    ui->TeamtableView->setColumnWidth(1, 162);
-    ui->TeamtableView->setColumnWidth(2, 162);
+    ui->TeamtableView->setColumnWidth(1, 224);
+    ui->TeamtableView->setColumnWidth(2, 100);
 
     // Sets new header and dislays the total seating capacity
     model->setHeaderData(3, Qt::Horizontal, "Total Seating Capacity");
@@ -326,8 +326,8 @@ void DataBase::on_TeamStadiumByTypology_clicked()
     // Displays the team, stadium names, and BallPark Typology, and adjusts the column widths
     ui->TeamtableView->setModel(model);
     ui->TeamtableView->setColumnWidth(0, 216);
-    ui->TeamtableView->setColumnWidth(1, 216);
-    ui->TeamtableView->setColumnWidth(2, 216);
+    ui->TeamtableView->setColumnWidth(1, 232);
+    ui->TeamtableView->setColumnWidth(2, 200);
 }
 
 /*************************************************************************
@@ -355,8 +355,8 @@ void DataBase::on_OpenRoofTeams_clicked()
     // Displays the team, stadium names, and Roof Type, and adjusts the column widths
     ui->TeamtableView->setModel(model);
     ui->TeamtableView->setColumnWidth(0, 162);
-    ui->TeamtableView->setColumnWidth(1, 162);
-    ui->TeamtableView->setColumnWidth(2, 162);
+    ui->TeamtableView->setColumnWidth(1, 224);
+    ui->TeamtableView->setColumnWidth(2, 100);
 
     // Sets new header and Displaus the Numver of Teams with an Open Roof
     model->setHeaderData(3, Qt::Horizontal, "Total Number of Open Roofs");
@@ -430,9 +430,19 @@ void DataBase::on_modifySouvenirs_clicked()
     ui->SouvenirTableView->setColumnWidth(2, 266);
 }
 
-void DataBase::on_modifyTeams_clicked()
+void DataBase::on_modifyteams_clicked()
 {
     teamModify = new modifyTeams(nullptr, database);
-    modify->exec();
-    delete modify;
+    teamModify->exec();
+    delete teamModify;
+}
+
+/*************************************************************************
+ * void on_cancelView_clicked()
+ * -----------------------------------------------------------------------
+ * Lets an Administrator or Baseball fan exit viewing teams and souvenirs.
+ ************************************************************************/
+void DataBase::on_cancelView_clicked()
+{
+    this->close();
 }

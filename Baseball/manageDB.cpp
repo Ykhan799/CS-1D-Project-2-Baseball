@@ -26,7 +26,7 @@ vector<QString> manageDB::getTeamNames()
 {
     // Gets the team names from the Database
     vector<QString> teamName;
-    QSqlQuery query("SELECT DISTINCT TeamName FROM TEAMS");
+    QSqlQuery query("SELECT DISTINCT TeamName FROM TEAMS ORDER BY TeamName");
 
     // While query is not empty
     while(query.next())
@@ -37,6 +37,20 @@ vector<QString> manageDB::getTeamNames()
     }
     // returns a vector of team names.
     return teamName;
+}
+
+QString manageDB::getLocation(const QString& team)
+{
+    QSqlQuery query("SELECT Location FROM TEAMS WHERE TeamName = :TEAM");
+    query.bindValue(":TEAM", team);
+
+    while (query.next())
+    {
+        QString out = query.value(0).toString();
+        qDebug() << out;
+        return out;
+    }
+    return nullptr;
 }
 
 /*************************************************************************
@@ -510,4 +524,163 @@ void manageDB::updateSouvenirs(const QString& team, const QString& oldName, cons
         qDebug() << "updateSouvenir error: " << query.lastError();
     }
 }
+
+/*************************************************************************
+ * bool teamExists(const QString& team)
+ * -----------------------------------------------------------------------
+ * This function checks to see if a team is already in the database. Returns true
+ * if the team is in the database. False is returned if the team is not in the
+ * database. Prevents the administrator from adding a team if the team is in
+ * the database.
+ ************************************************************************/
+bool manageDB::teamExists(const QString& team)
+{
+    QSqlQuery query;
+    bool found;
+    bool success;
+
+    // Checks the database
+    query.prepare("SELECT 1 FROM TEAMS WHERE TeamName=:TEAM");
+    query.bindValue(":TEAM", team);
+
+    success = query.exec();
+
+    if(!success)
+    {
+        // team does not exist in database
+        qDebug() << "teamExists error: " << query.lastError();
+        found = false;
+    }
+    else
+    {
+        // team found in database
+        query.first();
+        found = query.value(0).toBool();
+        qDebug() << found;
+    }
+
+    return found;
+}
+
+/*************************************************************************
+ * void addTeam(const QString& team, const QString& stadium, const int& capacity, const QString& location, const QString& surface, const QString& league, const int& date, const QString& distance, const QString& typology, const QString& roof)
+ * -----------------------------------------------------------------------
+ * This function adds the team information for a new team
+ ************************************************************************/
+void manageDB::addTeam(const QString& team, const QString& stadium, const int& capacity, const QString& location, const QString& surface, const QString& league, const int& date, const QString& distance, const QString& typology, const QString& roof)
+{
+    QSqlQuery query;
+    int maxID;
+    bool success;
+
+    query.prepare("SELECT max(ID) from TEAMS"); // get the maximum id from the table
+    query.exec();
+
+    // get the highest id from the bottom row of the table
+    if(query.next()) {
+        maxID =  query.value(0).toInt();
+        maxID++;
+        qDebug() << maxID;
+
+        // Inserts the team information into the database
+        query.prepare("INSERT INTO TEAMS VALUES(:ID, :TeamName, :StadiumName, :SeatingCapacity, :Location, :PlayingSurface, :TeamLeague, :DateOpened, :DistToCentField, :BallparkTypology, :RoofType)");
+        query.bindValue(":ID", maxID); // id is the id of the bottom row + 1
+        query.bindValue(":TeamName", team);
+        query.bindValue(":StadiumName", stadium);
+        query.bindValue(":SeatingCapacity", capacity);
+        query.bindValue(":Location", location);
+        query.bindValue(":PlayingSurface", surface);
+        query.bindValue(":TeamLeague", league);
+        query.bindValue(":DateOpened", date);
+        query.bindValue(":DistToCentField", distance);
+        query.bindValue(":BallparkTypology", typology);
+        query.bindValue(":RoofType", roof);
+
+        success = query.exec();
+
+        if(!success) {
+            qDebug() << "addTeam error: " << query.lastError();
+        }
+
+    } else {
+        qDebug() << "Error: addTeam did not get an ID value from the table.";
+    }
+}
+
+/*************************************************************************
+ * void addTeamSouvenirs(const QString& team, const QString& souvenir, const double& price)
+ * -----------------------------------------------------------------------
+ * This function adds the souvenirs for each new team.
+ ************************************************************************/
+void manageDB::addTeamSouvenirs(const QString& team, const QString& souvenir, const double& price)
+{
+     QSqlQuery query;
+     int maxID;
+     bool success;
+
+     query.prepare("SELECT max(ID) from SOUVENIRS"); // get the maximum id from the table
+     query.exec();
+
+     // get the highest id from the bottom row of the table
+     if(query.next()) {
+         maxID =  query.value(0).toInt();
+         maxID++;
+         qDebug() << maxID;
+
+         // Inserts the ID, team name, souvenir name, and price
+         query.prepare("INSERT INTO SOUVENIRS VALUES(:ID, :TEAM, :SOUVENIR, :PRICE)");
+         query.bindValue(":ID", maxID); // id is the id of the bottom row + 1
+         query.bindValue(":TEAM", team);
+         query.bindValue(":SOUVENIR", souvenir);
+         query.bindValue(":PRICE", price);
+
+         success = query.exec();
+
+         if(!success) {
+             qDebug() << "addSouvenir error: " << query.lastError();
+         }
+
+     } else {
+         qDebug() << "Error: addSouvenir did not get an ID value from the table.";
+     }
+}
+
+/*************************************************************************
+ * void addTeamDistances(const QString& startStadium, const QString& endStadium, const double& distances)
+ * -----------------------------------------------------------------------
+ * This function adds the distances for the new team into the database.
+ ************************************************************************/
+ void manageDB::addTeamDistances(const QString& startStadium, const QString& endStadium, const double& distances)
+ {
+     QSqlQuery query;
+     int maxID;
+     bool success;
+
+     query.prepare("SELECT max(ID) from DISTANCES"); // get the maximum id from the table
+     query.exec();
+
+     // get the highest id from the bottom row of the table
+     if(query.next()) {
+         maxID =  query.value(0).toInt();
+         maxID++;
+         qDebug() << maxID;
+
+         // Inserts the ID, starting stadium, ending stadium, and the distance between each stadium
+         query.prepare("INSERT INTO DISTANCES VALUES(:ID, :STARTING, :ENDING, :DIST)");
+         query.bindValue(":ID", maxID); // id is the id of the bottom row + 1
+         query.bindValue(":STARTING", startStadium);
+         query.bindValue(":ENDING", endStadium);
+         query.bindValue(":DIST", distances);
+
+         success = query.exec();
+
+         if(!success) {
+             qDebug() << "addDistance error: " << query.lastError();
+         }
+
+     } else {
+         qDebug() << "Error: addDistance did not get an ID value from the table.";
+     }
+ }
+
 

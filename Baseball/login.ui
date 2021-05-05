@@ -70,6 +70,19 @@
     <string>Log in</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="cancelLogin">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>230</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

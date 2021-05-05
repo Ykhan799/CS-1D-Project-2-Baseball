@@ -41,6 +41,8 @@ public:
     //!
     int getNumOpenRoofs();
 
+    QString getLocation(const QString& team);
+
     //!
     //! \brief getTeamModel
     //! \param team - QString indicating the team information being accessed.
@@ -177,6 +179,44 @@ public:
     //! \param newPrice - New Price of the souvenir
     //!
     void updateSouvenirs(const QString& team, const QString& oldName, const QString& newName, const double& newPrice);
+
+    //!
+    //! \brief teamExists
+    //! \param team - name of team being checked
+    //! \return True if the team is in the database. False otherwise
+    //!
+    bool teamExists(const QString& team);
+
+    //!
+    //! \brief addTeam
+    //! \param team - represents the new team name being added
+    //! \param stadium - stadium name for the new team
+    //! \param capacity - capacity of the team's stadium
+    //! \param location - Where the new team is located
+    //! \param surface - What the team plays on
+    //! \param league - Team plays in either National or American
+    //! \param date - Represents when the stadium opened
+    //! \param distance - Represents distance to center field
+    //! \param typology - Represents the typology of the baseball field
+    //! \param roof - Represents the type of roof for the team
+    //!
+    void addTeam(const QString& team, const QString& stadium, const int& capacity, const QString& location, const QString& surface, const QString& league, const int& date, const QString& distance, const QString& typology, const QString& roof);
+
+    //!
+    //! \brief addTeamSouvenirs
+    //! \param team - name of the new team for the souvenirs being added
+    //! \param souvenir - name of the souvenir being added for the team
+    //! \param price - price of the souvenir
+    //!
+    void addTeamSouvenirs(const QString& team, const QString& souvenir, const double& price);
+
+    //!
+    //! \brief addTeamDistances
+    //! \param startStadium - Represents the starting stadium
+    //! \param endStadium - Represents the ending stadium
+    //! \param distances - Represents the distance between the starting and ending stadiums
+    //!
+    void addTeamDistances(const QString& startStadium, const QString& endStadium, const double& distances);
 
 
 private:

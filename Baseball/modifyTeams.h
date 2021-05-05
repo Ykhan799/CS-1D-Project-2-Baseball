@@ -3,6 +3,11 @@
 
 #include <QDialog>
 #include "manageDB.h"
+#include <string>
+#include <fstream>
+#include <QMessageBox>
+#include <QFileDialog>
+using namespace std;
 
 namespace Ui {
 class modifyTeams;
