@@ -82,7 +82,7 @@ Guarenteed Rate Field
 250
 Tropicana Field
 27
-790
+791
 Suntrust Park
 2
 375
@@ -320,7 +320,7 @@ Kauffman Stadium
 27
 Great American Ball Park
 7
-790
+791
 Marlins Park
 15
 210
