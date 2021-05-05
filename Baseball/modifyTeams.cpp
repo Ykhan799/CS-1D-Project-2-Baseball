@@ -110,66 +110,6 @@ void modifyTeams::on_addTeam_clicked()
     }
     else
     {
-        /*
-        QSqlQuery query;
-        bool success;
-
-        query.prepare("DELETE FROM TEAMS WHERE TeamName=:TEAM");
-        query.bindValue(":TEAM", "Las Vegas Gamblers");
-
-        // qDebug() << "bound: " << query.boundValues();
-
-        success = query.exec();
-
-        if(!success) {
-            qDebug() << "removeSouvenir error: " << query.lastError();
-        }
-
-        QSqlQuery query2;
-        bool success2;
-
-        query.prepare("DELETE FROM SOUVENIRS WHERE Team=:TEAM");
-        query.bindValue(":TEAM", "Las Vegas Gamblers");
-
-        // qDebug() << "bound: " << query.boundValues();
-
-        success2 = query.exec();
-
-        if(!success2) {
-            qDebug() << "removeSouvenir error: " << query.lastError();
-        }
-
-        QSqlQuery query3;
-        bool success3;
-
-        query.prepare("DELETE FROM DISTANCES WHERE Starting=:Stadium");
-        query.bindValue(":Stadium", "Las Vegas Stadium");
-
-        // qDebug() << "bound: " << query.boundValues();
-
-        success3 = query.exec();
-
-        if(!success3) {
-            qDebug() << "removeSouvenir error: " << query.lastError();
-        }
-
-        QSqlQuery query4;
-        bool success4;
-
-        query.prepare("DELETE FROM DISTANCES WHERE Ending=:Stadium");
-        query.bindValue(":Stadium", "Las Vegas Stadium");
-
-        // qDebug() << "bound: " << query.boundValues();
-
-        success4 = query.exec();
-
-        if(!success4) {
-            qDebug() << "removeSouvenir error: " << query.lastError();
-        }
-        */
-
-
-
         // reads in the file information
         while (!inFile.eof() && inFile.peek() != '\n')
         {
