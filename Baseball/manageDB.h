@@ -7,6 +7,7 @@
 #include <QSqlError>
 #include <QDebug>
 #include <vector>
+#include <string>
 using namespace std;
 
 class manageDB
@@ -34,6 +35,66 @@ public:
     int getSeatingCapacity();
 
     //!
+    //! \brief seatingCapacity
+    //! \param team - QString representing team name.
+    //! \return an int value representing the seating capacity for the stadium
+    //!
+    int seatingCapacity(const QString& team);
+
+    //!
+    //! \brief dateOpened
+    //! \param team - QString representing team name
+    //! \return an int value representing date opened for the stadium
+    //!
+    int dateOpened(const QString& team);
+
+    //!
+    //! \brief getDistToCentField
+    //! \param team - QString representing team name
+    //! \return an int value representing the distance to center field for the team
+    //!
+    int getDistToCentField(const QString& team);
+
+    //!
+    //! \brief getRoofTypes
+    //! \return vector of different roof types
+    //!
+    vector<QString> getRoofTypes();
+
+    //!
+    //! \brief setRoofType
+    //! \param team - QString representing team name
+    //! \return returns the roof type based on the team value
+    //!
+    QString setRoofType(const QString& team);
+
+    //!
+    //! \brief getSurfaces
+    //! \return vector of different playing surfaces
+    //!
+    vector<QString> getSurfaces();
+
+    //!
+    //! \brief setSurfaceType
+    //! \param team - QString representing team name
+    //! \return returns the surface type based on team value
+    //!
+    QString setSurfaceType(const QString& team);
+
+    //!
+    //! \brief getTypology
+    //! \return vector of different typology types
+    //!
+    vector<QString> getTypology();
+
+    //!
+    //! \brief setTypology
+    //! \param team
+    //! \return typology type based on team value
+    //!
+    QString setTypology(const QString& team);
+
+    //!
     //! \brief getNumOpenRoofs
     //! \return int representing
     //! the total number of teams
@@ -41,6 +102,18 @@ public:
     //!
     int getNumOpenRoofs();
 
+    //!
+    //! \brief getStadiumName
+    //! \param team - QString indicating the team location being searched.
+    //! \return QString representing the stadium name of the team.
+    //!
+    QString getStadiumName(const QString& team);
+
+    //!
+    //! \brief getLocation
+    //! \param team - QString indicating the team location being searched.
+    //! \return location based on the value of team
+    //!
     QString getLocation(const QString& team);
 
     //!
@@ -217,6 +290,20 @@ public:
     //! \param distances - Represents the distance between the starting and ending stadiums
     //!
     void addTeamDistances(const QString& startStadium, const QString& endStadium, const double& distances);
+
+    //!
+    //! \brief updateTeams
+    //! \param team - team name of information being modified
+    //! \param newStadium - represents the new stadium name of the team
+    //! \param capacity - represents the seating capacity of the team
+    //! \param newLocation - represents the new location of the team
+    //! \param newSurface - represents the new playing surface of the team
+    //! \param newDate - represents the new date opened for the team
+    //! \param newDistToCentField - represents the new distance to center field for a team
+    //! \param newTypology - represents the new typology of the team
+    //! \param newRoof - represents the new roof type of the team.
+    //!
+    void updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof);
 
 
 private:

@@ -1,6 +1,16 @@
 #include "modifyTeams.h"
 #include "ui_modifyTeams.h"
 
+// sets the maximum value for the spin boxes
+const int MAXIMUM = 1000000000;
+
+/*************************************************************************
+ * modifyTeams(QWidget *parent, manageDB* getDataBase)
+ * -----------------------------------------------------------------------
+ * Sets the database if the conncection is null. Populates the combo boxes
+ * with the team information and sets the rest of the team information by team
+ * name
+ ************************************************************************/
 modifyTeams::modifyTeams(QWidget *parent, manageDB* getDataBase) :
     QDialog(parent),
     ui(new Ui::modifyTeams)
@@ -26,7 +36,35 @@ modifyTeams::modifyTeams(QWidget *parent, manageDB* getDataBase) :
         ui->teamsComboBox->addItem(i);
     }
 
-    //ui->locationLineEdit->setText(database->getLocation(ui->teamsComboBox->currentText()));
+    // populates the roof combo box with the different roof types
+    ui->roofComboBox->clear();
+    for (auto &i: database->getRoofTypes())
+    {
+        ui->roofComboBox->addItem(i);
+    }
+
+    // populates the surface combo box with the different playing surfaces
+    ui->surfaceComboBox->clear();
+    for (auto &i: database->getSurfaces())
+    {
+        ui->surfaceComboBox->addItem(i);
+    }
+
+    // populates the typology combo box with the different typologies
+    ui->typologyComboBox->clear();
+    for (auto &i: database->getTypology())
+    {
+        ui->typologyComboBox->addItem(i);
+    }
+
+    // sets the capacity for the spin boxes and sets the value for each combo and spin boxes
+    ui->seatingspinBox->setMaximum(MAXIMUM);
+    ui->datespinBox->setMaximum(MAXIMUM);
+    ui->distancespinBox->setMaximum(MAXIMUM);
+
+    // changes the team information based on team name
+    on_teamsComboBox_currentIndexChanged(ui->teamsComboBox->currentText());
+
 }
 
 modifyTeams::~modifyTeams()
@@ -34,8 +72,16 @@ modifyTeams::~modifyTeams()
     delete ui;
 }
 
+/*************************************************************************
+ * void on_modify_clicked()
+ * -----------------------------------------------------------------------
+ * Allows the Administrator to modify team information including stadium name,
+ * seating capacity, location, playing surface, roof types, ballpark typology,
+ * Date opened, and Distance to Center Field
+ ************************************************************************/
 void modifyTeams::on_modify_clicked()
 {
+
     QString teams;
     QString stadName;
     QString location;
@@ -46,6 +92,7 @@ void modifyTeams::on_modify_clicked()
     int dateOpened;
     int centerDistance;
 
+    // assigns variables
     teams = ui->teamsComboBox->currentText();
     stadName = ui->stadiumLineEdit->text();
     location = ui->locationLineEdit->text();
@@ -55,6 +102,43 @@ void modifyTeams::on_modify_clicked()
     seatingCapacity = ui->seatingspinBox->value();
     dateOpened = ui->datespinBox->value();
     centerDistance = ui->distancespinBox->value();
+
+    // Different Test Cases: Case 1: Date opened is 0 or less
+    if (dateOpened <= 0)
+    {
+        QMessageBox::information(this, "Error", "Invalid Date Opened. Must be greater than 0");
+    }
+    // Case 2: SeatingCapacity for a stadium is 0 or less
+    else if (seatingCapacity <= 0)
+    {
+        QMessageBox::information(this, "Error", "Invalid Seating Capacity. Must be greater than 0");
+    }
+    // Case 3: Nothing is entered for a stadium name
+    else if (stadName == "")
+    {
+        QMessageBox::information(this, "Error", "Must Enter a Stadium Name");
+    }
+    // Case 4: Nothing is entered for a location
+    else if (location == "")
+    {
+        QMessageBox::information(this, "Error", "Must enter a location");
+    }
+    // Case 5: Distance to Center Field is 0 or less
+    else if (centerDistance <= 0)
+    {
+        QMessageBox::information(this, "Error", "Invalid center to distance. Must be greater than 0");
+    }
+
+    // gets the meters of the distance to center field
+    int meters = qRound(double(centerDistance) / 3.281);
+
+    // converts the int value to string
+    QString center = QString::number(centerDistance);
+    center.append(" feet (" + QString::number(meters) + "m)");
+
+    // updates team information
+    database->updateTeams(teams, stadName, seatingCapacity, location, surface, dateOpened, center, typology, roofs);
+
 }
 
 /*************************************************************************
@@ -110,6 +194,67 @@ void modifyTeams::on_addTeam_clicked()
     }
     else
     {
+        /*
+        QSqlQuery query;
+        bool success;
+
+        query.prepare("DELETE FROM TEAMS WHERE TeamName=:TEAM");
+        query.bindValue(":TEAM", "Las Vegas Gamblers");
+
+        // qDebug() << "bound: " << query.boundValues();
+
+        success = query.exec();
+
+        if(!success) {
+            qDebug() << "removeSouvenir error: " << query.lastError();
+        }
+
+        QSqlQuery query2;
+        bool success2;
+
+        query.prepare("DELETE FROM SOUVENIRS WHERE Team=:TEAM");
+        query.bindValue(":TEAM", "Las Vegas Gamblers");
+
+        // qDebug() << "bound: " << query.boundValues();
+
+        success2 = query.exec();
+
+        if(!success2) {
+            qDebug() << "removeSouvenir error: " << query.lastError();
+        }
+
+        QSqlQuery query3;
+        bool success3;
+
+        query.prepare("DELETE FROM DISTANCES WHERE Starting=:Stadium");
+        query.bindValue(":Stadium", "Las Vegas Stadium");
+
+        // qDebug() << "bound: " << query.boundValues();
+
+        success3 = query.exec();
+
+        if(!success3) {
+            qDebug() << "removeSouvenir error: " << query.lastError();
+        }
+
+        QSqlQuery query4;
+        bool success4;
+
+        query.prepare("DELETE FROM DISTANCES WHERE Ending=:Stadium");
+        query.bindValue(":Stadium", "Las Vegas Stadium");
+
+        // qDebug() << "bound: " << query.boundValues();
+
+        success4 = query.exec();
+
+        if(!success4) {
+            qDebug() << "removeSouvenir error: " << query.lastError();
+        }
+        */
+
+
+
+
         // reads in the file information
         while (!inFile.eof() && inFile.peek() != '\n')
         {
@@ -209,22 +354,51 @@ void modifyTeams::on_addTeam_clicked()
 
 }
 
+/*************************************************************************
+ * void on_teamsComboBox_currentIndexChanged(const QString& arg1)
+ * -----------------------------------------------------------------------
+ * Sets the current team information based on the value of arg1
+ ************************************************************************/
 void modifyTeams::on_teamsComboBox_currentIndexChanged(const QString& arg1)
 {
-    ui->locationLineEdit->setText(database->getLocation(arg1));
+   // sets all the information for each team
+   ui->stadiumLineEdit->setText(database->getStadiumName(arg1));
+   ui->locationLineEdit->setText(database->getLocation(arg1));
+   ui->seatingspinBox->setValue(database->seatingCapacity(arg1));
+   ui->datespinBox->setValue(database->dateOpened(arg1));
+   ui->roofComboBox->setCurrentText(database->setRoofType(arg1));
+   ui->surfaceComboBox->setCurrentText(database->setSurfaceType(arg1));
+   ui->typologyComboBox->setCurrentText(database->setTypology(arg1));
+   ui->distancespinBox->setValue(database->getDistToCentField(arg1));
 }
 
+/*************************************************************************
+ * void on_surfaceComboBox_currentIndexChanged(const QString& arg1)
+ * -----------------------------------------------------------------------
+ * Allows the Administrator to select a different playing surface
+ ************************************************************************/
 void modifyTeams::on_surfaceComboBox_currentIndexChanged(const QString& arg1)
 {
-    ui->surfaceComboBox->clear();
+
 }
 
+/*************************************************************************
+ * void on_typologyComboBox_currentIndexChanged(const QString& arg1)
+ * -----------------------------------------------------------------------
+ * Allows the Administrator to select a different typology for a team
+ ************************************************************************/
 void modifyTeams::on_typologyComboBox_currentIndexChanged(const QString& arg1)
 {
-    ui->typologyComboBox->clear();
+
 }
 
+/*************************************************************************
+ * void on_roofComboBox_currentIndexChanged(const QString& arg1)
+ * -----------------------------------------------------------------------
+ * Allows the Administrator to select a different roof type for a team
+ ************************************************************************/
 void modifyTeams::on_roofComboBox_currentIndexChanged(const QString& arg1)
 {
-    ui->roofComboBox->clear();
+
 }
+

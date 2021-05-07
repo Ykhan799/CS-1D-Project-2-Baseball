@@ -1,5 +1,10 @@
 #include "manageDB.h"
 
+/*************************************************************************
+ * manageDB(const QString& path)
+ * -----------------------------------------------------------------------
+ * Creates a path in order to access the database and use sqlite commands
+ ************************************************************************/
 manageDB::manageDB(const QString& path)
 {
     // creates a path for the database
@@ -39,18 +44,54 @@ vector<QString> manageDB::getTeamNames()
     return teamName;
 }
 
+/*************************************************************************
+ * QString getStadiumName(const QString& team)
+ * -----------------------------------------------------------------------
+ * Gets the stadium name for any team
+ ************************************************************************/
+QString manageDB::getStadiumName(const QString& team)
+{
+    // sets up the query to get the stadium name
+    QString stadium = "";
+    QString sQuery = "select stadiumName from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        stadium = query.value(0).toString();
+    }
+
+    // returns the value of stadium
+    return stadium;
+}
+
+/*************************************************************************
+ * QString getLocation(const QString& team)
+ * -----------------------------------------------------------------------
+ * Gets the location for a team.
+ ************************************************************************/
 QString manageDB::getLocation(const QString& team)
 {
-    QSqlQuery query("SELECT Location FROM TEAMS WHERE TeamName = :TEAM");
-    query.bindValue(":TEAM", team);
+    // sets up the query to get the location
+    QString location = "";
+    QString sQuery = "select Location from TEAMS where TeamName = '" + team + "';";
 
-    while (query.next())
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
     {
-        QString out = query.value(0).toString();
-        qDebug() << out;
-        return out;
+        location = query.value(0).toString();
     }
-    return nullptr;
+
+    // returns the value of location
+    return location;
 }
 
 /*************************************************************************
@@ -77,6 +118,87 @@ int manageDB::getSeatingCapacity()
 }
 
 /*************************************************************************
+ * int seatingCapacity(const QString& team)
+ * -----------------------------------------------------------------------
+ * Gets the seating capacity of a stadium for any baseball team
+ ************************************************************************/
+int manageDB::seatingCapacity(const QString& team)
+{
+    // sets up the query to find seating capacity
+    int capacity = 0;
+    QString sQuery = "select SeatingCapacity from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        capacity = query.value(0).toInt();
+    }
+
+    // returns the value of capacity
+    return capacity;
+}
+
+/*************************************************************************
+* int dateOpened(const QString& team)
+* -----------------------------------------------------------------------
+* Gets the date opened for any team
+************************************************************************/
+int manageDB::dateOpened(const QString& team)
+{
+    // sets up the query to find date opened
+    int date = 0;
+    QString sQuery = "select DateOpened from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        date = query.value(0).toInt();
+    }
+
+    // returns the value of date
+    return date;
+}
+
+/*************************************************************************
+* int getDistToCentField(const QString& team)
+* -----------------------------------------------------------------------
+* Gets the distance to center field in feet for any team
+************************************************************************/
+int manageDB::getDistToCentField(const QString& team)
+{
+
+    // sets up the query to find center to distance
+    int center = 0;
+
+    QString sQuery = "select DistToCentField from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        // converts the string value into an int
+        QString value = query.value(0).toString();
+        QString temp = value.section(" ", 0, 0);
+        center = temp.toInt();
+    }
+
+    // returns the value of center
+    return center;
+}
+
+
+/*************************************************************************
  * int getNumOpenRoofs()
  * -----------------------------------------------------------------------
  * Gets the number of teams with an open roof.
@@ -95,6 +217,147 @@ int manageDB::getNumOpenRoofs()
     }
     // returns number of open roofs
     return openRoofs;
+}
+
+/*************************************************************************
+ * vector<QString> getRoofTypes()
+ * -----------------------------------------------------------------------
+ * Gets the distinct different roof types for all the teams.
+ ************************************************************************/
+vector<QString> manageDB::getRoofTypes()
+{
+    // Gets the roofs from the Database
+    vector<QString> roofs;
+    QSqlQuery query("SELECT DISTINCT RoofType FROM TEAMS");
+
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the roof names into the vector
+        QString out = query.value(0).toString();
+        roofs.push_back(out);
+    }
+    // returns a vector of roof names.
+    return roofs;
+}
+
+/*************************************************************************
+ * QString setRoofType(const QString& team)
+ * -----------------------------------------------------------------------
+ * Gets the roof type for any baseball team
+ ************************************************************************/
+QString manageDB::setRoofType(const QString& team)
+{
+    // sets up the query to get the roof type
+    QString roof = "";
+    QString sQuery = "select RoofType from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        roof = query.value(0).toString();
+    }
+
+    // returns the value of roof
+    return roof;
+}
+
+/*************************************************************************
+ * vector<QString> getSurfaces()
+ * -----------------------------------------------------------------------
+ * Gets the distinct surface types for all the teams
+ ************************************************************************/
+vector<QString> manageDB::getSurfaces()
+{
+    // Gets the surface types from the Database
+    vector<QString> surface;
+    QSqlQuery query("SELECT DISTINCT PlayingSurface FROM TEAMS");
+
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the surface names into the vector
+        QString out = query.value(0).toString();
+        surface.push_back(out);
+    }
+    // returns a vector of surface names.
+    return surface;
+}
+
+/*************************************************************************
+* QString setSurfaceType(const QString& team)
+* -----------------------------------------------------------------------
+* Gets the surface type for any team
+************************************************************************/
+QString manageDB::setSurfaceType(const QString& team)
+{
+    // sets up the query to get the surface type
+    QString surfaces = "";
+    QString sQuery = "select PlayingSurface from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        surfaces = query.value(0).toString();
+    }
+
+    // returns the value of surfaces
+    return surfaces;
+}
+
+/*************************************************************************
+ * vector<QString> getTypology()
+ * -----------------------------------------------------------------------
+ * Gets the distinct typology types for all the teams
+ ************************************************************************/
+vector<QString> manageDB::getTypology()
+{
+    // Gets the typology types from the Database
+    vector<QString> surface;
+    QSqlQuery query("SELECT DISTINCT BallparkTypology FROM TEAMS");
+
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the typology names into the vector
+        QString out = query.value(0).toString();
+        surface.push_back(out);
+    }
+    // returns a vector of typology names.
+    return surface;
+}
+
+/*************************************************************************
+* QString setTypology(const QString& team)
+* -----------------------------------------------------------------------
+* Gets the typology for any team
+************************************************************************/
+QString manageDB::setTypology(const QString& team)
+{
+    // sets up the query to get the typology type
+    QString typology = "";
+    QString sQuery = "select BallparkTypology from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        typology = query.value(0).toString();
+    }
+
+    // returns the value of typology
+    return typology;
 }
 
 /*************************************************************************
@@ -682,5 +945,38 @@ void manageDB::addTeamSouvenirs(const QString& team, const QString& souvenir, co
          qDebug() << "Error: addDistance did not get an ID value from the table.";
      }
  }
+
+/*************************************************************************
+* void updateTeams(const QString& team, const QString& newStadium, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof)
+* -----------------------------------------------------------------------
+* This function allows the administrator to update team information for any team
+* including stadium name, location, playing surface, seating capacity, date opened, distance to center
+* field, ballpark typology, and roof type
+************************************************************************/
+void manageDB::updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof)
+{
+    QSqlQuery query;
+    bool success;
+
+    // updates souvenir information
+    query.prepare("UPDATE TEAMS SET StadiumName = :STADIUM, SeatingCapacity = :CAPACITY, Location = :LOCATION, PlayingSurface = :SURFACE, DateOpened = :DATE, DistToCentField = :DIST, BallparkTypology = :TYPOLOGY, RoofType = :ROOF WHERE TeamName = :TEAM");
+    query.bindValue(":STADIUM", newStadium);
+    query.bindValue(":CAPACITY", capacity);
+    query.bindValue(":LOCATION", newLocation);
+    query.bindValue(":SURFACE", newSurface);
+    query.bindValue(":DATE", newDate);
+    query.bindValue(":DIST", newDistToCentField);
+    query.bindValue(":TYPOLOGY", newTypology);
+    query.bindValue(":ROOF", newRoof);
+    query.bindValue(":TEAM", team);
+
+    // qDebug() << "bound: " << query.boundValues();
+
+    success = query.exec();
+
+    if(!success) {
+        qDebug() << "updateSouvenir error: " << query.lastError();
+    }
+}
 
 

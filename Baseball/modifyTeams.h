@@ -36,16 +36,32 @@ private slots:
 
     //!
     //! \brief on_teamsComboBox_currentIndexChanged
-    //! Updates the team name in the modify section tab
+    //! Updates the team information in the modify section tab
     //! \param arg1 currently unused
     //!
     void on_teamsComboBox_currentIndexChanged(const QString& arg1);
 
+    //!
+    //! \brief on_surfaceComboBox_currentIndexChanged
+    //! Allows the Admin to select a different playing surface
+    //! \param arg1 - current team
+    //!
     void on_surfaceComboBox_currentIndexChanged(const QString& arg1);
 
+    //!
+    //! \brief on_typologyComboBox_currentIndexChanged
+    //! Allows the Admin to select a different typology
+    //! \param arg1 - current team
+    //!
     void on_typologyComboBox_currentIndexChanged(const QString& arg1);
 
+    //!
+    //! \brief on_roofComboBox_currentIndexChanged
+    //! Allows the Admin to select a different typology
+    //! \param arg1 - current team
+    //!
     void on_roofComboBox_currentIndexChanged(const QString& arg1);
+
 
 
 private:
