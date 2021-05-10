@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QLabel>
+#include <QVBoxLayout>
 #include <QMainWindow>
 
 namespace Ui {
