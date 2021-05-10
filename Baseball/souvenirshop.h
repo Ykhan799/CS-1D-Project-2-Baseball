@@ -19,11 +19,10 @@ class souvenirshop : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit souvenirshop(QWidget *parent = nullptr);
-    ~souvenirshop();
+
 
     explicit souvenirshop(double distance, QVector<QString> stadiumVector, QWidget *parent = nullptr);
-
+    ~souvenirshop();
 
 private:
     Ui::souvenirshop *ui;
@@ -35,9 +34,9 @@ private:
     double grandTotal = 0;
 
     /**
-    * @brief count to keep track of colleges
+    * @brief count to keep track of stadiums
     */
-    int collegeCount = 0;
+    int stadiumCount = 0;
 
     /**
     * @brief number of souvenirs purchased at current Stadium
