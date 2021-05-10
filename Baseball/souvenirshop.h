@@ -55,9 +55,9 @@ private:
     QStringList subCostList;
 
     /**
-    * @brief vector of selected college names
+    * @brief vector of selected stadium names
     */
-    QVector<QString> selectedColleges;
+    QVector<QString> selectedStadiums;
 
     /**
     * @brief temporarily holds name of a souvenir
