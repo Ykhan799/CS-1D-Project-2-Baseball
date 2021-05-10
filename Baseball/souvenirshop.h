@@ -23,7 +23,7 @@ public:
     ~souvenirshop();
 
     explicit souvenirshop(double distance, QVector<QString> stadiumVector, QWidget *parent = nullptr);
-    ~souvenirshop();
+
 
 private:
     Ui::souvenirshop *ui;
