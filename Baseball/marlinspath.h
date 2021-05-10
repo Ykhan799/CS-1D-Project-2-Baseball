@@ -2,7 +2,7 @@
 #define MARLINSPATH_H
 
 #include <QMainWindow>
-
+#include <souvenirshop.h>
 namespace Ui {
 class marlinsPath;
 }
@@ -15,8 +15,13 @@ public:
     explicit marlinsPath(QWidget *parent = nullptr);
     ~marlinsPath();
 
+private slots:
+    void on_startTrip_button_clicked();
+
 private:
     Ui::marlinsPath *ui;
+
+
 };
 
 #endif // MARLINSPATH_H

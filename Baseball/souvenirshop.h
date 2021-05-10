@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMainWindow>
+#include <QMessageBox>
 
 namespace Ui {
 class souvenirshop;
@@ -23,6 +24,11 @@ public:
 
     explicit souvenirshop(double distance, QVector<QString> stadiumVector, QWidget *parent = nullptr);
     ~souvenirshop();
+
+private slots:
+    void on_buy_button_clicked();
+
+    void on_souvenir_tableView_clicked(const QModelIndex &index);
 
 private:
     Ui::souvenirshop *ui;
