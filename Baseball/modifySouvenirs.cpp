@@ -38,6 +38,7 @@ modifySouvenirs::modifySouvenirs(QWidget *parent, manageDB* getDataBase) :
 modifySouvenirs::~modifySouvenirs()
 {
     delete ui;
+    database = nullptr; // set to null to save changes to the database.
 }
 
 /*************************************************************************
@@ -137,25 +138,25 @@ void modifySouvenirs::on_addButton_clicked()
     QString souvenirName = ui->addNameLineEdit->text();
     double price = ui->addPriceSpinBox->value();
 
-    // Test Cases - Checks if Souvenir name is null
+    // Test Cases - Case 1: Checks if Souvenir name is null
     if (souvenirName.isEmpty())
     {
         QMessageBox::information(this, "Error", "Please input the new souvenir's information");
     }
 
-    // Checks if the price is 0 or less
+    // Case 2: Checks if the price is 0 or less
     else if (price <= 0.0)
     {
         QMessageBox::information(this, "Error", "The new souvenir's price cannot be $0.00");
     }
 
-    // Checks if the souvenir exists
+    // Case 3: Checks if the souvenir exists
     else if (database->souvExists(team, souvenirName))
     {
         QMessageBox::information(this, "Error", "Souvenir already exists");
     }
 
-    // Adds the souvenir to the database
+    // Case 4: Adds the souvenir to the database
     else
     {
         database->addSouvenir(team, souvenirName, price);

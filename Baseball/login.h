@@ -34,6 +34,7 @@ private slots:
     //! \brief on_cancelLogin_clicked
     //! Allows the baseball fan to exit login
     //! screen.
+    //!
     void on_cancelLogin_clicked();
 
 private:

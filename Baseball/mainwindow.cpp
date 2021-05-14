@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete data;
 }
 
 /*************************************************************************
@@ -108,3 +109,15 @@ void MainWindow::on_LogOut_clicked()
     isAdmin = false;
 }
 
+/*************************************************************************
+ * void on_BFSDFSMST_clicked()
+ * -----------------------------------------------------------------------
+ * Opens up a new window for the baseball fan or administrator to view the
+ * BFS, DFS, and/or MST for the baseball teams
+ ************************************************************************/
+void MainWindow::on_BFSDFSMST_clicked()
+{
+    // displays a new window containing the options to view BFS, DFS, and MST
+    info = new graph();
+    info->show();
+}

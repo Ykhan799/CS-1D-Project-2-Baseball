@@ -1,25 +1,32 @@
 #include "DataBase.h"
 #include "ui_DataBase.h"
 
+/*************************************************************************
+* DataBase(manageDB* db, bool adminUser, QWidget *parent)
+* -----------------------------------------------------------------------
+* This constructor initializes the database and admin values. Checks to see
+* if admin is logged in or not to set functions invisible. Populates the
+* combo boxes with the team names from the database
+************************************************************************/
 DataBase::DataBase(manageDB* db, bool adminUser, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::DataBase)
 {
     ui->setupUi(this);
+
+    // sets seatingCapacity and totalSeats invisible
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
+    // gets the value of database and admin
     database = db;
     isAdmin = adminUser;
 
+    // sets admin functions invisible if admin is not logged in
     if (!isAdmin)
     {
         ui->modifySouvenirs->setVisible(false);
         ui->modifyteams->setVisible(false);
-    }
-    else
-    {
-        ui->modifySouvenirs->setVisible(true);
-        ui->modifyteams->setVisible(true);
     }
 
     // populates the comboBox for viewing Teams
@@ -33,6 +40,7 @@ DataBase::DataBase(manageDB* db, bool adminUser, QWidget *parent) :
 DataBase::~DataBase()
 {
     delete ui;
+    delete database;
 }
 
 /*************************************************************************
@@ -44,14 +52,15 @@ DataBase::~DataBase()
  ************************************************************************/
 void DataBase::on_viewTeam_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Checks if Team is not selected
     if (ui->TeamcomboBox->currentText() == "")
     {
         QMessageBox::warning(this, "Error", "Please select a Team.");
     }
-
     else
     {
         // gets the Team name and individual information for each team
@@ -88,8 +97,10 @@ void DataBase::on_viewTeam_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByTeam_clicked()
 {
+     // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names
     auto model = database->getTeamsSortedbyTeams();
 
@@ -114,8 +125,10 @@ void DataBase::on_TeamStadiumByTeam_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByStadium_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names
     auto model = database->getTeamsSortedbyStadiums();
 
@@ -132,7 +145,6 @@ void DataBase::on_TeamStadiumByStadium_clicked()
     ui->TeamtableView->setColumnWidth(1, 325);
 }
 
-
 /*************************************************************************
  * void on_TeamStadiumByDate_clicked()
  * -----------------------------------------------------------------------
@@ -142,8 +154,10 @@ void DataBase::on_TeamStadiumByStadium_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByDate_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names by date
     auto model = database->getTeamsbyDate();
 
@@ -169,8 +183,10 @@ void DataBase::on_TeamStadiumByDate_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names by smallest distance to center field
     auto model = database->getTeamsbySmallDistToCenterField();
 
@@ -196,8 +212,10 @@ void DataBase::on_TeamStadiumBySmallDistCtrField_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names by largest distance to center field
     auto model = database->getTeamsbyLargeDistToCenterField();
 
@@ -223,8 +241,10 @@ void DataBase::on_TeamStadiumByLargeDistCtrField_clicked()
  ************************************************************************/
 void DataBase::on_AmericanLeagueTeams_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names that play in the American League
     auto model = database->getAmericanLeagueTeams();
 
@@ -250,8 +270,10 @@ void DataBase::on_AmericanLeagueTeams_clicked()
  ************************************************************************/
 void DataBase::on_NationalLeagueTeams_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names that play in the National League
     auto model = database->getNationalLeagueTeams();
 
@@ -277,8 +299,10 @@ void DataBase::on_NationalLeagueTeams_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByCapacity_clicked()
 {
+    // sets seatingCapacity and totalSeats to true
     ui->seatingCapacity->setVisible(true);
     ui->totalSeats->setVisible(true);
+
     // Gets the sorted team and stadium names that play in the National League
     auto model = database->getTeamsBySeatingCapacity();
 
@@ -311,8 +335,10 @@ void DataBase::on_TeamStadiumByCapacity_clicked()
  ************************************************************************/
 void DataBase::on_TeamStadiumByTypology_clicked()
 {
+    // sets seatingCapacity and totalSeats to false
     ui->seatingCapacity->setVisible(false);
     ui->totalSeats->setVisible(false);
+
     // Gets the sorted team and stadium names sorted by Typology
     auto model = database->getTeamsByBallParkTypology();
 
@@ -338,11 +364,12 @@ void DataBase::on_TeamStadiumByTypology_clicked()
  ************************************************************************/
 void DataBase::on_OpenRoofTeams_clicked()
 {
+    // sets seatingCapacity and totalSeats to true
     ui->seatingCapacity->setVisible(true);
     ui->totalSeats->setVisible(true);
+
     // Gets the sorted team and stadium names with an Open Roof
     auto model = database->getTeamsWithOpenRoof();
-
     auto models = database->getNumOpenRoofs();
 
     // Creates the Headers before information is displayed
@@ -377,7 +404,6 @@ void DataBase::on_viewSouvenirs_clicked()
     {
         QMessageBox::warning(this, "Error", "Please select a Team.");
     }
-
     else
     {
         // gets the Team name and souvenir information for each team
@@ -430,8 +456,15 @@ void DataBase::on_modifySouvenirs_clicked()
     ui->SouvenirTableView->setColumnWidth(2, 266);
 }
 
+/*************************************************************************
+* void on_modifyteams_clicked()
+* -----------------------------------------------------------------------
+* Lets the administrator open the modifyTeams window to either add a team
+* or modify current team information
+************************************************************************/
 void DataBase::on_modifyteams_clicked()
 {
+    // creates a new modifyTeams object
     teamModify = new modifyTeams(nullptr, database);
     teamModify->exec();
     delete teamModify;

@@ -8,6 +8,7 @@
 #include "login.h"
 #include "DataBase.h"
 #include "manageDB.h"
+#include "graph.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -45,6 +46,13 @@ private slots:
     //!
     void on_LogOut_clicked();
 
+    //!
+    //! \brief on_BFSDFSMST_clicked
+    //! Launches a window for a baseball fan to view the BFS, DFS,
+    //! and/or MST of the baseball teams
+    //!
+    void on_BFSDFSMST_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -53,6 +61,8 @@ private:
     DataBase* database;
 
     manageDB *data;
+
+    graph* info;
 
     bool isAdmin;
 };

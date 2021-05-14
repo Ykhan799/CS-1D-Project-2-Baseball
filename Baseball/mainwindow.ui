@@ -111,6 +111,19 @@
      <string>View Teams and Souvenirs</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="BFSDFSMST">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>440</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>View BFS/DFS/MST</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

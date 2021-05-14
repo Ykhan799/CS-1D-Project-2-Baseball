@@ -6,8 +6,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
-#include <vector>
-#include <string>
+#include "graphhelper.h"
 using namespace std;
 
 class manageDB
@@ -305,6 +304,18 @@ public:
     //!
     void updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof);
 
+    //!
+    //! \brief startingStadiums
+    //! \return vector containing all the starting stadiums for the distances between each stadiums
+    //!
+    vector<QString> startingStadiums();
+
+    //!
+    //! \brief getEdges
+    //! \param originStadium - QString representing the starting stadium between two stadiums
+    //! \return vector containing the all the edges(starting, ending, distance) for all the stadiums
+    //!
+    vector<Edge<QString>> getEdges(const QString& originStadium);
 
 private:
 

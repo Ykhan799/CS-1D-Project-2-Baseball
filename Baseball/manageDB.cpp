@@ -979,4 +979,94 @@ void manageDB::updateTeams(const QString& team, const QString& newStadium, const
     }
 }
 
+/*************************************************************************
+ * vector<QString> startingStadiums()
+ * -----------------------------------------------------------------------
+ * This function gets the starting stadiums from the DISTANCES table and
+ * returns a vector containing stadium names
+ ************************************************************************/
+vector<QString> manageDB::startingStadiums()
+{
+    // Gets the starting stadiums from the Database
+    vector<QString> start;
+    QSqlQuery query("SELECT DISTINCT Starting FROM DISTANCES");
 
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the stadiumsinto the vector
+        QString out = query.value(0).toString();
+        start.push_back(out);
+    }
+    // returns a vector of starting stadiums.
+    return start;
+}
+
+/*************************************************************************
+* vector<Edge<QString>> getEdges(const QString& originStadium)
+* -----------------------------------------------------------------------
+* This function returns a vector of edges containing the starting stadium,
+* ending stadium, and the distance between each stadium based on the value
+* of the starting stadium
+ ************************************************************************/
+vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
+{
+    // initializing variables
+    vector<Edge<QString>> edge;
+    Edge<QString> edgeVal;
+    vector<QString> endStadiums;
+    vector<double> distances;
+    QSqlQuery query;
+
+    // Gets the ending stadiums based on the value of the starting stadium
+    query.prepare("SELECT Ending FROM DISTANCES WHERE Starting = :START");
+    query.bindValue(":START", originStadium);
+
+    // Checks if query does not execute
+    if(!query.exec())
+    {
+        qDebug() << "Failed to query from SQL Database";
+    }
+
+    // Pushes the ending stadiums into the vector
+    while(query.next())
+    {
+        if (!query.next())
+        {
+           break;
+        }
+        endStadiums.push_back(query.value(0).toString());
+    }
+
+    // Gets the distance based on the value of the starting stadium
+    query.prepare("SELECT DIST FROM DISTANCES WHERE Starting = :START");
+    query.bindValue(":START", originStadium);
+
+    // Checks if query does not execute
+    if(!query.exec())
+    {
+        qDebug() << "Failed to query from SQL Database";
+    }
+
+    // pushes the distance value into the vector
+    while(query.next())
+    {
+        if (!query.next())
+        {
+            break;
+        }
+        distances.push_back(query.value(0).toDouble());
+    }
+
+    // Gets the individual values of edge and pushes it into a vector of edges
+    for (int i = 0; i < endStadiums.size(); i++)
+    {
+        edgeVal.start = originStadium;
+        edgeVal.end = endStadiums[i];
+        edgeVal.weight = distances[i];
+        edge.push_back(edgeVal);
+    }
+
+    // returns a vector of edges based on the starting stadium
+    return edge;
+}

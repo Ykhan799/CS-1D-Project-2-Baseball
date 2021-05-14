@@ -12,6 +12,7 @@ SOURCES += \
     DataBase.cpp \
     custompath.cpp \
     dodgerpath.cpp \
+    graph.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,6 +26,8 @@ HEADERS += \
     DataBase.h \
     custompath.h \
     dodgerpath.h \
+    graph.h \
+    graphhelper.h \
     login.h \
     mainwindow.h \
     manageDB.h \
@@ -37,6 +40,7 @@ FORMS += \
     DataBase.ui \
     custompath.ui \
     dodgerpath.ui \
+    graph.ui \
     login.ui \
     mainwindow.ui \
     marlinspath.ui \

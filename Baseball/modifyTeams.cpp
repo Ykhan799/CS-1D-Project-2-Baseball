@@ -70,6 +70,7 @@ modifyTeams::modifyTeams(QWidget *parent, manageDB* getDataBase) :
 modifyTeams::~modifyTeams()
 {
     delete ui;
+    database = nullptr;
 }
 
 /*************************************************************************
@@ -81,7 +82,7 @@ modifyTeams::~modifyTeams()
  ************************************************************************/
 void modifyTeams::on_modify_clicked()
 {
-
+    // initializes variables
     QString teams;
     QString stadName;
     QString location;
@@ -195,6 +196,7 @@ void modifyTeams::on_addTeam_clicked()
     else
     {
         /*
+
         QSqlQuery query;
         bool success;
 
@@ -251,9 +253,6 @@ void modifyTeams::on_addTeam_clicked()
             qDebug() << "removeSouvenir error: " << query.lastError();
         }
         */
-
-
-
 
         // reads in the file information
         while (!inFile.eof() && inFile.peek() != '\n')
