@@ -301,11 +301,21 @@ int minDistance(int dist[], bool sptSet[])
 
     return min_index;
 }
-/*
- * This function takes in a 2d array of edges, read the edges in through an sql query (This is the easiest way I could think of to do this)
- * the function also takes in a whitelist of edges we are allowed to visit
- *
- */
+/*********************************************************************************************************************************************
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *
+ *********************************************************************************************************************************************
+ * This function takes in a 2d array of edges, read the edges in through an sql query (This is the easiest way I could think of to do this)  * 
+ * the function also takes in a whitelist of edges we are allowed to visit                                                                   *
+ * Be sure the whitelist only contains the keys of the edges we want to visit                                                                *
+ * Be ABSOLUTLEY CERTAIN Whitelist is not true for any keys that dont exist                                                                  *
+ *                                                                                                                                           *
+ * src is our starting vertex (like with whitelist, be sure our starting vertex exists)                                                      *
+ * The string vector DB will contain every Stadium we can visit                                                                              *
+ *                                                                                                                                           *
+ *********************************************************************************************************************************************
+ * for output, this function has the output vector, by the end, it will contain every whitelisted vertex in order of least distance to       *
+ * greatest distance                                                                                                                         *
+ *********************************************************************************************************************************************
 void dijkstra(int src, bool whitelist[40], int edges[40][40], vector<string> DB)
 {
 
@@ -362,7 +372,11 @@ void dijkstra(int src, bool whitelist[40], int edges[40][40], vector<string> DB)
     for(unsigned int i = 1; i < DB.size(); i++)
     {
     	int u = minDistance(dist,sptSet);
-    	output.push_back(DB.at(u - 1));
+	    //if we actually calculated this distance
+	    if(dist[u] != INT_MAX;)
+	    {
+    		output.push_back(DB.at(u - 1));
+	    }
     	sptSet[u] = true;
     }
     /*/test code
