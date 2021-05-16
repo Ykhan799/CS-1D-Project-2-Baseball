@@ -25,6 +25,8 @@ public:
     //!
     vector<QString> getTeamNames();
 
+    vector<QString> getStadiumNames();
+
     //!
     //! \brief getSeatingCapacity
     //! \return int representing

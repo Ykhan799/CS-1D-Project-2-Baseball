@@ -1,6 +1,15 @@
 #ifndef MARLINSPATH_H
 #define MARLINSPATH_H
-
+#include "souvenirshop.h"
+#include "DataBase.h"
+#include "manageDB.h"
+#include <QMainWindow>
+#include <QWidget>
+#include <QDebug>
+#include <QSqlQueryModel>
+#include <QCheckBox>
+#include <QLabel>
+#include <QSqlQuery>
 #include <QMainWindow>
 #include <souvenirshop.h>
 namespace Ui {
@@ -20,7 +29,7 @@ private slots:
 
 private:
     Ui::marlinsPath *ui;
-
+    manageDB *database;
 
 };
 

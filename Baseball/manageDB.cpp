@@ -43,7 +43,22 @@ vector<QString> manageDB::getTeamNames()
     // returns a vector of team names.
     return teamName;
 }
+vector<QString> manageDB::getStadiumNames()
+{
+    // Gets the stadium names from the Database
+    vector<QString> stadName;
+    QSqlQuery query("SELECT DISTINCT StadiumName FROM TEAMS ORDER BY StadiumName");
 
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the names into the vector
+        QString out = query.value(0).toString();
+        stadName.push_back(out);
+    }
+    // returns a vector of stadium names.
+    return stadName;
+}
 /*************************************************************************
  * QString getStadiumName(const QString& team)
  * -----------------------------------------------------------------------
