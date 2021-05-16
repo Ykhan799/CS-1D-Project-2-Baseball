@@ -123,6 +123,10 @@ public:
 	{
 		cout << stadiumName << endl;
 	}
+	string getName()
+	{
+		return stadiumName;
+	}
 	priority_queue<anythingelse> getDistance()
 		{
 			return distances;
@@ -150,5 +154,7 @@ void fileSave(stadium a[40], int);
 void DFS(int v, bool visited[40], stadium a[40]);
 void BFS(int v, bool visited[40], stadium a[40]);
 void getDistance(string &name, int &distance, int &key, int index, priority_queue<anythingelse> a);
+void dijkstra( int src, bool whitelist[40], int edges[40][40], vector<string> DB);
+int minDistance(int dist[], bool sptSet[]);
 
 #endif /* DATABASE_H_ */
