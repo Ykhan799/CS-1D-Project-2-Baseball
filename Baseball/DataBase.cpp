@@ -77,7 +77,7 @@ void DataBase::on_viewTeam_clicked()
        // Displays the Team and adjusts the columns
        ui->TeamtableView->setModel(model);
        ui->TeamtableView->setColumnWidth(0, 250);
-       ui->TeamtableView->setColumnWidth(1, 200);
+       ui->TeamtableView->setColumnWidth(1, 250);
        ui->TeamtableView->setColumnWidth(2, 200);
        ui->TeamtableView->setColumnWidth(3, 200);
        ui->TeamtableView->setColumnWidth(4, 200);

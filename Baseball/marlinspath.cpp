@@ -46,9 +46,14 @@ void marlinsPath::initalizeMarlinsPath()
     {
         qDebug() << route[i];
         QLabel* label = new QLabel;
-        label->setText(route[i] + " " + QString::number(distance) + " miles");
+        label->setText(route[i]);
         vBoxLayout->addWidget(label);
     }
+
+    QLabel* label = new QLabel;
+    label->setText("Total Distance Traveled: " + QString::number(distance) + " miles");
+
+    vBoxLayout->addWidget(label);
 
 }
 

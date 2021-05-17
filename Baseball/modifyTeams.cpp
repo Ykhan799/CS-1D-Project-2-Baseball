@@ -36,6 +36,13 @@ modifyTeams::modifyTeams(QWidget *parent, manageDB* getDataBase) :
         ui->teamsComboBox->addItem(i);
     }
 
+    ui->leagueComboBox->clear();
+
+    for (auto &i: database->getLeague())
+    {
+        ui->leagueComboBox->addItem(i);
+    }
+
     // populates the roof combo box with the different roof types
     ui->roofComboBox->clear();
     for (auto &i: database->getRoofTypes())
@@ -88,6 +95,7 @@ void modifyTeams::on_modify_clicked()
     QString location;
     QString roofs;
     QString surface;
+    QString league;
     QString typology;
     int seatingCapacity;
     int dateOpened;
@@ -98,6 +106,7 @@ void modifyTeams::on_modify_clicked()
     stadName = ui->stadiumLineEdit->text();
     location = ui->locationLineEdit->text();
     roofs = ui->roofComboBox->currentText();
+    league = ui->leagueComboBox->currentText();
     surface = ui->surfaceComboBox->currentText();
     typology = ui->typologyComboBox->currentText();
     seatingCapacity = ui->seatingspinBox->value();
@@ -138,7 +147,7 @@ void modifyTeams::on_modify_clicked()
     center.append(" feet (" + QString::number(meters) + "m)");
 
     // updates team information
-    database->updateTeams(teams, stadName, seatingCapacity, location, surface, dateOpened, center, typology, roofs);
+    database->updateTeams(teams, stadName, seatingCapacity, location, league, surface, dateOpened, center, typology, roofs);
 
 }
 
@@ -366,6 +375,7 @@ void modifyTeams::on_teamsComboBox_currentIndexChanged(const QString& arg1)
    ui->seatingspinBox->setValue(database->seatingCapacity(arg1));
    ui->datespinBox->setValue(database->dateOpened(arg1));
    ui->roofComboBox->setCurrentText(database->setRoofType(arg1));
+   ui->leagueComboBox->setCurrentText(database->setLeague(arg1));
    ui->surfaceComboBox->setCurrentText(database->setSurfaceType(arg1));
    ui->typologyComboBox->setCurrentText(database->setTypology(arg1));
    ui->distancespinBox->setValue(database->getDistToCentField(arg1));

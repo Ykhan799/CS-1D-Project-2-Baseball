@@ -310,13 +310,14 @@ public:
     //! \param newStadium - represents the new stadium name of the team
     //! \param capacity - represents the seating capacity of the team
     //! \param newLocation - represents the new location of the team
+    //! \param newLeague - represents the league that the team plays on
     //! \param newSurface - represents the new playing surface of the team
     //! \param newDate - represents the new date opened for the team
     //! \param newDistToCentField - represents the new distance to center field for a team
     //! \param newTypology - represents the new typology of the team
     //! \param newRoof - represents the new roof type of the team.
     //!
-    void updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof);
+    void updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newLeague, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof);
 
     //!
     //! \fn startingStadiums
@@ -334,6 +335,10 @@ public:
     double getDistance(const QString& currentCampus, const QString& nextCampus);
 
     vector<distanceEdge> getDistances(const QString& teamName) const;
+
+    vector<QString> getLeague();
+
+    QString setLeague(const QString& team);
 
     //QVector<QString> getStad(const double& distance, QVector<QString> otherStadiums);
 

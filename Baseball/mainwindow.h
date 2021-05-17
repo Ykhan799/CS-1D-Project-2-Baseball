@@ -9,6 +9,7 @@
 #include "DataBase.h"
 #include "manageDB.h"
 #include "dijkstra.h"
+#include "displaygraphs.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -61,12 +62,7 @@ private slots:
     //!
     void on_LogOut_clicked();
 
-
-    void on_BFS_clicked();
-
-    void on_DFS_clicked();
-
-    void on_MST_clicked();
+    void on_DFSBFSMST_clicked();
 
 private:
     //!
@@ -103,6 +99,8 @@ private:
     //! \brief isAdmin - keeps track of whether the user is an Admin
     //!
     bool isAdmin;
+
+    displayGraphs *getGraphs;
 
     vector<QString> nameList;
     vector<QString> tempList;

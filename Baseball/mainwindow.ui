@@ -111,43 +111,17 @@
      <string>View Teams and Souvenirs</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="BFS">
+   <widget class="QPushButton" name="DFSBFSMST">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>340</x>
       <y>440</y>
       <width>181</width>
       <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Display BFS</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="DFS">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>440</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Display DFS</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="MST">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>250</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Display MST</string>
+     <string>View BFS/DFS/MST</string>
     </property>
    </widget>
   </widget>

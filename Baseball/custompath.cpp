@@ -1,4 +1,3 @@
-
 #include "custompath.h"
 #include "ui_custompath.h"
 
@@ -91,122 +90,61 @@ void customPath::on_backButton_clicked()
 void customPath::on_planTrip_button_clicked()
 {
     CheckboxChanged();
-    createRoute(selectedCampusNames[0]);
-    QWidget* container = new QWidget;
-    QVBoxLayout *vBoxLayout = new QVBoxLayout;
-    container->setLayout(vBoxLayout);
-    ui->scrollArea_displayTrip->setWidget(container);
-    QLabel label;
-
-    while (!route.empty())
-    {
-    }
-
+    efficiencyAlgo(&selectedCampusNames,&orderedStadiumNames,&orderedStadiumDistances,startingStadium);
 }
-
-/*
-void customPath::recursiveStadiumSort(QString current, vector<QString> &selected)
+void customPath::efficiencyAlgo(QVector<QString> *stadiums,
+                 QVector<QString> *routeNames,
+                 QVector<double> *routeDistances,
+                 QString currentStadium)
 {
-    vector<int> getDijkstra = graphs->Dijkstra(current);
-    int next = nextStadium(getDijkstra, selected);
-}
-*/
+    // BASE CASE: no more schools to visit
+    if(stadiums->empty()) { return; }
 
+    QString nextSchool;         // next school in route
+    double temp = 0;            // temperary var to compare to min distance
+    double distance = 0;        // stores distance
+    double minDist = 1000000;   // starting point for min distance
+    int minIndex;               // index of min distance in college QVector
 
-/*
-int customPath::nextStadium(vector<int> Dist, vector<QString> &selected)
-{
-    int min = 100000;
-    int minIndex = -1;
+    // find min distance
+    for(int i=0; i < stadiums->size(); i++) {
 
-    for (int v = 0; v < Dist.size(); v++)
-    {
-        if (Dist[v] <= min)
-        {
-            min = Dist[v];
-            minIndex = v;
+        qDebug() << "i: " << i << Qt::endl;
+        QSqlQuery *query = new QSqlQuery();
 
-        }
-    }
-    totalDist += min;
-    return minIndex;
-}
-*/
+        query->prepare("SELECT DIST FROM DISTANCES WHERE "
+                      "Starting == '" + currentStadium + "' AND "
+                      "Ending == '" + stadiums->at(i) + "'");
 
-/*
-void customPath::createGraph()
-{
-    // gets the vertices(stadiums) and creates an array of stadiums
-    stad = new QString[selectedCampusNames.size()];
+        if(query->exec()) {
+            qDebug() << "Efficiency algo executed" << Qt::endl;
+            query->next();
+            qDebug() << "Distance: " << query->value(2).toDouble() << Qt::endl;
+            distance = query->value(2).toDouble();
 
-    // assigns elements to the stadium array
-    int index = 0;
-    for(auto i = selectedCampusNames.begin(); i!= selectedCampusNames.end(); i++)
-    {
-        stad[index] = *i;
-        index++;
-    }
+        temp = distance;
 
-    // creates a graph with the size being the number of stadiums.
-    graphs = new graphHelper<QString>(stad, selectedCampusNames.size());
-    for(auto i = selectedCampusNames.begin(); i!= selectedCampusNames.end(); i++)
-    {
-        // Gets the edges from undirected graph and adds them into the graph
-        vector<Edge<QString>> edges = database->getEdges(*i);
-        for(auto e: edges)
-        {
-            graphs->addEdge(e.start, e.end, e.weight);
+        if ( temp < minDist ) {
+            minDist = temp;
+            nextSchool = stadiums->at(i);
+            minIndex = i;
         }
     }
 }
-*/
+    // remove  from college QVector
+    stadiums->erase(stadiums->begin()+minIndex);
+    // add next stadium to route
+     qDebug() << "Stadium: " << nextSchool << Qt::endl;
+    QLabel* tempSchool = new QLabel(nextSchool);
 
-void customPath::createRoute(QString campus)
-{
-    // add the campus to the route queue
-    route.push(campus);
+    stadiumLabelVector.push_back(tempSchool);
+    routeNames->push_back(nextSchool);
+    // add distance to next school in route
+    routeDistances->push_back(minDist);
+    totalDist = totalDist + minDist;
 
-    // remove the campus from the list of campuses that still need to be visited
-    auto it = std::find(selectedCampusNames.begin(), selectedCampusNames.end(), campus);
-    if (it != selectedCampusNames.end())
-    {
-        selectedCampusNames.erase(it);
-    }
-
-    // base case, no more campuses to visit in this route
-    if (selectedCampusNames.size() <= 0)
-    {
-        // assign this campus to finalCampus and exit function
-        finalCampus = campus;
-        return;
-    }
-
-    else
-    {
-        // initialize variables to hold closest campus
-        QString closestCampus = selectedCampusNames.front();
-        double shortestDist = database->getDistance( campus, selectedCampusNames.front() );
-        auto it = selectedCampusNames.begin();
-
-        while (it != selectedCampusNames.end())
-        {
-            // update the closest campus if the currently accessed campus in the vector is closer than previous closest campus
-            if (database->getDistance(campus, *it) < shortestDist)
-            {
-                closestCampus = *it;
-                shortestDist = database->getDistance( campus, *it );
-            }
-
-            // increment iterator
-            it++;
-        }
-
-        // finally add to the total distance counter
-        totalDist += shortestDist;
-
-        // recursive call
-        createRoute(closestCampus);
-    }
+    // RECURSIVE CALL
+    efficiencyAlgo(stadiums, routeNames, routeDistances, nextSchool);
 }
 
 

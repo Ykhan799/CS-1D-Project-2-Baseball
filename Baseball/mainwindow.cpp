@@ -113,20 +113,6 @@ void MainWindow::on_LogOut_clicked()
 
 
 
-void MainWindow::on_BFS_clicked()
-{
-    int start = graphs->startBFS("Target Field");
-    QString pathStr;
-        for (const auto &dest : graphs->bfsOrder) {
-            pathStr += dest + "\n";
-        }
-
-        QMessageBox msgBox;
-        msgBox.setText("BFS starting from Target Field (Minnesota Twins)");
-        msgBox.setInformativeText("Total distance: " + QString::number(start));
-        msgBox.setDetailedText(pathStr);
-        msgBox.exec();
- }
 
 void MainWindow::rebuildGraph()
 {
@@ -157,31 +143,14 @@ void MainWindow::rebuildGraph()
 
 }
 
-void MainWindow::on_DFS_clicked()
+
+
+void MainWindow::on_DFSBFSMST_clicked()
 {
-    int distance = graphs->startDFS("Oracle Park");
-    QString pathStr;
-    for (const auto &dest : graphs->dfsOrder) {
-        pathStr += dest + "\n";
-    }
+    auto* getG = new displayGraphs(nameList, this, graphs);
 
-    QMessageBox msgBox;
-    msgBox.setText("DFS starting from Oracle Park (San Francisco Giants)");
-    msgBox.setInformativeText("Total distance: " + QString::number(distance));
-    msgBox.setDetailedText(pathStr);
-    msgBox.exec();
-}
+    getG->show();
 
-void MainWindow::on_MST_clicked()
-{
-    int distance = graphs->startMST();
-    QString pathStr = "MST Edges:\n";
-    pathStr += graphs->mstString;
 
-    QMessageBox msgBox;
-    msgBox.setStyleSheet("QLabel{min-width: 400px;}");
-    msgBox.setText("MST");
-    msgBox.setInformativeText("Total distance: " + QString::number(distance));
-    msgBox.setDetailedText(pathStr);
-    msgBox.exec();
+
 }

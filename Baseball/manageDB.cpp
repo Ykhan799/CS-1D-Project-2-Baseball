@@ -970,16 +970,17 @@ void manageDB::addTeamSouvenirs(const QString& team, const QString& souvenir, co
 * including stadium name, location, playing surface, seating capacity, date opened, distance to center
 * field, ballpark typology, and roof type
 ************************************************************************/
-void manageDB::updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof)
+void manageDB::updateTeams(const QString& team, const QString& newStadium, const int& capacity, const QString& newLocation, const QString& newLeague, const QString& newSurface, const int& newDate, const QString& newDistToCentField, const QString& newTypology, const QString& newRoof)
 {
     QSqlQuery query;
     bool success;
 
     // updates souvenir information
-    query.prepare("UPDATE TEAMS SET StadiumName = :STADIUM, SeatingCapacity = :CAPACITY, Location = :LOCATION, PlayingSurface = :SURFACE, DateOpened = :DATE, DistToCentField = :DIST, BallparkTypology = :TYPOLOGY, RoofType = :ROOF WHERE TeamName = :TEAM");
+    query.prepare("UPDATE TEAMS SET StadiumName = :STADIUM, SeatingCapacity = :CAPACITY, Location = :LOCATION, TeamLeague = :LEAGUE,  PlayingSurface = :SURFACE, DateOpened = :DATE, DistToCentField = :DIST, BallparkTypology = :TYPOLOGY, RoofType = :ROOF WHERE TeamName = :TEAM");
     query.bindValue(":STADIUM", newStadium);
     query.bindValue(":CAPACITY", capacity);
     query.bindValue(":LOCATION", newLocation);
+    query.bindValue(":LEAGUE", newLeague);
     query.bindValue(":SURFACE", newSurface);
     query.bindValue(":DATE", newDate);
     query.bindValue(":DIST", newDistToCentField);
@@ -1221,4 +1222,41 @@ vector<distanceEdge> manageDB::getDistances(const QString& teamName) const
     }
 
     return distances;
+}
+
+vector<QString> manageDB::getLeague()
+{
+    // Gets the team names from the Database
+    vector<QString> leagues;
+    QSqlQuery query("SELECT DISTINCT TeamLeague FROM TEAMS");
+
+    // While query is not empty
+    while(query.next())
+    {
+        // Pushes the team names into the vector
+        QString out = query.value(0).toString();
+        leagues.push_back(out);
+    }
+    // returns a vector of team names.
+    return leagues;
+}
+
+QString manageDB::setLeague(const QString& team)
+{
+    // sets up the query to get the location
+    QString league = "";
+    QString sQuery = "select TeamLeague from TEAMS where TeamName = '" + team + "';";
+
+    QSqlQuery query;
+    query.prepare(sQuery);
+    query.exec();
+
+    // Checks if there is a value in the query
+    if(query.next())
+    {
+        league = query.value(0).toString();
+    }
+
+    // returns the value of location
+    return league;
 }

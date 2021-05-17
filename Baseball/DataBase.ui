@@ -112,7 +112,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Display Teams and Stadiums with Distance to Center Field(Smallest)</string>
+       <string>Display Teams and Stadiums with DTCR(Smallest)</string>
       </property>
      </widget>
      <widget class="QPushButton" name="TeamStadiumByLargeDistCtrField">
@@ -125,7 +125,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Display Teams and Stadiums with Distance to Center Field(Largest)</string>
+       <string>Display Teams and Stadiums with DTCR(Largest)</string>
       </property>
      </widget>
      <widget class="QPushButton" name="AmericanLeagueTeams">
@@ -305,7 +305,7 @@
      <x>0</x>
      <y>0</y>
      <width>923</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

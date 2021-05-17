@@ -1,9 +1,9 @@
+
 #ifndef CUSTOMPATH_H
 #define CUSTOMPATH_H
 #include "souvenirshop.h"
 #include "DataBase.h"
 #include "manageDB.h"
-#include "dijkstra.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
@@ -11,7 +11,6 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QSqlQuery>
-#include <queue>
 namespace Ui {
 class customPath;
 }
@@ -35,29 +34,26 @@ private:
     void fillComboBox();
     void fillScrollArea();
     void CheckboxChanged();
-    void recursiveStadiumSort(QString current, vector<QString> &selected);
-    void createGraph();
-    int nextStadium(vector<int> Dist, vector<QString> &selected);
-    void createRoute(QString campus);
-
+    void efficiencyAlgo(QVector<QString> *stadiums,
+                     QVector<QString> *routeNames,
+                     QVector<double> *routeDistances,
+                     QString currentStadium);
 
     Ui::customPath *ui;
     manageDB *database;
 
+
     QString startingStadium;
     QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
-    QVector <QString> otherStadiumNames;
+    QVector <QString> orderedStadiumNames;
+    QVector<double> orderedStadiumDistances;
 
-    //graphHelper<QString> *graphs;
-    QString* stad;
-    int totalDist;
-    queue<QString> route;
-    QString finalCampus;
-    Graph<QString>* graph;
-    vector<QString> nameList;
-    vector<QString> tempList;
-    vector<QString> selectedList;
+    QVector<QLabel*> stadiumLabelVector;
+
+    QVector<QString> otherStadiumNames;
+
+    double totalDist;
 
 };
 
