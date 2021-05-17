@@ -55,6 +55,8 @@ void marlinsPath::initalizeMarlinsPath()
 
     vBoxLayout->addWidget(label);
 
+    orderedStadiumNames = route;
+
 }
 
 
@@ -90,9 +92,8 @@ void marlinsPath::rebuildGraph()
 
 void marlinsPath::on_startTrip_button_clicked()
 {
-    QVector<QString> stadiumVector;
-    stadiumVector.append("Arizona Diamondbacks");
-    auto* souvenir  = new souvenirshop(4234, stadiumVector);
+
+    auto* souvenir  = new souvenirshop(4234, orderedStadiumNames);
     hide();
     souvenir -> show();
 }

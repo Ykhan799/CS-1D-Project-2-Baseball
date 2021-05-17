@@ -7,6 +7,8 @@ souvenirshop::souvenirshop(double distance, QVector<QString> stadiumVector, QWid
     ui(new Ui::souvenirshop)
 {
     ui->setupUi(this);
+
+    ui->label_collegeName->setText(stadiumVector[stadiumCount]);
     distanceTraveled = distance;
     selectedStadiums = stadiumVector;
 
@@ -14,13 +16,15 @@ souvenirshop::souvenirshop(double distance, QVector<QString> stadiumVector, QWid
 
     QSqlQuery* qry=new QSqlQuery();
 
-    qry->prepare("SELECT SOUVENIRS, Price FROM Souvenirs WHERE mlbTeams= (:mlbTeams)");
-    qry->bindValue(":mlbTeams", selectedStadiums[stadiumCount]);
+    qry->prepare("SELECT Souvenir, Price FROM SOUVENIRS WHERE Stadium= (:stadiums)");
+    qry->bindValue(":stadiums", selectedStadiums[stadiumCount]);
 
     if(qry->exec())
     {
         qDebug() << "Souvenirs updated";
     }
+    else
+        qDebug() << "nowork";
 
     model->setQuery(*qry);
 
@@ -97,4 +101,43 @@ void souvenirshop::on_souvenir_tableView_clicked(const QModelIndex &index)
 
         qDebug() << tempSouvenir << Qt::endl << souvenirCost << Qt::endl;
     }
+}
+
+void souvenirshop::on_nextCollege_button_clicked()
+{
+    clicked = false;
+    subCostList.append(QString::number(subCostAtStadium,'f', 2)); //adding subcost to list as a string
+
+    if(stadiumCount < selectedStadiums.size())
+    {
+        ui->label_collegeName->setText(selectedStadiums[stadiumCount]);
+
+        QSqlQueryModel* model=new QSqlQueryModel();
+
+        QSqlQuery* qry=new QSqlQuery();
+
+        qry->prepare("SELECT Souvenir, Price FROM SOUVENIRS WHERE Stadium= (:stadiums)");
+        qry->bindValue(":stadiums", selectedStadiums[stadiumCount]);
+
+        if(qry->exec())
+        {
+            qDebug() << "Souvenirs updated";
+        }
+
+        model->setQuery(*qry);
+
+        ui->souvenir_tableView->setModel(model);
+        ui->souvenir_tableView->setColumnWidth(0, 195);
+
+        purchasedSouvAtStadium = 0; //reseting num of souvenirs bought at each campus
+        ui->label_souv->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtStadium).toString());
+        subCostAtStadium= 0; //reseting cost of souvenirs bought at each campus
+        ui->label_souvCosts->setText("Cost of Souvenirs Purchased Here: $" + QString::number(subCostAtStadium,'f', 2));
+        stadiumCount++;
+    }
+    else
+    {
+        QMessageBox::information(this, "Warning", "Your tour has ended. To continue, please click \"End Tour\"");
+    }
+
 }

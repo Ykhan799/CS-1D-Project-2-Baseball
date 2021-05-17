@@ -37,14 +37,14 @@
      </rect>
     </property>
     <property name="text">
-     <string>Next College</string>
+     <string>Next Stadium</string>
     </property>
    </widget>
    <widget class="QScrollArea" name="scrollArea_purchased">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>190</y>
+      <x>430</x>
+      <y>200</y>
       <width>361</width>
       <height>321</height>
      </rect>
@@ -159,7 +159,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>510</y>
+      <y>520</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -185,7 +185,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>540</y>
+      <y>550</y>
       <width>91</width>
       <height>31</height>
      </rect>
