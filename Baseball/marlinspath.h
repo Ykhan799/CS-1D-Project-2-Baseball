@@ -27,9 +27,17 @@ public:
 private slots:
     void on_startTrip_button_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::marlinsPath *ui;
     manageDB *database;
+
+    QString startingStadium;
+    QVector <QString> otherStadiumNames;
+    void initalizeMarlinsPath();
+
+    QVector <QString> orderedStadiumNames;//store sorted stadiums in here
 
 };
 

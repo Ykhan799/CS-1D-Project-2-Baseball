@@ -24,11 +24,23 @@ public:
     explicit dodgerpath(QWidget *parent = nullptr);
     ~dodgerpath();
 
+private slots:
+    void on_backButton_clicked();
+
+    void on_planTrip_button_clicked();
+
 private:
     Ui::dodgerpath *ui;
     void fillScrollArea();
+    void CheckboxChanged();
     manageDB *database;
+
+    QString startingStadium;
+    QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
+    QVector <QString> otherStadiumNames;
+
+    QVector <QString> orderedStadiumNames;//store sorted stadiums in here
 };
 
 #endif // DODGERPATH_H

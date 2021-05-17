@@ -6,6 +6,7 @@ dodgerpath::dodgerpath(QWidget *parent) :
     ui(new Ui::dodgerpath)
 {
     ui->setupUi(this);
+    fillScrollArea();
 }
 
 dodgerpath::~dodgerpath()
@@ -14,7 +15,8 @@ dodgerpath::~dodgerpath()
 }
 void dodgerpath::fillScrollArea()
 {
-    QString selectedStartingStadium = "Angel Stadium";
+    QString selectedStartingStadium = "Dodger Stadium";
+    startingStadium = selectedStartingStadium;
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
@@ -28,10 +30,9 @@ void dodgerpath::fillScrollArea()
         if(selectedStartingStadium != i)
         {
             QCheckBox* checkBox = new QCheckBox(i);
-            QString collegeName = (i);
             checkBox->setCheckState(Qt::CheckState::Unchecked);
             checkBoxVector.push_back(checkBox);
-            //connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
+            otherStadiumNames.push_back(i);
         }
     }
 
@@ -40,4 +41,35 @@ void dodgerpath::fillScrollArea()
         vBoxLayout->addWidget(checkBoxVector[i]);
 
     }
+}
+void dodgerpath::CheckboxChanged()
+{
+    selectedCampusNames.clear();
+    qDebug() << "Signal caught";
+
+
+    for(int i = 0; i < checkBoxVector.size(); i++)
+    {
+        if(checkBoxVector[i]->checkState() == Qt::CheckState::Checked)
+        {
+           // qDebug() << otherStadiumNames[i] << Qt::endl;
+            selectedCampusNames.push_back(otherStadiumNames[i]);
+        }
+    }
+
+    qDebug() << "Starting Stadium: " << startingStadium << Qt:: endl;
+    qDebug() << "Other Stadiums: ";
+    for(int i = 0; i < selectedCampusNames.size(); i++)
+        qDebug() << selectedCampusNames[i] << Qt::endl;
+
+}
+void dodgerpath::on_backButton_clicked()
+{
+    close();
+}
+
+void dodgerpath::on_planTrip_button_clicked()
+{
+    CheckboxChanged();
+    //orderedStadiumNames = DJIKSTRA(startingStadium,otherStadiumNames);        IMPLEMENT DJIKSTRA ALG
 }

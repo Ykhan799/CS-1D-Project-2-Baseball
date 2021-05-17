@@ -22,12 +22,27 @@ public:
     explicit customPath(QWidget *parent = nullptr);
     ~customPath();
 
+private slots:
+    void on_selectStartingStadiums_activated();
+
+    void on_backButton_clicked();
+
+    void on_planTrip_button_clicked();
+
 private:
     void fillComboBox();
     void fillScrollArea();
+    void CheckboxChanged();
+
+
     Ui::customPath *ui;
     manageDB *database;
+
+    QString startingStadium;
+    QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
+    QVector <QString> otherStadiumNames;
+
 };
 
 #endif // CUSTOMPATH_H
