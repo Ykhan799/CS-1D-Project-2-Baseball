@@ -290,4 +290,100 @@ void getDistance(string &name, int &distance, int &key, int index, priority_queu
 	distance = a.top().distance;
 }
 
+int minDistance(int dist[], bool sptSet[])
+{
+    // Initialize min value
+    int min = INT_MAX, min_index;
+
+    for (int v = 0; v < 40; v++)
+        if (sptSet[v] == false && dist[v] <= min)
+            min = dist[v], min_index = v;
+
+    return min_index;
+}
+/*********************************************************************************************************************************************
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *
+ *********************************************************************************************************************************************
+ * This function takes in a 2d array of edges, read the edges in through an sql query (This is the easiest way I could think of to do this)  * 
+ * the function also takes in a whitelist of edges we are allowed to visit                                                                   *
+ * Be sure the whitelist only contains the keys of the edges we want to visit                                                                *
+ * Be ABSOLUTLEY CERTAIN Whitelist is not true for any keys that dont exist                                                                  *
+ *                                                                                                                                           *
+ * src is our starting vertex (like with whitelist, be sure our starting vertex exists)                                                      *
+ * The string vector DB will contain every Stadium we can visit                                                                              *
+ *                                                                                                                                           *
+ *********************************************************************************************************************************************
+ * for output, this function has the output vector, by the end, it will contain every whitelisted vertex in order of least distance to       *
+ * greatest distance                                                                                                                         *
+ *********************************************************************************************************************************************
+void dijkstra(int src, bool whitelist[40], int edges[40][40], vector<string> DB)
+{
+
+    int dist[40]; // The calculation array.  dist[i] will hold the shortest
+    // distance from src to i
+    vector<string> output; // our output vector, will contain the shortest distances in order
+
+    bool sptSet[40]; // sptSet[i] will be true if vertex i is included in shortest
+    // path tree or shortest distance from src to i is finalized
+
+    // Initialize all distances as INFINITE and stpSet[] as false
+    for (int i = 0; i < 40; i++)
+        dist[i] = INT_MAX, sptSet[i] = false;
+
+    // Distance of source vertex from itself is always 0
+    dist[src] = 0;
+
+    // Find shortest path for all vertices
+    for (int count = 0; count < 40; count++) {
+        // Pick the minimum distance vertex from the set of vertices not
+        // yet processed. u is always equal to src in the first iteration.
+        int u = minDistance(dist, sptSet);
+
+        // Mark the picked vertex as processed
+        sptSet[u] = true;
+
+        // Update dist value of the adjacent vertices of the picked vertex.
+        for (unsigned int v = 0; v < 40; v++)
+        {
+            // Update dist[v] only if is not in sptSet, there is an edge from
+            // u to v, and total weight of path from src to  v through u is
+            // smaller than current value of dist[v]
+
+            if (!sptSet[v] && edges[u][v] && dist[u] != INT_MAX && dist[u] + edges[u][v] < dist[v])
+            {
+            	if(!whitelist[v])
+            	{
+            		dist[v] = INT_MAX;
+            	}
+            	else
+            	{
+            		dist[v] = dist[u] + edges[u][v];
+            	}
+            }
+        }
+    }
+
+    //reset sptSet for the output vector
+    for(int i = 0; i < 40; i++)
+    {
+    	sptSet[i] = false;
+    }
+    //entering stadium names in order of smallest distance-greatest distance
+    for(unsigned int i = 1; i < DB.size(); i++)
+    {
+    	int u = minDistance(dist,sptSet);
+	    //if we actually calculated this distance
+	    if(dist[u] != INT_MAX;)
+	    {
+    		output.push_back(DB.at(u - 1));
+	    }
+    	sptSet[u] = true;
+    }
+    /*/test code
+    for(unsigned int i = 0; i < output.size(); i++)
+    {
+    	cout << output.at(i) << endl;
+    }*/
+
+}
 
