@@ -74,7 +74,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    auto* marlins = new marlinsPath();
+    auto* marlins = new marlinsPath(nameList, this, graphs);
     marlins -> show();
 
 }

@@ -2,12 +2,18 @@
 #include "ui_marlinspath.h"
 
 
-
-marlinsPath::marlinsPath(QWidget *parent) :
+marlinsPath::marlinsPath(vector<QString> stadiums, QWidget *parent, Graph<QString>* getGraph) :
     QMainWindow(parent),
     ui(new Ui::marlinsPath)
 {
     ui->setupUi(this);
+    graph = getGraph;
+    nameList = stadiums;
+
+    if (graph == nullptr || nameList.empty())
+    {
+        rebuildGraph();
+    }
     initalizeMarlinsPath();
 }
 
@@ -17,46 +23,36 @@ marlinsPath::~marlinsPath()
 }
 void marlinsPath::initalizeMarlinsPath()
 {
-    //rebuildGraph();
     startingStadium = "Marlins Park";
 
-    /*
-    otherStadiumNames.push_back(startingStadium);
-    for (auto &i: database->getStadiumNames())
-    {
-
-        if(startingStadium != i)
-        {
-            otherStadiumNames.push_back(i);
-        }
-    }
-    */
+    otherStadiumNames = nameList;
 
 
-     int distance = graph->startMultiDijkstra(nameList, startingStadium);
+      //vector<int> dists = graph->getMultiDijkstra(otherStadiumNames, startingStadium);
+     int distance = graph->startMultiDijkstra(otherStadiumNames, startingStadium);
+
 
     vector<QString> route = graph->dijkstraOrder;
+
 
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-    QLabel* label = new QLabel;
+   // vector<QLabel> texts;
 
     ui->scrollArea_chosenSchools->setWidget(container);
     for (int i = 0; i < route.size(); i++)
     {
-        label->setText(route[i]);
+        qDebug() << route[i];
+        QLabel* label = new QLabel;
+        label->setText(route[i] + " " + QString::number(distance) + " miles");
         vBoxLayout->addWidget(label);
     }
-    //you have to make the QString into a label and then add it
-
-    //ui->scrollArea_chosenSchools->set
-    //orderedStadiumNames = DJIKSTRA(startingStadium,otherStadiumNames);        IMPLEMENT DJIKSTRA ALG
 
 }
 
-/*
+
 void marlinsPath::rebuildGraph()
 {
 
@@ -85,7 +81,7 @@ void marlinsPath::rebuildGraph()
     }
 
 }
-*/
+
 
 void marlinsPath::on_startTrip_button_clicked()
 {
@@ -98,5 +94,6 @@ void marlinsPath::on_startTrip_button_clicked()
 
 void marlinsPath::on_backButton_clicked()
 {
+
     close();
 }

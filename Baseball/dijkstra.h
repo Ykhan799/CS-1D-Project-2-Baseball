@@ -120,6 +120,8 @@ public:
      */
     int startMultiDijkstra(vector<Type> nodes, const Type& start);
 
+    vector<int> getMultiDijkstra(vector<Type> nodes, const Type& start);
+
     /**
      * @brief Finds shortest path to all nodes
      * Saves path in shortestOrder
@@ -406,6 +408,45 @@ int Graph<Type>::multiDijkstra(vector<Type> nodes, const Type& start) {
 
     distance += multiDijkstra(nodes, nodeList[closest]);
     return distance;
+}
+
+template <typename Type>
+vector<int> Graph<Type>::getMultiDijkstra(vector<Type> nodes, const Type& start)
+{
+
+    vector<int> getDist;
+
+    dijkstraOrder.push_back(start);
+
+    // remove starting point from nodes
+    auto pos = find(nodes.begin(), nodes.end(), start);
+    if (pos != nodes.end())
+        nodes.erase(pos);
+
+    // base case
+    if (nodes.size() < 1)
+    {
+        getDist.push_back(0);
+        return getDist;
+    }
+
+    vector<vector<int>> T;
+    T = DijkstraPaths(start);
+
+    // find closest in selected nodes
+    int distance = INT_MAX;
+    int closest = getIndex(start);
+    int i = 0;
+    for (Type node : nodes) {
+        i = getIndex(node);
+        if (T[i][1] < distance) {
+            closest = i;
+            distance = T[i][1];
+            getDist.push_back(distance);
+        }
+    }
+
+    return getDist;
 }
 
 template<class Type>
