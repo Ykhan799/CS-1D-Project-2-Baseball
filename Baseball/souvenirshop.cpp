@@ -16,7 +16,7 @@ souvenirshop::souvenirshop(double distance, QVector<QString> stadiumVector, QWid
 
     QSqlQuery* qry=new QSqlQuery();
 
-    qry->prepare("SELECT Souvenir, Price FROM SOUVENIRS WHERE Stadium= (:stadiums)");
+    qry->prepare("SELECT Souvenir,Price FROM SOUVENIRS WHERE Stadium = :stadiums");
     qry->bindValue(":stadiums", selectedStadiums[stadiumCount]);
 
     if(qry->exec())
