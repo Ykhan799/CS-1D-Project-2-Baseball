@@ -693,6 +693,7 @@ void manageDB::addSouvenir(const QString& team, const QString& souvenirName, con
     int maxID;
     bool success;
 
+    QString stadium = getStadiumName(team);
     query.prepare("SELECT MAX(ID) from SOUVENIRS"); // get the maximum id from the table
     query.exec();
 
@@ -703,9 +704,10 @@ void manageDB::addSouvenir(const QString& team, const QString& souvenirName, con
         qDebug() << maxID;
 
         // Inserts the souvenir into the database
-        query.prepare("INSERT INTO SOUVENIRS(ID, Team, Souvenir, Price) VALUES(:ID, :Team, :Souvenir, :Price)");
+        query.prepare("INSERT INTO SOUVENIRS(ID, Team, Stadium, Souvenir, Price) VALUES(:ID, :Team, :Stadium, :Souvenir, :Price)");
         query.bindValue(":ID", maxID); // id is the id of the bottom row + 1
         query.bindValue(":Team", team);
+        query.bindValue(":Stadium", stadium);
         query.bindValue(":Souvenir", souvenirName);
         query.bindValue(":Price", price);
 
