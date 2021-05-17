@@ -76,6 +76,11 @@ void MainWindow::on_pushButton_4_clicked()
     marlins -> show();
 
 }
+void MainWindow::on_pushButton_5_clicked()
+{
+    auto* order = new orderedPath();
+    order -> show();
+}
 
 /*************************************************************************
  * void on_viewTeamsSouvenirs_clicked()
@@ -121,3 +126,5 @@ void MainWindow::on_BFSDFSMST_clicked()
     info = new graph();
     info->show();
 }
+
+

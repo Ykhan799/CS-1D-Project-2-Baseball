@@ -1,7 +1,7 @@
 #ifndef GRAPHHELPER_H
 #define GRAPHHELPER_H
 
-#include <vector>
+#include <QVector>
 #include <algorithm>
 using namespace std;
 
@@ -40,7 +40,7 @@ struct Vertex
     int startTime = -1;
     int endTime = -1;
     int depth;
-    vector<Edge<T>> edges;
+    QVector<Edge<T>> edges;
     Vertex<T>* parent;
 };
 
@@ -178,17 +178,17 @@ private:
     int eNum;
     int** adjMat;
     Vertex<T>* vertices;
-    vector<pair<double,pair<int, int>>> edges;
+    QVector<pair<double,pair<int, int>>> edges;
 
     //!
     //! \brief DFSDriver
     //! Performs the DFS algorithm
     //! \param start - represents the starting point for the DFS algorithm
-    //! \param visited - a vector initialized to false until each edge is visited
+    //! \param visited - a QVector initialized to false until each edge is visited
     //! \param discoveryEdges - represents all the edges being discovered in the DFS algorithm
     //! \param counter - represents the counter in terms of time
     //!
-    void DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& discoveryEdges, int counter = 0);
+    void DFSDriver(T start, QVector<bool> &visited, QVector<Edge<T>>& discoveryEdges, int counter = 0);
 
 public:
     //!
@@ -217,27 +217,27 @@ public:
     //!
     //! \brief DFS
     //! \param start - represents the starting point to begin DFS
-    //! \return vector of edges which represents all the discovery edges
+    //! \return QVector of edges which represents all the discovery edges
     //! from the DFS algorithm
     //!
-    vector<Edge<T>> DFS(T start);
+    QVector<Edge<T>> DFS(T start);
 
     //!
     //! \brief BFS
     //! \param start - represents the starting point to begin BFS
-    //! \return vector of edges representing all the discovery edges
+    //! \return QVector of edges representing all the discovery edges
     //! from the BFS algorithm
     //!
-    vector<Edge<T>> BFS(T start);
+    QVector<Edge<T>> BFS(T start);
 
     //!
     //! \brief kruskalMST
     //! Finds the MST of the baseball stadiums using
     //! Kruskal's Algorithm
-    //! \return vector of edges which are the edges
+    //! \return QVector of edges which are the edges
     //! of the MST.
     //!
-    vector<Edge<T>> kruskalMST();
+    QVector<Edge<T>> kruskalMST();
 };
 
 /*************************************************************************
@@ -331,13 +331,13 @@ void graphHelper<T>::addEdge(T start, T end, double weight)
 }
 
 /*************************************************************************
-* vector<Edge<T>> DFS(T start)
+* QVector<Edge<T>> DFS(T start)
 * -----------------------------------------------------------------------
-* This function returns a vector of discovery edges after calling the
+* This function returns a QVector of discovery edges after calling the
 * DFSDriver function
 ************************************************************************/
 template<typename T>
-vector<Edge<T>> graphHelper<T>::DFS(T start)
+QVector<Edge<T>> graphHelper<T>::DFS(T start)
 {
     // set start and end time to -1 to compare edges
     for (int i = 0; i < vNum; i++)
@@ -346,25 +346,25 @@ vector<Edge<T>> graphHelper<T>::DFS(T start)
         vertices->endTime = -1;
     }
 
-    // sets the visited vector to false initially and declares a vector for the discovery edges
-    vector<bool> visited(vNum, false);
-    vector<Edge<T>> discoveryEdges;
+    // sets the visited QVector to false initially and declares a QVector for the discovery edges
+    QVector<bool> visited(vNum, false);
+    QVector<Edge<T>> discoveryEdges;
 
     // calls the DFS function to get the discoverEdges
     DFSDriver(start, visited, discoveryEdges);
 
-    // returns a vector containing the discovery edges of the DFS performed
+    // returns a QVector containing the discovery edges of the DFS performed
     return discoveryEdges;
 }
 
 /*************************************************************************
-* void DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& discoveryEdges, int counter)
+* void DFSDriver(T start, QVector<bool> &visited, QVector<Edge<T>>& discoveryEdges, int counter)
 * -----------------------------------------------------------------------
 * This recursive function performs a DFS traversal through all the baseball stadium graph
 * starting from the vertex start. Keeps going until all vertices are visited
 ************************************************************************/
 template<typename T>
-void graphHelper<T>::DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& discoveryEdges, int counter)
+void graphHelper<T>::DFSDriver(T start, QVector<bool> &visited, QVector<Edge<T>>& discoveryEdges, int counter)
 {
     int totalDist = 0;
     int id = 0;
@@ -384,7 +384,7 @@ void graphHelper<T>::DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& 
     sort(vertices[id].edges.begin(), vertices[id].edges.end(), compareWeight<T>());
 
     // copies the edges
-    vector<Edge<T>> edges;
+    QVector<Edge<T>> edges;
     for (auto it = vertices[id].edges.begin(); it != vertices[id].edges.end(); it++)
     {
         edges.push_back(*it);
@@ -410,22 +410,22 @@ void graphHelper<T>::DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& 
 }
 
 /*************************************************************************
-* vector<Edge<T>> BFS(T start)
+* QVector<Edge<T>> BFS(T start)
 * -----------------------------------------------------------------------
 * This function performs a BFS traversal on a graph of baseball stadiums
 * and returns the discovery edges until all vertices are visited
 ************************************************************************/
 template <typename T>
-vector<Edge<T>> graphHelper<T>::BFS(T start)
+QVector<Edge<T>> graphHelper<T>::BFS(T start)
 {
     int totalDist = 0;
-    vector<Edge<T>> discoveryEdges;
+    QVector<Edge<T>> discoveryEdges;
 
-    // vector that checks whether a stadium has been visited
-    vector<bool> visited(vNum, false);
-    vector<int> stadiums;
+    // QVector that checks whether a stadium has been visited
+    QVector<bool> visited(vNum, false);
+    QVector<int> stadiums;
 
-    // location of vector
+    // location of QVector
     int currentStadium;
 
     // find starting index location
@@ -439,7 +439,7 @@ vector<Edge<T>> graphHelper<T>::BFS(T start)
         }
     }
 
-    // pushes the id into the vector
+    // pushes the id into the QVector
     stadiums.push_back(id);
 
     // Sets first id to true since it is the origin
@@ -472,10 +472,10 @@ vector<Edge<T>> graphHelper<T>::BFS(T start)
             // checks if Vertex has not been visited
             if (!visited[vertices[currentStadium].edges[i].endVertex->id])
             {
-                // Push the adjacent vertex to the vector
+                // Push the adjacent vertex to the QVector
                 stadiums.push_back(vertices[currentStadium].edges[i].endVertex->id);
 
-                // Sets visited vector to true
+                // Sets visited QVector to true
                 visited[vertices[currentStadium].edges[i].endVertex->id] = true;
 
                 // sets the parent vertex
@@ -495,16 +495,16 @@ vector<Edge<T>> graphHelper<T>::BFS(T start)
 }
 
 /*************************************************************************
-* vector<Edge<T>> kruskalMST()
+* QVector<Edge<T>> kruskalMST()
 * -----------------------------------------------------------------------
 * This function performs a MST of the baseball stadiums using Kruskal's
-* algorithm. A vector containing the edges of the MST graph is returned
+* algorithm. A QVector containing the edges of the MST graph is returned
 ************************************************************************/
 template<typename T>
-vector<Edge<T>> graphHelper<T>::kruskalMST()
+QVector<Edge<T>> graphHelper<T>::kruskalMST()
 {
     // discovery edges for the MST
-    vector<Edge<T>> discoveryEdges;
+    QVector<Edge<T>> discoveryEdges;
     double totalDist = 0;
 
     // sorts the edges by weight
@@ -512,7 +512,7 @@ vector<Edge<T>> graphHelper<T>::kruskalMST()
 
     // declares a set
     clusterSets disjoint(vNum);
-    vector<pair<double, pair<int, int>>>::iterator it;
+    QVector<pair<double, pair<int, int>>>::iterator it;
 
     // traverses through the entire edges
     for (it = edges.begin(); it != edges.end(); it++)
@@ -539,7 +539,7 @@ vector<Edge<T>> graphHelper<T>::kruskalMST()
             disjoint.mergeSets(uSet, vSet);
         }
     }
-    // returns a vector of discoveryEdges of the MST
+    // returns a QVector of discoveryEdges of the MST
     return discoveryEdges;
 }
 #endif // GRAPHHELPER_H

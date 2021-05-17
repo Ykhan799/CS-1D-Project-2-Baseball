@@ -5,6 +5,7 @@
 #include "custompath.h"
 #include "marlinspath.h"
 #include "dodgerpath.h"
+#include "orderedpath.h"
 #include "login.h"
 #include "DataBase.h"
 #include "manageDB.h"
@@ -52,6 +53,8 @@ private slots:
     //! and/or MST of the baseball teams
     //!
     void on_BFSDFSMST_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;

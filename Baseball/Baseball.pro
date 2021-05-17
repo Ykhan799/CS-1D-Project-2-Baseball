@@ -20,6 +20,7 @@ SOURCES += \
     marlinspath.cpp \
     modifySouvenirs.cpp \
     modifyTeams.cpp \
+    orderedpath.cpp \
     souvenirshop.cpp
 
 HEADERS += \
@@ -34,6 +35,7 @@ HEADERS += \
     marlinspath.h \
     modifySouvenirs.h \
     modifyTeams.h \
+    orderedpath.h \
     souvenirshop.h
 
 FORMS += \
@@ -46,6 +48,7 @@ FORMS += \
     marlinspath.ui \
     modifySouvenirs.ui \
     modifyTeams.ui \
+    orderedpath.ui \
     souvenirshop.ui
 
 # Default rules for deployment.

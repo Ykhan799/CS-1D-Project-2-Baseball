@@ -21,13 +21,13 @@ graph::~graph()
 }
 
 /*************************************************************************
-* void displayGraph(vector<Edge<QString>> Edge)
+* void displayGraph(QVector<Edge<QString>> Edge)
 * -----------------------------------------------------------------------
 * This function displays the either the BFS, DFS, or MST of the baseball
-* stadiums. It does this by using the parameter Edge which is a vector of
+* stadiums. It does this by using the parameter Edge which is a QVector of
 * edges
 ************************************************************************/
-void graph::displayGraph(vector<Edge<QString>> Edge)
+void graph::displayGraph(QVector<Edge<QString>> Edge)
 {
     // Sets the dimensions for the table widget
     ui->graphTableWidget->setColumnCount(3);
@@ -43,7 +43,7 @@ void graph::displayGraph(vector<Edge<QString>> Edge)
     double totalDist = 0;
     int rows = 0;
 
-    // Traverses through each element of the Edge vector
+    // Traverses through each element of the Edge QVector
     for (auto &i: Edge)
     {
         // gets the starting stadium, ending stadium, distance, and total distance
@@ -83,7 +83,7 @@ void graph::on_back_clicked()
 void graph::getGraph()
 {
     // gets the vertices(stadiums) and creates an array of stadiums
-    vector<QString> stadiums = database->startingStadiums();
+    QVector<QString> stadiums = database->startingStadiums();
     stadium = new QString[stadiums.size()];
 
     // assigns elements to the stadium array
@@ -99,7 +99,7 @@ void graph::getGraph()
     for(auto i = stadiums.begin(); i!= stadiums.end(); i++)
     {
         // Gets the edges from undirected graph and adds them into the graph
-        vector<Edge<QString>> edges = database->getEdges(*i);
+        QVector<Edge<QString>> edges = database->getEdges(*i);
         for(auto e: edges)
         {
             createGraph->addEdge(e.start, e.end, e.weight);
@@ -118,7 +118,7 @@ void graph::on_bfs_clicked()
     getGraph();
 
     // gets the BFS of the baseball stadiums from Target Field and displays the edges
-    vector<Edge<QString>> edges = createGraph->BFS("Target Field");
+    QVector<Edge<QString>> edges = createGraph->BFS("Target Field");
     displayGraph(edges);
 }
 
@@ -133,7 +133,7 @@ void graph::on_dfs_clicked()
     getGraph();
 
     // gets the DFS of the baseball stadiums from Oracle Park and displays the edges
-    vector<Edge<QString>> edges = createGraph->DFS("Oracle Park");
+    QVector<Edge<QString>> edges = createGraph->DFS("Oracle Park");
     displayGraph(edges);
 
 }
@@ -149,6 +149,6 @@ void graph::on_mst_clicked()
     getGraph();
 
     // gets the MST of the baseball stadiums using Kruskal's algorithm and displays the MST
-    vector<Edge<QString>> edges = createGraph->kruskalMST();
+    QVector<Edge<QString>> edges = createGraph->kruskalMST();
     displayGraph(edges);
 }

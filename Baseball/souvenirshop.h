@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 #include <QMainWindow>
 #include <QMessageBox>
-
+#include "mainwindow.h"
 namespace Ui {
 class souvenirshop;
 }
@@ -60,7 +60,7 @@ private:
     QStringList subCostList;
 
     /**
-    * @brief vector of selected stadium names
+    * @brief QVector of selected stadium names
     */
     QVector<QString> selectedStadiums;
 

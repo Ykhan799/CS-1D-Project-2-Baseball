@@ -19,9 +19,9 @@ public:
 
     //!
     //! \brief displayGraph
-    //! \param Edge - vector containing the edges and their weight
+    //! \param Edge - QVector containing the edges and their weight
     //!
-    void displayGraph(vector<Edge<QString>> Edge);
+    void displayGraph(QVector<Edge<QString>> Edge);
 
     //!
     //! \brief getGraph

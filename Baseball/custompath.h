@@ -33,15 +33,26 @@ private:
     void fillComboBox();
     void fillScrollArea();
     void CheckboxChanged();
-
+    void efficiencyAlgo(QVector<QString> *stadiums,
+                     QVector<QString> *routeNames,
+                     QVector<double> *routeDistances,
+                     QString currentStadium);
 
     Ui::customPath *ui;
     manageDB *database;
 
+
     QString startingStadium;
     QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
-    QVector <QString> otherStadiumNames;
+    QVector <QString> orderedStadiumNames;
+    QVector<double> orderedStadiumDistances;
+
+    QVector<QLabel*> stadiumLabelVector;
+
+    QVector<QString> otherStadiumNames;
+
+    double totalDist;
 
 };
 
