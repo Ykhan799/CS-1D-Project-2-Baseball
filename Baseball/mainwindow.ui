@@ -36,8 +36,8 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>320</y>
+      <x>640</x>
+      <y>310</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -49,8 +49,8 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>320</y>
+      <x>40</x>
+      <y>310</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -62,8 +62,8 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>320</y>
+      <x>410</x>
+      <y>310</y>
       <width>171</width>
       <height>61</height>
      </rect>
@@ -114,7 +114,7 @@
    <widget class="QPushButton" name="DFSBFSMST">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>320</x>
       <y>440</y>
       <width>181</width>
       <height>61</height>
@@ -122,6 +122,19 @@
     </property>
     <property name="text">
      <string>View BFS/DFS/MST</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>310</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ordered Trip</string>
     </property>
    </widget>
   </widget>

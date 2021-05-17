@@ -68,7 +68,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    auto* dodger = new dodgerpath();
+    auto* dodger = new dodgerpath(nameList, this, graphs);
     dodger -> show();
 }
 
@@ -77,6 +77,11 @@ void MainWindow::on_pushButton_4_clicked()
     auto* marlins = new marlinsPath(nameList, this, graphs);
     marlins -> show();
 
+}
+void MainWindow::on_pushButton_5_clicked()
+{
+    auto* order = new orderedPath();
+    order->show();
 }
 
 /*************************************************************************
@@ -118,7 +123,7 @@ void MainWindow::rebuildGraph()
 {
 
 
-    // populate vectors and comboBox
+    // populate QVectors and comboBox
     nameList = data->startingStadiums();
     tempList = nameList;
 
@@ -127,7 +132,7 @@ void MainWindow::rebuildGraph()
         delete graphs;
     }
     graphs = new Graph<QString>();
-    vector<distanceEdge> edges;
+    QVector<distanceEdge> edges;
     for (const QString &stadium : nameList) {
         qDebug() << "adding node:" << stadium;
         graphs->addNode(stadium);
@@ -154,3 +159,4 @@ void MainWindow::on_DFSBFSMST_clicked()
 
 
 }
+

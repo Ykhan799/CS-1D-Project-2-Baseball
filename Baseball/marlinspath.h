@@ -22,7 +22,7 @@ class marlinsPath : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit marlinsPath(vector<QString> stadiums, QWidget *parent = nullptr, Graph<QString>* getGraph = nullptr);
+    explicit marlinsPath(QVector<QString> stadiums, QWidget *parent = nullptr, Graph<QString>* getGraph = nullptr);
     ~marlinsPath();
 
 private slots:
@@ -34,10 +34,10 @@ private:
     Ui::marlinsPath *ui;
     manageDB *database;
     QString *stadium;
-    vector<QString> stadiums;
+    QVector<QString> stadiums;
 
     QString startingStadium;
-    vector <QString> otherStadiumNames;
+    QVector <QString> otherStadiumNames;
     void initalizeMarlinsPath();
 
     void rebuildGraph();
@@ -45,9 +45,9 @@ private:
     QVector <QString> orderedStadiumNames;//store sorted stadiums in here
 
     Graph<QString>* graph;
-    vector<QString> nameList;
-    vector<QString> tempList;
-    vector<QString> selectedList;
+    QVector<QString> nameList;
+    QVector<QString> tempList;
+    QVector<QString> selectedList;
 
 };
 

@@ -2,7 +2,7 @@
 #include "ui_marlinspath.h"
 
 
-marlinsPath::marlinsPath(vector<QString> stadiums, QWidget *parent, Graph<QString>* getGraph) :
+marlinsPath::marlinsPath(QVector<QString> stadiums, QWidget *parent, Graph<QString>* getGraph) :
     QMainWindow(parent),
     ui(new Ui::marlinsPath)
 {
@@ -28,18 +28,18 @@ void marlinsPath::initalizeMarlinsPath()
     otherStadiumNames = nameList;
 
 
-      //vector<int> dists = graph->getMultiDijkstra(otherStadiumNames, startingStadium);
+      //QVector<int> dists = graph->getMultiDijkstra(otherStadiumNames, startingStadium);
      int distance = graph->startMultiDijkstra(otherStadiumNames, startingStadium);
 
 
-    vector<QString> route = graph->dijkstraOrder;
+    QVector<QString> route = graph->dijkstraOrder;
 
 
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // vector<QLabel> texts;
+   // QVector<QLabel> texts;
 
     ui->scrollArea_chosenSchools->setWidget(container);
     for (int i = 0; i < route.size(); i++)
@@ -62,7 +62,7 @@ void marlinsPath::rebuildGraph()
 {
 
 
-    // populate vectors and comboBox
+    // populate QVectors and comboBox
     nameList = database->startingStadiums();
     tempList = nameList;
 
@@ -71,7 +71,7 @@ void marlinsPath::rebuildGraph()
         delete graph;
     }
     graph = new Graph<QString>();
-    vector<distanceEdge> edges;
+    QVector<distanceEdge> edges;
     for (const QString &stadium : nameList) {
         qDebug() << "adding node:" << stadium;
         graph->addNode(stadium);

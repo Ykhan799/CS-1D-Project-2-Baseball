@@ -23,41 +23,41 @@ manageDB::manageDB(const QString& path)
 }
 
 /*************************************************************************
- * vector<QString> getTeamNames()
+ * QVector<QString> getTeamNames()
  * -----------------------------------------------------------------------
  * Gets all the team names from the database.
  ************************************************************************/
-vector<QString> manageDB::getTeamNames()
+QVector<QString> manageDB::getTeamNames()
 {
     // Gets the team names from the Database
-    vector<QString> teamName;
+    QVector<QString> teamName;
     QSqlQuery query("SELECT DISTINCT TeamName FROM TEAMS ORDER BY TeamName");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the team names into the vector
+        // Pushes the team names into the QVector
         QString out = query.value(0).toString();
         teamName.push_back(out);
     }
-    // returns a vector of team names.
+    // returns a QVector of team names.
     return teamName;
 }
 
-vector<QString> manageDB::getStadiumNames()
+QVector<QString> manageDB::getStadiumNames()
 {
     // Gets the stadium names from the Database
-    vector<QString> stadName;
+    QVector<QString> stadName;
     QSqlQuery query("SELECT DISTINCT StadiumName FROM TEAMS ORDER BY StadiumName");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the names into the vector
+        // Pushes the names into the QVector
         QString out = query.value(0).toString();
         stadName.push_back(out);
     }
-    // returns a vector of stadium names.
+    // returns a QVector of stadium names.
     return stadName;
 }
 
@@ -237,24 +237,24 @@ int manageDB::getNumOpenRoofs()
 }
 
 /*************************************************************************
- * vector<QString> getRoofTypes()
+ * QVector<QString> getRoofTypes()
  * -----------------------------------------------------------------------
  * Gets the distinct different roof types for all the teams.
  ************************************************************************/
-vector<QString> manageDB::getRoofTypes()
+QVector<QString> manageDB::getRoofTypes()
 {
     // Gets the roofs from the Database
-    vector<QString> roofs;
+    QVector<QString> roofs;
     QSqlQuery query("SELECT DISTINCT RoofType FROM TEAMS");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the roof names into the vector
+        // Pushes the roof names into the QVector
         QString out = query.value(0).toString();
         roofs.push_back(out);
     }
-    // returns a vector of roof names.
+    // returns a QVector of roof names.
     return roofs;
 }
 
@@ -284,24 +284,24 @@ QString manageDB::setRoofType(const QString& team)
 }
 
 /*************************************************************************
- * vector<QString> getSurfaces()
+ * QVector<QString> getSurfaces()
  * -----------------------------------------------------------------------
  * Gets the distinct surface types for all the teams
  ************************************************************************/
-vector<QString> manageDB::getSurfaces()
+QVector<QString> manageDB::getSurfaces()
 {
     // Gets the surface types from the Database
-    vector<QString> surface;
+    QVector<QString> surface;
     QSqlQuery query("SELECT DISTINCT PlayingSurface FROM TEAMS");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the surface names into the vector
+        // Pushes the surface names into the QVector
         QString out = query.value(0).toString();
         surface.push_back(out);
     }
-    // returns a vector of surface names.
+    // returns a QVector of surface names.
     return surface;
 }
 
@@ -331,24 +331,24 @@ QString manageDB::setSurfaceType(const QString& team)
 }
 
 /*************************************************************************
- * vector<QString> getTypology()
+ * QVector<QString> getTypology()
  * -----------------------------------------------------------------------
  * Gets the distinct typology types for all the teams
  ************************************************************************/
-vector<QString> manageDB::getTypology()
+QVector<QString> manageDB::getTypology()
 {
     // Gets the typology types from the Database
-    vector<QString> surface;
+    QVector<QString> surface;
     QSqlQuery query("SELECT DISTINCT BallparkTypology FROM TEAMS");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the typology names into the vector
+        // Pushes the typology names into the QVector
         QString out = query.value(0).toString();
         surface.push_back(out);
     }
-    // returns a vector of typology names.
+    // returns a QVector of typology names.
     return surface;
 }
 
@@ -629,13 +629,13 @@ QSqlQueryModel* manageDB::getSouvenirsByTeam(const QString& team)
 }
 
 /*************************************************************************
- * vector<QString> getTeamSouvenirs(const QString& team)
+ * QVector<QString> getTeamSouvenirs(const QString& team)
  * -----------------------------------------------------------------------
  * This function gets all the souvenirs for a given team.
  ************************************************************************/
-vector<QString> manageDB::getTeamSouvenirs(const QString& team)
+QVector<QString> manageDB::getTeamSouvenirs(const QString& team)
 {
-    vector<QString> souvenirs;
+    QVector<QString> souvenirs;
     QSqlQuery query;
 
     // query database for souvenirs by campus
@@ -644,7 +644,7 @@ vector<QString> manageDB::getTeamSouvenirs(const QString& team)
 
     query.exec();
 
-     // add souvenir names to vector
+     // add souvenir names to QVector
     while(query.next()) {
         QString out = query.value(0).toString();
         souvenirs.push_back(out);
@@ -998,43 +998,43 @@ void manageDB::updateTeams(const QString& team, const QString& newStadium, const
 }
 
 /*************************************************************************
- * vector<QString> startingStadiums()
+ * QVector<QString> startingStadiums()
  * -----------------------------------------------------------------------
  * This function gets the starting stadiums from the DISTANCES table and
- * returns a vector containing stadium names
+ * returns a QVector containing stadium names
  ************************************************************************/
-vector<QString> manageDB::startingStadiums()
+QVector<QString> manageDB::startingStadiums()
 {
     // Gets the starting stadiums from the Database
-    vector<QString> start;
+    QVector<QString> start;
     QSqlQuery query("SELECT DISTINCT Starting FROM DISTANCES");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the stadiumsinto the vector
+        // Pushes the stadiumsinto the QVector
         QString out = query.value(0).toString();
         start.push_back(out);
     }
-    // returns a vector of starting stadiums.
+    // returns a QVector of starting stadiums.
     return start;
 }
 
 /*************************************************************************
-* vector<Edge<QString>> getEdges(const QString& originStadium)
+* QVector<Edge<QString>> getEdges(const QString& originStadium)
 * -----------------------------------------------------------------------
-* This function returns a vector of edges containing the starting stadium,
+* This function returns a QVector of edges containing the starting stadium,
 * ending stadium, and the distance between each stadium based on the value
 * of the starting stadium
  ************************************************************************/
 /*
-vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
+QVector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
 {
     // initializing variables
-    vector<Edge<QString>> edge;
+    QVector<Edge<QString>> edge;
     Edge<QString> edgeVal;
-    vector<QString> endStadiums;
-    vector<double> distances;
+    QVector<QString> endStadiums;
+    QVector<double> distances;
     QSqlQuery query;
 
     // Gets the ending stadiums based on the value of the starting stadium
@@ -1047,7 +1047,7 @@ vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
         qDebug() << "Failed to query from SQL Database";
     }
 
-    // Pushes the ending stadiums into the vector
+    // Pushes the ending stadiums into the QVector
     while(query.next())
     {
         if (!query.next())
@@ -1067,7 +1067,7 @@ vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
         qDebug() << "Failed to query from SQL Database";
     }
 
-    // pushes the distance value into the vector
+    // pushes the distance value into the QVector
     while(query.next())
     {
         if (!query.next())
@@ -1077,7 +1077,7 @@ vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
         distances.push_back(query.value(0).toDouble());
     }
 
-    // Gets the individual values of edge and pushes it into a vector of edges
+    // Gets the individual values of edge and pushes it into a QVector of edges
     for (int i = 0; i < endStadiums.size(); i++)
     {
         edgeVal.start = originStadium;
@@ -1086,7 +1086,7 @@ vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
         edge.push_back(edgeVal);
     }
 
-    // returns a vector of edges based on the starting stadium
+    // returns a QVector of edges based on the starting stadium
     return edge;
 }
 */
@@ -1202,10 +1202,10 @@ QVector<QString> manageDB::getStad(const double& distance, QVector<QString> othe
 }
 */
 
-vector<distanceEdge> manageDB::getDistances(const QString& teamName) const
+QVector<distanceEdge> manageDB::getDistances(const QString& teamName) const
 {
     QSqlQuery query;
-    vector<distanceEdge> distances;
+    QVector<distanceEdge> distances;
     distanceEdge edge;
     query.prepare("SELECT Ending, DIST FROM DISTANCES WHERE Starting=:origin");
     query.bindValue(":origin", teamName);
@@ -1224,20 +1224,20 @@ vector<distanceEdge> manageDB::getDistances(const QString& teamName) const
     return distances;
 }
 
-vector<QString> manageDB::getLeague()
+QVector<QString> manageDB::getLeague()
 {
     // Gets the team names from the Database
-    vector<QString> leagues;
+    QVector<QString> leagues;
     QSqlQuery query("SELECT DISTINCT TeamLeague FROM TEAMS");
 
     // While query is not empty
     while(query.next())
     {
-        // Pushes the team names into the vector
+        // Pushes the team names into the QVector
         QString out = query.value(0).toString();
         leagues.push_back(out);
     }
-    // returns a vector of team names.
+    // returns a QVector of team names.
     return leagues;
 }
 

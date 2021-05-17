@@ -1,7 +1,7 @@
 #include "displaygraphs.h"
 #include "ui_displaygraphs.h"
 
-displayGraphs::displayGraphs(vector<QString> stadiums, QWidget *parent, Graph<QString> *getGraph) :
+displayGraphs::displayGraphs(QVector<QString> stadiums, QWidget *parent, Graph<QString> *getGraph) :
     QMainWindow(parent),
     ui(new Ui::displayGraphs)
 {
@@ -34,7 +34,7 @@ void displayGraphs::on_DFSButton_clicked()
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // vector<QLabel> texts;
+   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -42,10 +42,11 @@ void displayGraphs::on_DFSButton_clicked()
     int distance = graphs->startDFS("Oracle Park");
     QString pathStr;
     for (const auto &dest : graphs->dfsOrder) {
-        pathStr += dest + "\n";
+        pathStr = dest + "\n";
         QLabel *label = new QLabel;
         label->setText(pathStr);
         vBoxLayout->addWidget(label);
+
     }
 
 
@@ -61,7 +62,7 @@ void displayGraphs::on_MSTButton_clicked()
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // vector<QLabel> texts;
+   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -86,7 +87,7 @@ void displayGraphs::on_BFSButton_clicked()
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // vector<QLabel> texts;
+   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -95,7 +96,7 @@ void displayGraphs::on_BFSButton_clicked()
 
 
         for (const auto &dest : graphs->bfsOrder) {
-            pathStr += dest + "\n";
+            pathStr = dest + "\n";
             QLabel *label = new QLabel;
             label->setText(pathStr);
 
@@ -113,7 +114,7 @@ void displayGraphs::rebuildGraph()
 {
 
 
-    // populate vectors and comboBox
+    // populate QVectors and comboBox
     nameList = data->startingStadiums();
     tempList = nameList;
 
@@ -122,7 +123,7 @@ void displayGraphs::rebuildGraph()
         delete graphs;
     }
     graphs = new Graph<QString>();
-    vector<distanceEdge> edges;
+    QVector<distanceEdge> edges;
     for (const QString &stadium : nameList) {
         qDebug() << "adding node:" << stadium;
         graphs->addNode(stadium);

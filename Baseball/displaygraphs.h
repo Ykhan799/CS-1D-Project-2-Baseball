@@ -22,7 +22,7 @@ class displayGraphs : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit displayGraphs(vector<QString> stadiums, QWidget *parent = nullptr, Graph<QString> *getGraph = nullptr);
+    explicit displayGraphs(QVector<QString> stadiums, QWidget *parent = nullptr, Graph<QString> *getGraph = nullptr);
     ~displayGraphs();
 
 private slots:
@@ -42,9 +42,9 @@ private:
     manageDB* data;
 
    Graph<QString> *graphs;
-    vector<QString> nameList;
-    vector<QString> tempList;
-    vector<QString> selectedList;
+    QVector<QString> nameList;
+    QVector<QString> tempList;
+    QVector<QString> selectedList;
 };
 
 #endif // DISPLAYGRAPHS_H

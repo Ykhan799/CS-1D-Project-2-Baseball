@@ -10,7 +10,7 @@
 #include "manageDB.h"
 #include "dijkstra.h"
 #include "displaygraphs.h"
-
+#include "orderedpath.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -64,6 +64,8 @@ private slots:
 
     void on_DFSBFSMST_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     //!
     //! \brief ui - accesses the ui
@@ -102,8 +104,8 @@ private:
 
     displayGraphs *getGraphs;
 
-    vector<QString> nameList;
-    vector<QString> tempList;
-    vector<QString> selectedList;
+    QVector<QString> nameList;
+    QVector<QString> tempList;
+    QVector<QString> selectedList;
 };
 #endif // MAINWINDOW_H

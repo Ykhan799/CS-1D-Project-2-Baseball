@@ -33,11 +33,11 @@ public:
 
     //!
     //! \fn getTeamNames
-    //! \return vector containing team names
+    //! \return QVector containing team names
     //!
-    vector<QString> getTeamNames();
+    QVector<QString> getTeamNames();
 
-    vector<QString> getStadiumNames();
+    QVector<QString> getStadiumNames();
 
     //!
     //! \fn getSeatingCapacity
@@ -70,9 +70,9 @@ public:
 
     //!
     //! \fn getRoofTypes
-    //! \return vector of different roof types
+    //! \return QVector of different roof types
     //!
-    vector<QString> getRoofTypes();
+    QVector<QString> getRoofTypes();
 
     //!
     //! \fn setRoofType
@@ -83,9 +83,9 @@ public:
 
     //!
     //! \fn getSurfaces
-    //! \return vector of different playing surfaces
+    //! \return QVector of different playing surfaces
     //!
-    vector<QString> getSurfaces();
+    QVector<QString> getSurfaces();
 
     //!
     //! \fn setSurfaceType
@@ -96,9 +96,9 @@ public:
 
     //!
     //! \fn getTypology
-    //! \return vector of different typology types
+    //! \return QVector of different typology types
     //!
-    vector<QString> getTypology();
+    QVector<QString> getTypology();
 
     //!
     //! \fn setTypology
@@ -221,9 +221,9 @@ public:
     //!
     //! \fn getTeamSouvenirs
     //! \param team - QString indicating the souvenirs being accessed.
-    //! \return vector of strings containing all the souvenirs for a team
+    //! \return QVector of strings containing all the souvenirs for a team
     //!
-    vector<QString> getTeamSouvenirs(const QString& team);
+    QVector<QString> getTeamSouvenirs(const QString& team);
 
     //!
     //! \fn getSouvenirPrice
@@ -321,22 +321,22 @@ public:
 
     //!
     //! \fn startingStadiums
-    //! \return vector containing all the starting stadiums for the distances between each stadiums
+    //! \return QVector containing all the starting stadiums for the distances between each stadiums
     //!
-    vector<QString> startingStadiums();
+    QVector<QString> startingStadiums();
 
     //!
     //! \fn getEdges
     //! \param originStadium - QString representing the starting stadium between two stadiums
-    //! \return vector containing the all the edges(starting, ending, distance) for all the stadiums
+    //! \return QVector containing the all the edges(starting, ending, distance) for all the stadiums
     //!
-    //vector<Edge<QString>> getEdges(const QString& originStadium);
+    //QVector<Edge<QString>> getEdges(const QString& originStadium);
 
     double getDistance(const QString& currentCampus, const QString& nextCampus);
 
-    vector<distanceEdge> getDistances(const QString& teamName) const;
+    QVector<distanceEdge> getDistances(const QString& teamName) const;
 
-    vector<QString> getLeague();
+    QVector<QString> getLeague();
 
     QString setLeague(const QString& team);
 

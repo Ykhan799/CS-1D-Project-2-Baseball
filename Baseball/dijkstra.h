@@ -1,7 +1,7 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include <vector>
+#include <QVector>
 #include <algorithm>
 #include <queue>
 #include <limits.h>
@@ -46,23 +46,23 @@ public:
     /**
      * @brief dfsOrder Order of nodes after DFS is run
      */
-    vector<Type> dfsOrder;
+    QVector<Type> dfsOrder;
 
     /**
      * @brief bfsOrder Order of nodes after BFS is run
      */
-    vector<Type> bfsOrder;
+    QVector<Type> bfsOrder;
 
     /**
      * @brief shortestOrder Visit all nodes in shortest order.
      * Populated by shortestPath()
      */
-    vector<Type> shortestOrder;
+    QVector<Type> shortestOrder;
 
     /**
      * @brief dijkstraOrder Order of nodes for multiDijkstra()
      */
-    vector<Type> dijkstraOrder;
+    QVector<Type> dijkstraOrder;
 
     /**
      * @brief Output edges in MST
@@ -118,9 +118,9 @@ public:
      * @param start Starting node
      * @return Total distance travelled
      */
-    int startMultiDijkstra(vector<Type> nodes, const Type& start);
+    int startMultiDijkstra(QVector<Type> nodes, const Type& start);
 
-    vector<int> getMultiDijkstra(vector<Type> nodes, const Type& start);
+    QVector<int> getMultiDijkstra(QVector<Type> nodes, const Type& start);
 
     /**
      * @brief Finds shortest path to all nodes
@@ -140,12 +140,12 @@ private:
     /**
      * @brief List of data associated with index
      */
-    vector<Type> nodeList;
+    QVector<Type> nodeList;
 
     /**
      * @brief Adjacency matrix
      */
-    vector<vector<Edge>> adjMatrix;
+    QVector<QVector<Edge>> adjMatrix;
 
     /**
      * @brief Helper function to get index of node
@@ -160,14 +160,14 @@ private:
      * @param visited Keeps track of each visited node
      * @return Total cost (distance)
      */
-    int dfs(int v, vector<bool>& visited);
+    int dfs(int v, QVector<bool>& visited);
 
     /**
      * @brief Dijkstra pathfinding algorithm
      * @param start Name of starting node
      * @return Two dimentional array hold data for paths
      */
-    vector<vector<int>> DijkstraPaths(const Type& start);
+    QVector<QVector<int>> DijkstraPaths(const Type& start);
 
     /**
      * @brief Recursively runs Dijkstra over nodes
@@ -175,7 +175,7 @@ private:
      * @param start Starting node
      * @return Total distance
      */
-    int multiDijkstra(vector<Type> nodes, const Type& start);
+    int multiDijkstra(QVector<Type> nodes, const Type& start);
 
     /**
      * @brief Finds shortest path from node to node
@@ -229,14 +229,14 @@ int Graph<Type>::getIndex(const Type& obj) {
 
 template<class Type>
 int Graph<Type>::startDFS(const Type& start) {
-    vector<bool> visited(size, false);
+    QVector<bool> visited(size, false);
     dfsOrder.clear();
 
     return dfs(getIndex(start), visited);;
 }
 
 template<class Type>
-int Graph<Type>::dfs(int v, vector<bool>& visited) {
+int Graph<Type>::dfs(int v, QVector<bool>& visited) {
 
     int distTraveled = 0;
     visited[v] = true;
@@ -244,7 +244,7 @@ int Graph<Type>::dfs(int v, vector<bool>& visited) {
 
     // create adjacency list of valid nodes
     // and sort in order of increasing weight
-    vector<Edge> adjList;
+    QVector<Edge> adjList;
     for (auto it = adjMatrix[v].begin(); it != adjMatrix[v].end(); it++) {
         // find valid edge
         if (!visited[it->v] && it->weight > 0)
@@ -263,7 +263,7 @@ int Graph<Type>::dfs(int v, vector<bool>& visited) {
 
 template<class Type>
 int Graph<Type>::startBFS(const Type& start) {
-    vector<bool> visited(size, false);
+    QVector<bool> visited(size, false);
     queue<int> queue;
     int distTraveled = 0;
 
@@ -277,7 +277,7 @@ int Graph<Type>::startBFS(const Type& start) {
         queue.pop();
 
         // create adjacency list of valid edges
-        vector<Edge> adjList;
+        QVector<Edge> adjList;
         for (auto it = adjMatrix[currNode].begin();
              it != adjMatrix[currNode].end(); it++) {
             if (it->weight != 0 && !visited[it->v])
@@ -298,23 +298,23 @@ int Graph<Type>::startBFS(const Type& start) {
 template<class Type>
 int Graph<Type>::startMST() {
 
-    priority_queue<node, vector<node>, greater<node>> pq;
+    priority_queue<node, QVector<node>, greater<node>> pq;
 
     // starting node
     int src = 0;
 
     // parent of each node in MST
-    vector<int> parent(size, -1);
+    QVector<int> parent(size, -1);
     // distance to each node
-    vector<int> distance(size, INT_MAX);
-    vector<bool> inMST(size, false);
+    QVector<int> distance(size, INT_MAX);
+    QVector<bool> inMST(size, false);
 
     // starting point
     pq.push(make_pair(0, src));
     distance[src] = 0;
 
     // temp adjacency list
-    vector<Edge> adjList;
+    QVector<Edge> adjList;
 
     while (!pq.empty()) {
         // look at first node in the priority queue
@@ -366,19 +366,19 @@ int Graph<Type>::startMST() {
 
 template<class Type>
 int Graph<Type>::startDijkstra(const Type& start, const Type& dest) {
-    vector<vector<int>> T;
+    QVector<QVector<int>> T;
     T = DijkstraPaths(start);
     return T[getIndex(dest)][1];
 }
 
 template<class Type>
-int Graph<Type>::startMultiDijkstra(vector<Type> nodes, const Type& start) {
+int Graph<Type>::startMultiDijkstra(QVector<Type> nodes, const Type& start) {
     dijkstraOrder.clear();
     return multiDijkstra(nodes, start);
 }
 
 template<class Type>
-int Graph<Type>::multiDijkstra(vector<Type> nodes, const Type& start) {
+int Graph<Type>::multiDijkstra(QVector<Type> nodes, const Type& start) {
 
     dijkstraOrder.push_back(start);
 
@@ -391,7 +391,7 @@ int Graph<Type>::multiDijkstra(vector<Type> nodes, const Type& start) {
     if (nodes.size() < 1)
         return 0;
 
-    vector<vector<int>> T;
+    QVector<QVector<int>> T;
     T = DijkstraPaths(start);
 
     // find closest in selected nodes
@@ -411,10 +411,10 @@ int Graph<Type>::multiDijkstra(vector<Type> nodes, const Type& start) {
 }
 
 template <typename Type>
-vector<int> Graph<Type>::getMultiDijkstra(vector<Type> nodes, const Type& start)
+QVector<int> Graph<Type>::getMultiDijkstra(QVector<Type> nodes, const Type& start)
 {
 
-    vector<int> getDist;
+    QVector<int> getDist;
 
     dijkstraOrder.push_back(start);
 
@@ -430,7 +430,7 @@ vector<int> Graph<Type>::getMultiDijkstra(vector<Type> nodes, const Type& start)
         return getDist;
     }
 
-    vector<vector<int>> T;
+    QVector<QVector<int>> T;
     T = DijkstraPaths(start);
 
     // find closest in selected nodes
@@ -450,8 +450,8 @@ vector<int> Graph<Type>::getMultiDijkstra(vector<Type> nodes, const Type& start)
 }
 
 template<class Type>
-vector<vector<int>> Graph<Type>::DijkstraPaths(const Type& start) {
-    vector<vector<int>> T(size);
+QVector<QVector<int>> Graph<Type>::DijkstraPaths(const Type& start) {
+    QVector<QVector<int>> T(size);
     for (auto it = T.begin(); it != T.end(); it++)
         it->resize(3);
 
@@ -522,7 +522,7 @@ int Graph<Type>::shortestPath(const Type& start) {
 
     int curr = getIndex(start);
     int next = 0;
-    vector<bool> visited(size, false);
+    QVector<bool> visited(size, false);
 
     int distance = 0;
     int min;

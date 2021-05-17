@@ -1,4 +1,3 @@
-
 #ifndef CUSTOMPATH_H
 #define CUSTOMPATH_H
 #include "souvenirshop.h"
