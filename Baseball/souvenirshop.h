@@ -12,6 +12,7 @@
 #include <QMessageBox>
 #include "DataBase.h"
 #include "manageDB.h"
+#include "tripsummary.h"
 namespace Ui {
 class souvenirshop;
 }
@@ -32,6 +33,8 @@ private slots:
     void on_souvenir_tableView_clicked(const QModelIndex &index);
 
     void on_nextCollege_button_clicked();
+
+    void on_endTour_button_clicked();
 
 private:
     Ui::souvenirshop *ui;

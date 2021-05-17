@@ -79,7 +79,9 @@ void souvenirshop::on_buy_button_clicked()
 
 
         ui->label_souv->setText("Souvenirs Purchased Here: " + QVariant(purchasedSouvAtStadium).toString());
+        ui->label_souv->setStyleSheet("QLabel { background-color : black; color : white; }");
         ui->label_souvCosts->setText("Cost of Souvenirs Purchased Here: $" + QString::number(subCostAtStadium, 'f', 2));
+        ui->label_souvCosts->setStyleSheet("QLabel { background-color : black; color : white; }");
 
     }
     else
@@ -137,7 +139,23 @@ void souvenirshop::on_nextCollege_button_clicked()
     }
     else
     {
-        QMessageBox::information(this, "Warning", "Your tour has ended. To continue, please click \"End Tour\"");
+        QMessageBox::information(this, "Warning", "Your trip has ended. To continue, please click \"End Trip\"");
     }
 
+}
+
+void souvenirshop::on_endTour_button_clicked()
+{
+    if(stadiumCount >= selectedStadiums.size())
+    {
+        QString tempCost = "$" + QString::number(grandTotal, 'f', 2);
+        QString tempDistance = QString::number(distanceTraveled, 'f', 2) + " miles";
+        auto* endTrip = new tripSummary(tempDistance, tempCost, selectedStadiums, subCostList);
+        hide();
+        endTrip->show();
+    }
+    else
+    {
+        QMessageBox::information(this, "Warning", "Your tour is not over. Please finish your tour before clicking \"End Tour\"");
+    }
 }

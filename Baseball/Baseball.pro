@@ -21,7 +21,8 @@ SOURCES += \
     modifySouvenirs.cpp \
     modifyTeams.cpp \
     orderedpath.cpp \
-    souvenirshop.cpp
+    souvenirshop.cpp \
+    tripsummary.cpp
 
 HEADERS += \
     DataBase.h \
@@ -36,7 +37,8 @@ HEADERS += \
     modifySouvenirs.h \
     modifyTeams.h \
     orderedpath.h \
-    souvenirshop.h
+    souvenirshop.h \
+    tripsummary.h
 
 FORMS += \
     DataBase.ui \
@@ -49,7 +51,8 @@ FORMS += \
     modifySouvenirs.ui \
     modifyTeams.ui \
     orderedpath.ui \
-    souvenirshop.ui
+    souvenirshop.ui \
+    tripsummary.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
