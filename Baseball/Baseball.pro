@@ -11,8 +11,8 @@ CONFIG += c++11
 SOURCES += \
     DataBase.cpp \
     custompath.cpp \
+    displaygraphs.cpp \
     dodgerpath.cpp \
-    graph.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,9 +25,9 @@ SOURCES += \
 HEADERS += \
     DataBase.h \
     custompath.h \
+    dijkstra.h \
+    displaygraphs.h \
     dodgerpath.h \
-    graph.h \
-    graphhelper.h \
     login.h \
     mainwindow.h \
     manageDB.h \
@@ -39,8 +39,8 @@ HEADERS += \
 FORMS += \
     DataBase.ui \
     custompath.ui \
+    displaygraphs.ui \
     dodgerpath.ui \
-    graph.ui \
     login.ui \
     mainwindow.ui \
     marlinspath.ui \

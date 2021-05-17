@@ -43,6 +43,7 @@ vector<QString> manageDB::getTeamNames()
     // returns a vector of team names.
     return teamName;
 }
+
 vector<QString> manageDB::getStadiumNames()
 {
     // Gets the stadium names from the Database
@@ -59,6 +60,7 @@ vector<QString> manageDB::getStadiumNames()
     // returns a vector of stadium names.
     return stadName;
 }
+
 /*************************************************************************
  * QString getStadiumName(const QString& team)
  * -----------------------------------------------------------------------
@@ -1024,6 +1026,7 @@ vector<QString> manageDB::startingStadiums()
 * ending stadium, and the distance between each stadium based on the value
 * of the starting stadium
  ************************************************************************/
+/*
 vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
 {
     // initializing variables
@@ -1084,4 +1087,138 @@ vector<Edge<QString>> manageDB::getEdges(const QString& originStadium)
 
     // returns a vector of edges based on the starting stadium
     return edge;
+}
+*/
+
+
+double manageDB::getDistance(const QString& currentCampus, const QString& nextCampus)
+{
+    QSqlQuery query;     // query
+
+    double distance = 0; // distance between the two campuses
+
+    // find the cell whose starting campus is currentCampus and whose ending campus is nextCampus
+    query.prepare("SELECT DIST FROM DISTANCES WHERE Starting = :CURRENTCAMPUS AND Ending = :NEXTCAMPUS");
+    query.bindValue(":CURRENTCAMPUS", currentCampus);
+    query.bindValue(":NEXTCAMPUS", nextCampus);
+
+    // execute prepared query
+    query.exec();
+
+    // assign value to distance
+    if (query.next())
+    {
+        distance = query.value(0).toDouble();
+    }
+
+    return distance;     // return distance
+}
+
+/*
+QVector<QString> manageDB::DIJKSTRA(QString startStadium, QVector<QString> otherStadiums)
+{
+    QVector<QString> orderedStadiums;
+    int dist[vNum];
+    bool sptSet[vNum];
+    int parent[vNum];
+
+    for (int i = 0; i < vNum; i++)
+    {
+        sptSet[i] = false;
+        dist[i] = MAX;
+        parent[i] = -1;
+        if (startingStadium == vertices[i].value)
+        {
+            startingID = i;
+        }
+    }
+
+    dist[startingID] = 0;
+
+    for (int i = 0; i < vNum - 1; i++)
+    {
+        int u = minDistance(dist, sptSet);
+
+        sptSet[u] = true;
+
+        for (int v = 0; v < vNum; v++)
+        {
+            if (!sptSet[u] && adjMat[u][v] && dist[u] < adjMat[u][v] < dist[v])
+            {
+                parent[v] = u;
+                dist[v] = dist[u] + adjMat[u][v];
+            }
+        }
+    }
+
+    selectStadiums.pop_front();
+
+    if (selectStadiums.size() > 1)
+    {
+        recurDijkstra(selectStadiums);
+    }
+
+    else
+    {
+        return
+    }
+}
+*/
+
+/*
+QVector<QString> manageDB::getStad(const double& distance, QVector<QString> otherStadiums)
+{
+    QVector<QString> results;
+    QString start = otherStadiums[0];
+
+    //double dist = 0; // distance between the two campuses
+
+    QSqlQuery query;     // query
+
+    // find the cell whose starting campus is currentCampus and whose ending campus is nextCampus
+    query.prepare("SELECT Ending FROM DISTANCES WHERE Starting = :CURRENTCAMPUS AND DIST = :DIST");
+    query.bindValue(":CURRENTCAMPUS", start);
+    query.bindValue(":DIST", distance);
+
+    for (int i = 0; i < otherStadiums.size(); i++)
+    {
+        query.exec();
+
+        if (query.next())
+        {
+            QString name = query.value(0).toString();
+
+            if (name == otherStadiums[i])
+            {
+                results.push_back(name);
+            }
+        }
+    }
+
+    return results;
+
+
+}
+*/
+
+vector<distanceEdge> manageDB::getDistances(const QString& teamName) const
+{
+    QSqlQuery query;
+    vector<distanceEdge> distances;
+    distanceEdge edge;
+    query.prepare("SELECT Ending, DIST FROM DISTANCES WHERE Starting=:origin");
+    query.bindValue(":origin", teamName);
+    query.exec();
+
+    query.first();
+    edge.team_name_origin = teamName;
+    while (query.isValid()) {
+        edge.team_name_destination = query.value(0).toString();
+        edge.distance = query.value(1).toInt();
+        distances.push_back(edge);
+
+        query.next();
+    }
+
+    return distances;
 }

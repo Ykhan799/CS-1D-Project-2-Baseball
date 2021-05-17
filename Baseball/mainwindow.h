@@ -8,22 +8,37 @@
 #include "login.h"
 #include "DataBase.h"
 #include "manageDB.h"
-#include "graph.h"
+#include "dijkstra.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+//!
+//! \class MainWindow
+//! Allows the user to login, view teams, souvenirs,
+//! BFS, DFS, and MST
+//!
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    //!
+    //! \fn MainWindow Constructor
+    //! Sets the database connection
+    //! \param parent - sets up the ui
+    //!
     MainWindow(QWidget *parent = nullptr);
+
+    //!
+    //! \fn ~MainWindow Destructor
+    //!
     ~MainWindow();
 
 private slots:
     //!
-    //! \brief on_LogIn_clicked
+    //! \fn on_LogIn_clicked
     //! Launches the Log In window
     //!
     void on_LogIn_clicked();
@@ -35,35 +50,62 @@ private slots:
     void on_pushButton_4_clicked();
 
     //!
-    //! \brief on_viewTeamsSouvenirs_clicked
+    //! \fn on_viewTeamsSouvenirs_clicked
     //! Launches the window to view teams and souvenirs.
     //!
     void on_viewTeamsSouvenirs_clicked();
 
     //!
-    //! \brief on_LogOut_clicked
+    //! \fn on_LogOut_clicked
     //! Launches the Log Out window once administrator logs in.
     //!
     void on_LogOut_clicked();
 
-    //!
-    //! \brief on_BFSDFSMST_clicked
-    //! Launches a window for a baseball fan to view the BFS, DFS,
-    //! and/or MST of the baseball teams
-    //!
-    void on_BFSDFSMST_clicked();
+
+    void on_BFS_clicked();
+
+    void on_DFS_clicked();
+
+    void on_MST_clicked();
 
 private:
+    //!
+    //! \brief ui - accesses the ui
+    //!
     Ui::MainWindow *ui;
 
+    //!
+    //! \brief admin - opens the login screen
+    //!
     login* admin;
 
+    //!
+    //! \brief database - opens up the database to view teams and souvenirs
+    //!
     DataBase* database;
 
+    //!
+    //! \brief data - connects to the database
+    //!
     manageDB *data;
 
-    graph* info;
+    //!
+    //! \brief info - opens up window to view BFS, DFS, and MST
+    //!
+    //!
+    Graph<QString> *graphs;
 
+
+    void rebuildGraph();
+
+
+    //!
+    //! \brief isAdmin - keeps track of whether the user is an Admin
+    //!
     bool isAdmin;
+
+    vector<QString> nameList;
+    vector<QString> tempList;
+    vector<QString> selectedList;
 };
 #endif // MAINWINDOW_H

@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
      // open database with file path
      data = new manageDB(dbPath);
      qDebug() << "Database should be located at: " << dbPath;
+     graphs = nullptr;
+     rebuildGraph();
 }
 
 MainWindow::~MainWindow()
@@ -109,15 +111,77 @@ void MainWindow::on_LogOut_clicked()
     isAdmin = false;
 }
 
-/*************************************************************************
- * void on_BFSDFSMST_clicked()
- * -----------------------------------------------------------------------
- * Opens up a new window for the baseball fan or administrator to view the
- * BFS, DFS, and/or MST for the baseball teams
- ************************************************************************/
-void MainWindow::on_BFSDFSMST_clicked()
+
+
+void MainWindow::on_BFS_clicked()
 {
-    // displays a new window containing the options to view BFS, DFS, and MST
-    info = new graph();
-    info->show();
+    int start = graphs->startBFS("Target Field");
+    QString pathStr;
+        for (const auto &dest : graphs->bfsOrder) {
+            pathStr += dest + "\n";
+        }
+
+        QMessageBox msgBox;
+        msgBox.setText("BFS starting from Target Field (Minnesota Twins)");
+        msgBox.setInformativeText("Total distance: " + QString::number(start));
+        msgBox.setDetailedText(pathStr);
+        msgBox.exec();
+ }
+
+void MainWindow::rebuildGraph()
+{
+
+
+    // populate vectors and comboBox
+    nameList = data->startingStadiums();
+    tempList = nameList;
+
+    // populate graph
+    if(graphs != nullptr) {
+        delete graphs;
+    }
+    graphs = new Graph<QString>();
+    vector<distanceEdge> edges;
+    for (const QString &stadium : nameList) {
+        qDebug() << "adding node:" << stadium;
+        graphs->addNode(stadium);
+    }
+    for (const QString &stadium : nameList) {
+        edges = data->getDistances(stadium);
+        for (const auto &edge : edges) {
+            qDebug() << "adding edge:" << edge.team_name_origin << edge.team_name_destination << edge.distance;
+            graphs->addEdge(edge.team_name_origin, edge.team_name_destination,
+                           edge.distance);
+        }
+    }
+
+}
+
+void MainWindow::on_DFS_clicked()
+{
+    int distance = graphs->startDFS("Oracle Park");
+    QString pathStr;
+    for (const auto &dest : graphs->dfsOrder) {
+        pathStr += dest + "\n";
+    }
+
+    QMessageBox msgBox;
+    msgBox.setText("DFS starting from Oracle Park (San Francisco Giants)");
+    msgBox.setInformativeText("Total distance: " + QString::number(distance));
+    msgBox.setDetailedText(pathStr);
+    msgBox.exec();
+}
+
+void MainWindow::on_MST_clicked()
+{
+    int distance = graphs->startMST();
+    QString pathStr = "MST Edges:\n";
+    pathStr += graphs->mstString;
+
+    QMessageBox msgBox;
+    msgBox.setStyleSheet("QLabel{min-width: 400px;}");
+    msgBox.setText("MST");
+    msgBox.setInformativeText("Total distance: " + QString::number(distance));
+    msgBox.setDetailedText(pathStr);
+    msgBox.exec();
 }

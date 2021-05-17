@@ -1,3 +1,4 @@
+/*
 #include "graph.h"
 #include "ui_graph.h"
 
@@ -20,13 +21,9 @@ graph::~graph()
     delete ui;
 }
 
-/*************************************************************************
-* void displayGraph(vector<Edge<QString>> Edge)
-* -----------------------------------------------------------------------
-* This function displays the either the BFS, DFS, or MST of the baseball
-* stadiums. It does this by using the parameter Edge which is a vector of
-* edges
-************************************************************************/
+
+
+
 void graph::displayGraph(vector<Edge<QString>> Edge)
 {
     // Sets the dimensions for the table widget
@@ -63,23 +60,16 @@ void graph::displayGraph(vector<Edge<QString>> Edge)
 
 }
 
-/*************************************************************************
- * void on_back_clicked()
- * -----------------------------------------------------------------------
- * Allows the Administrator or Baseball fan to go back to the home screen.
- ************************************************************************/
+
+
+
 void graph::on_back_clicked()
 {
     this->close();
 }
 
-/*************************************************************************
-* void getGraph()
-* -----------------------------------------------------------------------
-* Creates a graph with an array of stadium names and size based on the number
-* of stadiums(vertices). The function also gets the edges between stadiums
-* from the database and adds it to the graph to be used for BFS, DFS, or MST
- ************************************************************************/
+
+
 void graph::getGraph()
 {
     // gets the vertices(stadiums) and creates an array of stadiums
@@ -107,11 +97,9 @@ void graph::getGraph()
     }
 }
 
-/*************************************************************************
- * void on_bfs_clicked()
- * -----------------------------------------------------------------------
- * Displays the BFS of the baseball stadiums starting from Target Field
- ************************************************************************/
+
+
+
 void graph::on_bfs_clicked()
 {
     // creates a graph
@@ -122,27 +110,25 @@ void graph::on_bfs_clicked()
     displayGraph(edges);
 }
 
-/*************************************************************************
- * void on_dfs_clicked()
- * -----------------------------------------------------------------------
- * Displays the DFS of the baseball stadiums starting from Oracle Park
- ************************************************************************/
+
+
+
 void graph::on_dfs_clicked()
 {
     // creates a graph
     getGraph();
 
     // gets the DFS of the baseball stadiums from Oracle Park and displays the edges
+
+
     vector<Edge<QString>> edges = createGraph->DFS("Oracle Park");
     displayGraph(edges);
 
 }
 
-/*************************************************************************
- * void on_mst_clicked()
- * -----------------------------------------------------------------------
- * Displays the MST of the baseball stadiums using Kruskal's Algorithm
- ************************************************************************/
+
+
+
 void graph::on_mst_clicked()
 {
     // creates a graph
@@ -152,3 +138,5 @@ void graph::on_mst_clicked()
     vector<Edge<QString>> edges = createGraph->kruskalMST();
     displayGraph(edges);
 }
+*/
+

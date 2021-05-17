@@ -1,3 +1,4 @@
+
 #include "dodgerpath.h"
 #include "ui_dodgerpath.h"
 
@@ -73,3 +74,4 @@ void dodgerpath::on_planTrip_button_clicked()
     CheckboxChanged();
     //orderedStadiumNames = DJIKSTRA(startingStadium,otherStadiumNames);        IMPLEMENT DJIKSTRA ALG
 }
+

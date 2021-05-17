@@ -1,16 +1,22 @@
-#ifndef GRAPHHELPER_H
-#define GRAPHHELPER_H
+//#ifndef GRAPHHELPER_H
+//#define GRAPHHELPER_H
 
+//#include "dijkstra.h"
+/*
 #include <vector>
 #include <algorithm>
+#include <QVector>
+#include "manageDB.h"
 using namespace std;
+
+const int MAX = 100000;
 
 // forward declaration
 template <typename T>
 struct Vertex;
 
 //!
-//! \brief Edge struct
+//! \struct Edge
 //! Edge containing a starting point,
 //! ending point, weight, and a starting and ending vertex
 //!
@@ -25,7 +31,7 @@ struct Edge
 };
 
 //!
-//! \brief Vertex struct
+//! \struct Vertex
 //! Vertex containing data,
 //! edges of the vertex, parent,
 //! id, starting time, ending time,
@@ -40,12 +46,13 @@ struct Vertex
     int startTime = -1;
     int endTime = -1;
     int depth;
+    //int cost;
     vector<Edge<T>> edges;
     Vertex<T>* parent;
 };
 
 //!
-//! \brief The clusterSets struct
+//! \struct clusterSets
 //! Contains the parent, rank, and size of a set
 //! Functions include creating set, finding set,
 //! and merging sets
@@ -57,7 +64,7 @@ struct clusterSets
     int size;
 
     //!
-    //! \brief DisjointSets
+    //! \fn DisjointSets
     //! Creates a new parent and rank of size n + 1
     //! sets rank to 0 and parent from 0 to n
     //! \param size - size of the set
@@ -78,7 +85,7 @@ struct clusterSets
     }
 
     //!
-    //! \brief findSet
+    //! \fn findSet
     //! Finds the parent of the parameter u
     //! \param u - represents the element in which the parent is being searched
     //! \return - parent of paremeter u
@@ -96,7 +103,7 @@ struct clusterSets
     }
 
     //!
-    //! \brief mergeSet
+    //! \fn mergeSet
     //! finds x and y, and compares their ranks
     //! and merges accordingly
     //! \param x - represents the first set
@@ -130,7 +137,7 @@ struct clusterSets
 };
 
 //!
-//! \brief compareWeight struct
+//! \struct compareWeight
 //! Compares the weight of the starting and ending edges
 //! Sorts the edges in ascending order
 //!
@@ -138,7 +145,8 @@ template <typename T>
 struct compareWeight
 {
     //!
-    //! \brief operator ()
+    //! \fn operator()
+    //! Compares the weights of two edges.
     //! \param start - value of type Edge. Starting edge
     //! \param end - value of type Edge. Ending edge
     //! \return true if the starting weight is less than or equal to the ending weight
@@ -164,7 +172,7 @@ struct compareWeight
 };
 
 //!
-//! \brief graphHelper class
+//! \class graphHelper
 //! Provides the definition of a graph which is then used to
 //! implement the DFS, BFS, and MST of the graph. The edges and
 //! total distance of the DFS, BFS, and MST is then displayed
@@ -175,13 +183,15 @@ class graphHelper
 private:
     // number of vertices, edges, adj matrix, vertices of graph, and id's
     int vNum;
+    int startingID;
     int eNum;
     int** adjMat;
     Vertex<T>* vertices;
     vector<pair<double,pair<int, int>>> edges;
+    //manageDB *db;
 
     //!
-    //! \brief DFSDriver
+    //! \fn DFSDriver
     //! Performs the DFS algorithm
     //! \param start - represents the starting point for the DFS algorithm
     //! \param visited - a vector initialized to false until each edge is visited
@@ -192,7 +202,7 @@ private:
 
 public:
     //!
-    //! \brief graphHelper
+    //! \fn graphHelper
     //! Initializes a new graph
     //! \param elements - represents an array of type T
     //! \param size - represents the size of the elements array
@@ -200,13 +210,13 @@ public:
     graphHelper(T elements[], int size);
 
     //!
-    //! \brief ~graphHelper
+    //! \fn ~graphHelper
     //! Destroys a graph that goes out of scope
     //!
     ~graphHelper();
 
     //!
-    //! \brief addEdge
+    //! \fn addEdge
     //! Adds edges to a graph
     //! \param start
     //! \param end
@@ -214,8 +224,10 @@ public:
     //!
     void addEdge(T start, T end, double weight);
 
+    QVector<QString> DIJKSTRA(QString startStadium, QVector<QString> otherStadiums);
+
     //!
-    //! \brief DFS
+    //! \fn DFS
     //! \param start - represents the starting point to begin DFS
     //! \return vector of edges which represents all the discovery edges
     //! from the DFS algorithm
@@ -223,15 +235,21 @@ public:
     vector<Edge<T>> DFS(T start);
 
     //!
-    //! \brief BFS
+    //! \fn BFS
     //! \param start - represents the starting point to begin BFS
     //! \return vector of edges representing all the discovery edges
     //! from the BFS algorithm
     //!
     vector<Edge<T>> BFS(T start);
 
+    //vector<int> Dijkstra(T start);
+
+    //QVector<QString> recurDijkstra(QVector<QString> selectStadiums);
+
+    //int minDistance(int dist[], bool sptSet[]);
+
     //!
-    //! \brief kruskalMST
+    //! \fn kruskalMST
     //! Finds the MST of the baseball stadiums using
     //! Kruskal's Algorithm
     //! \return vector of edges which are the edges
@@ -239,6 +257,7 @@ public:
     //!
     vector<Edge<T>> kruskalMST();
 };
+*/
 
 /*************************************************************************
 * graphHelper(T elements[], int size)
@@ -246,6 +265,7 @@ public:
 * This constructor initializes a graph with vertices being assigned to the
 * elements array and the adjacency matrix being assigned to 0
 ************************************************************************/
+/*
 template <typename T>
 graphHelper<T>::graphHelper(T elements[], int size)
 {
@@ -268,12 +288,14 @@ graphHelper<T>::graphHelper(T elements[], int size)
         }
     }
 }
+*/
 
 /*************************************************************************
 * ~graphHelper()
 * -----------------------------------------------------------------------
 * This destructor destroys any graph that goes out of scope
 ************************************************************************/
+/*
 template<typename T>
 graphHelper<T>::~graphHelper()
 {
@@ -290,6 +312,7 @@ graphHelper<T>::~graphHelper()
     vNum = 0;
     eNum = 0;
 }
+*/
 
 /*************************************************************************
 * void addEdge(T start, T end, double weight)
@@ -297,6 +320,7 @@ graphHelper<T>::~graphHelper()
 * This function adds an edge to the graph and initializes attributes of the
 * vertices and edges
 ************************************************************************/
+/*
 template <typename T>
 void graphHelper<T>::addEdge(T start, T end, double weight)
 {
@@ -317,18 +341,24 @@ void graphHelper<T>::addEdge(T start, T end, double weight)
     }
     // Sets the edges to 1
     adjMat[first][last] = 1;
+    adjMat[last][first] = 1;
 
     // forward edge
     Edge<T> edgeForward = {start, end, weight};
+    Edge<T> edgeBackward = { end, start, weight };
 
     // pushes the forward edges to the vertices pushes the edge weight, start, and end ID
     vertices[first].edges.push_back(edgeForward);
+    vertices[last].edges.push_back(edgeBackward);
     edges.push_back(make_pair( weight, make_pair(first, last)));
 
     // ending and starting vertex
     vertices[first].edges.back().endVertex = &vertices[last];
     vertices[first].edges.back().startVertex = &vertices[first];
+    //vertices[last].edges.back().pEndVertex = &vertices[first];
+    //vertices[last].edges.back().pStartVertex = &vertices[last];
 }
+*/
 
 /*************************************************************************
 * vector<Edge<T>> DFS(T start)
@@ -336,6 +366,8 @@ void graphHelper<T>::addEdge(T start, T end, double weight)
 * This function returns a vector of discovery edges after calling the
 * DFSDriver function
 ************************************************************************/
+
+/*
 template<typename T>
 vector<Edge<T>> graphHelper<T>::DFS(T start)
 {
@@ -356,6 +388,7 @@ vector<Edge<T>> graphHelper<T>::DFS(T start)
     // returns a vector containing the discovery edges of the DFS performed
     return discoveryEdges;
 }
+*/
 
 /*************************************************************************
 * void DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& discoveryEdges, int counter)
@@ -363,6 +396,8 @@ vector<Edge<T>> graphHelper<T>::DFS(T start)
 * This recursive function performs a DFS traversal through all the baseball stadium graph
 * starting from the vertex start. Keeps going until all vertices are visited
 ************************************************************************/
+
+/*
 template<typename T>
 void graphHelper<T>::DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& discoveryEdges, int counter)
 {
@@ -409,12 +444,16 @@ void graphHelper<T>::DFSDriver(T start, vector<bool> &visited, vector<Edge<T>>& 
     }
 }
 
+*/
+
 /*************************************************************************
 * vector<Edge<T>> BFS(T start)
 * -----------------------------------------------------------------------
 * This function performs a BFS traversal on a graph of baseball stadiums
 * and returns the discovery edges until all vertices are visited
 ************************************************************************/
+
+/*
 template <typename T>
 vector<Edge<T>> graphHelper<T>::BFS(T start)
 {
@@ -494,12 +533,126 @@ vector<Edge<T>> graphHelper<T>::BFS(T start)
     return discoveryEdges;
 }
 
+
+template <typename T>
+vector<int> graphHelper<T>::Dijkstra(T start)
+{
+        vector<int> dist(vNum);
+        vector<bool> sptSet(vNum);
+
+        for (int i = 0; i < vNum; i++)
+        {
+            dist[i] = MAX;
+            sptSet[i] = false;
+        }
+
+        int id = 0;
+        for (int i = 0; i < vNum; i++)
+        {
+            if (vertices[i].value == start)
+            {
+                id = i;
+            }
+        }
+
+        dist[id] = 0;
+
+        for (int count = 0; count < vNum - 1; count++)
+        {
+            int u = minDistance(dist, sptSet);
+            sptSet[u] = true;
+
+            for (int v = 0; v < vNum; v++)
+            {
+                dist[v] = dist[u] + adjMat[u][v];
+            }
+        }
+      return dist;
+}
+
+template <typename T>
+int graphHelper<T>::minDistance(int dist[], bool sptSet[])
+{
+    int min = MAX;
+    int minIndex = -1;
+
+    for (int v = 0; v < vNum; v++)
+    {
+        if (sptSet[v] == false && dist[v] <= min)
+        {
+            min = dist[v];
+            minIndex = v;
+        }
+    }
+    return minIndex;
+}
+*/
+
+/*
+template <typename T>
+QVector<QString> graphHelper<T>::recurDijkstra(QVector<QString> selectStadiums)
+{
+    QString startingStadium = selectStadiums[0];
+    QString endingStadium = selectStadiums[1];
+    QVector<QString> result;
+
+    int dist[vNum];
+    bool sptSet[vNum];
+    int parent[vNum];
+
+    for (int i = 0; i < vNum; i++)
+    {
+        sptSet[i] = false;
+        dist[i] = MAX;
+        parent[i] = -1;
+        if (startingStadium == vertices[i].value)
+        {
+            startingID = i;
+        }
+    }
+
+    dist[startingID] = 0;
+
+    for (int i = 0; i < vNum - 1; i++)
+    {
+        int u = minDistance(dist, sptSet);
+
+        sptSet[u] = true;
+
+        for (int v = 0; v < vNum; v++)
+        {
+            if (!sptSet[u] && adjMat[u][v] && dist[u] < adjMat[u][v] < dist[v])
+            {
+                parent[v] = u;
+                dist[v] = dist[u] + adjMat[u][v];
+            }
+        }
+    }
+
+    selectStadiums.pop_front();
+
+    if (selectStadiums.size() > 1)
+    {
+        recurDijkstra(selectStadiums);
+    }
+
+    else
+    {
+        return
+    }
+}
+*/
+
+
+
 /*************************************************************************
 * vector<Edge<T>> kruskalMST()
 * -----------------------------------------------------------------------
 * This function performs a MST of the baseball stadiums using Kruskal's
 * algorithm. A vector containing the edges of the MST graph is returned
 ************************************************************************/
+
+/*
 template<typename T>
 vector<Edge<T>> graphHelper<T>::kruskalMST()
 {
@@ -542,4 +695,60 @@ vector<Edge<T>> graphHelper<T>::kruskalMST()
     // returns a vector of discoveryEdges of the MST
     return discoveryEdges;
 }
-#endif // GRAPHHELPER_H
+*/
+
+/*
+template <typename T>
+QVector<QString> graphHelper<T>::DIJKSTRA(QString startStadium, QVector<QString> otherStadiums)
+{
+    QVector<QString> orderedStadiums;
+    int dist[vNum];
+    bool sptSet[vNum];
+    int parent[vNum];
+    int totalDist = 0;
+
+    for (int i = 0; i < vNum; i++)
+    {
+        sptSet[i] = false;
+        dist[i] = MAX;
+        parent[i] = -1;
+        if (otherStadiums[0] == vertices[i].value)
+        {
+            startingID = i;
+        }
+    }
+
+    dist[startingID] = 0;
+
+    for (int i = 0; i < vNum - 1; i++)
+    {
+        int u = minDistance(dist, sptSet);
+
+        sptSet[u] = true;
+
+        for (int v = 0; v < vNum; v++)
+        {
+            if (!sptSet[u] && adjMat[u][v] && dist[u] < adjMat[u][v] < dist[v])
+            {
+                parent[v] = u;
+                dist[v] = dist[u] + adjMat[u][v];
+                totalDist += dist[v];
+            }
+        }
+    }
+
+    orderedStadiums = db->getStad(totalDist, otherStadiums);
+
+    otherStadiums.pop_front();
+
+    if (otherStadiums.size() > 1)
+    {
+        DIJKSTRA(startStadium, otherStadiums);
+    }
+
+    return orderedStadiums;
+
+
+}
+*/
+//#endif // GRAPHHELPER_H

@@ -8,12 +8,25 @@ namespace Ui {
 class login;
 }
 
+//!
+//! \class login
+//! Sets up the login screen
+//! for the user to login as an administrator
+//!
 class login : public QDialog
 {
     Q_OBJECT
 
 public:
+    //!
+    //! \fn login Constructor
+    //! \param parent
+    //!
     explicit login(QWidget *parent = nullptr);
+
+    //!
+    //! \fn ~login Destructor
+    //!
     ~login();
 
     //!
@@ -25,19 +38,22 @@ public:
 private slots:
 
     //!
-    //! \brief on_logInButton_clicked
+    //! \fn on_logInButton_clicked
     //! Logs User in if they enter the correct username and password
     //!
     void on_logInButton_clicked();
 
     //!
-    //! \brief on_cancelLogin_clicked
+    //! \fn on_cancelLogin_clicked
     //! Allows the baseball fan to exit login
     //! screen.
     //!
     void on_cancelLogin_clicked();
 
 private:
+    //!
+    //! \brief ui - sets up the ui
+    //!
     Ui::login *ui;
 
     //!

@@ -10,6 +10,7 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QSqlQuery>
+#include "dijkstra.h"
 #include <QMainWindow>
 #include <souvenirshop.h>
 namespace Ui {
@@ -32,12 +33,22 @@ private slots:
 private:
     Ui::marlinsPath *ui;
     manageDB *database;
+    //graphHelper<QString> *createGraph;
+    QString *stadium;
+    vector<QString> stadiums;
 
     QString startingStadium;
-    QVector <QString> otherStadiumNames;
+    vector <QString> otherStadiumNames;
     void initalizeMarlinsPath();
 
+    //void rebuildGraph();
+
     QVector <QString> orderedStadiumNames;//store sorted stadiums in here
+
+    Graph<QString>* graph;
+    vector<QString> nameList;
+    vector<QString> tempList;
+    vector<QString> selectedList;
 
 };
 

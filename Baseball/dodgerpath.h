@@ -3,6 +3,7 @@
 #include "souvenirshop.h"
 #include "DataBase.h"
 #include "manageDB.h"
+#include "dijkstra.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
