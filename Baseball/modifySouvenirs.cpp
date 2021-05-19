@@ -57,11 +57,15 @@ void modifySouvenirs::on_modifyButton_clicked()
     newSouvName = ui->nameLineEdit->text();
     oldSouvName = ui->souvenirNameComboBox->currentText();
     newSouvValue = ui->priceSpinBox->value();
+
+
     team = ui->teamSouvenirComboBox->currentText();
 
     // calls the updateSouvenirs function
     database->updateSouvenirs(team, oldSouvName, newSouvName, newSouvValue);
 
+    ui->nameLineEdit->setText(ui->souvenirNameComboBox->currentText());
+    ui->priceSpinBox->setValue(database->getSouvenirPrice(ui->souvenirNameComboBox->currentText(), ui->teamSouvenirComboBox->currentText()));
     // repopulates the souvenir combo box
     ui->souvenirNameComboBox->clear();
 

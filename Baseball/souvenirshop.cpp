@@ -7,7 +7,7 @@ souvenirshop::souvenirshop(double distance, QVector<QString> stadiumVector, QWid
     ui(new Ui::souvenirshop)
 {
     ui->setupUi(this);
-
+    ui->endTour_button->hide();
     ui->label_collegeName->setText(stadiumVector[stadiumCount]+ " (" + convert->stadiumToTeam(stadiumVector[stadiumCount]) + ")");
     distanceTraveled = distance;
     selectedStadiums = stadiumVector;
@@ -143,6 +143,7 @@ void souvenirshop::on_nextCollege_button_clicked()
     else
     {
         QMessageBox::information(this, "Warning", "Your trip has ended. To continue, please click \"End Trip\"");
+        ui->endTour_button->show();
     }
 
 }
