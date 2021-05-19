@@ -60,6 +60,7 @@ void MainWindow::on_LogIn_clicked()
 }
 
 
+
 void MainWindow::on_pushButton_2_clicked()
 {
     auto* custom = new customPath();
@@ -74,7 +75,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    auto* marlins = new marlinsPath(nameList, this, graphs);
+    auto* marlins = new marlinsPath(this);
     marlins -> show();
 
 }
@@ -159,4 +160,5 @@ void MainWindow::on_DFSBFSMST_clicked()
 
 
 }
+
 

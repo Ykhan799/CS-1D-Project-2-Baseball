@@ -2,15 +2,19 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QQueue>
+#include "pqueue.h"
 #include "custompath.h"
 #include "marlinspath.h"
-#include "dodgerpath.h"
+#include "startToEndPath.h"
 #include "login.h"
 #include "DataBase.h"
 #include "manageDB.h"
 #include "dijkstra.h"
 #include "displaygraphs.h"
 #include "orderedpath.h"
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -65,6 +69,8 @@ private slots:
     void on_DFSBFSMST_clicked();
 
     void on_pushButton_5_clicked();
+
+
 
 private:
     //!

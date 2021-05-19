@@ -336,11 +336,11 @@ void modifyTeams::on_addTeam_clicked()
             QString teamSouvenir5 = QString::fromStdString(souvenir5);
 
             // Adds each souvenir into the database
-            database->addTeamSouvenirs(teamName, teamSouvenir1, price1);
-            database->addTeamSouvenirs(teamName, teamSouvenir2, price2);
-            database->addTeamSouvenirs(teamName, teamSouvenir3, price3);
-            database->addTeamSouvenirs(teamName, teamSouvenir4, price4);
-            database->addTeamSouvenirs(teamName, teamSouvenir5, price5);
+            database->addTeamSouvenirs(teamName, stadiumName, teamSouvenir1, price1);
+            database->addTeamSouvenirs(teamName, stadiumName,teamSouvenir2, price2);
+            database->addTeamSouvenirs(teamName, stadiumName,teamSouvenir3, price3);
+            database->addTeamSouvenirs(teamName, stadiumName,teamSouvenir4, price4);
+            database->addTeamSouvenirs(teamName, stadiumName,teamSouvenir5, price5);
 
             // Converts the ending stadiums to QStrings
             QString endingStadium1 = QString::fromStdString(destination1);

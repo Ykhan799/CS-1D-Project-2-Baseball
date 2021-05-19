@@ -1,9 +1,12 @@
-#ifndef DODGERPATH_H
-#define DODGERPATH_H
+#ifndef STARTTOENDPATH_H
+#define STARTTOENDPATH_H
 #include "souvenirshop.h"
 #include "DataBase.h"
 #include "manageDB.h"
 #include "dijkstra.h"
+#include "grapher.h"
+#include "mainwindow.h"
+#include "grapher.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
@@ -12,7 +15,8 @@
 #include <QLabel>
 #include <QSqlQuery>
 #include <QMainWindow>
-
+#include <QFileInfo>
+#include <QDir>
 namespace Ui {
 class dodgerpath;
 }
@@ -36,22 +40,36 @@ private:
     void CheckboxChanged();
     manageDB *database;
 
-    QString startingStadium;
-    QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
-    QVector <QString> otherStadiumNames;
 
-    QVector <QString> orderedStadiumNames;
+    QVector <QString> orderedStadiums;
+
     QString *stadium;
     QVector<QString> stadiums;
 
-    void rebuildGraph();
 
+    bool SSRstartClicked;
+    void initalizeDodgerPath();
+    void rebuildGraph();
+    void fillComboBox();
     Graph<QString>* graph;
     QVector<QString> nameList;
     QVector<QString> tempList;
     QVector<QString> selectedList;
 
+
+    int totalDist;
+
+    graphAM* graphAdjMatr;
+
+
+    graphAM* dijkstras;
+
+
+
+    graphAM* chooseOrder;
+
+
 };
 
-#endif // DODGERPATH_H
+#endif // STARTTOENDPATH_H

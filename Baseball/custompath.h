@@ -3,6 +3,8 @@
 #include "souvenirshop.h"
 #include "DataBase.h"
 #include "manageDB.h"
+#include "mainwindow.h"
+#include "grapher.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
@@ -29,28 +31,35 @@ private slots:
 
     void on_planTrip_button_clicked();
 
+    void on_startTrip_button_clicked();
+
 private:
-    void fillComboBox();
-    void fillScrollArea();
-    void CheckboxChanged();
-    void efficiencyAlgo(QVector<QString> *stadiums,
-                     QVector<QString> *routeNames,
-                     QVector<double> *routeDistances,
-                     QString currentStadium);
+
 
     Ui::customPath *ui;
     manageDB *database;
 
+    void fillComboBox();
+    void fillScrollArea();
+    void CheckboxChanged();
+
+    QVector<QCheckBox*> checkBoxVector;
 
     QString startingStadium;
-    QVector <QString> selectedCampusNames;
-    QVector<QCheckBox*> checkBoxVector;
-    QVector <QString> orderedStadiumNames;
-    QVector<double> orderedStadiumDistances;
 
-    QVector<QLabel*> stadiumLabelVector;
+    QVector<QString> teamNamesVector;
 
-    QVector<QString> otherStadiumNames;
+    /**
+    */
+    QVector<QString> tempTeamNamesVector;
+
+    /**
+    */
+    QString startTeamName;
+
+    graphAM* dijkstrasChooseTeams;
+
+    QVector<QString> allTeamsList;
 
     double totalDist;
 

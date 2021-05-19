@@ -29,10 +29,32 @@ private:
     void fillComboBox();
     manageDB *database;
 
+    int totalDist;
     QString startingStadium;
     QVector <QString> selectedCampusNames;
     QVector<QCheckBox*> checkBoxVector;
     QVector <QString> otherStadiumNames;
+    QVector<QString> teamNamesVector;
+
+    /**
+    */
+    QVector<QString> tempTeamNamesVector;
+
+    /**
+    */
+    QString startTeamName;
+
+    graphAM* chooseOrder;
+
+    QVector<QString> customTeamNameList;
+
+    QVector<QString> fastestRoute;
+
+    QVector<QString> inputValues;
+
+    bool CTOstartButtonClicked;
+
+    int counter = 0;
 
 };
 

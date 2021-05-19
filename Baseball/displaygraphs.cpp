@@ -9,13 +9,11 @@ displayGraphs::displayGraphs(QVector<QString> stadiums, QWidget *parent, Graph<Q
    // ui->tableWidget->clear();
     ui->label->setVisible(false);
     ui->label_2->setVisible(false);
+
     graphs = getGraph;
     nameList = stadiums;
+    rebuildGraph();
 
-    if (graphs == nullptr || stadiums.empty())
-    {
-        rebuildGraph();
-    }
 }
 
 displayGraphs::~displayGraphs()

@@ -10,9 +10,8 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QSqlQuery>
-#include "dijkstra.h"
-#include <QMainWindow>
-#include <souvenirshop.h>
+#include "grapher.h"
+#include "mainwindow.h"
 namespace Ui {
 class marlinsPath;
 }
@@ -22,7 +21,7 @@ class marlinsPath : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit marlinsPath(QVector<QString> stadiums, QWidget *parent = nullptr, Graph<QString>* getGraph = nullptr);
+    explicit marlinsPath(QWidget *parent = nullptr);
     ~marlinsPath();
 
 private slots:
@@ -30,25 +29,34 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_planTrip_button_clicked();
+
 private:
     Ui::marlinsPath *ui;
     manageDB *database;
-    QString *stadium;
-    QVector<QString> stadiums;
+    QString *Team;
+    QVector<QString> Teams;
 
-    QString startingStadium;
-    QVector <QString> otherStadiumNames;
+
     void initalizeMarlinsPath();
 
-    void rebuildGraph();
 
-    QVector <QString> orderedStadiumNames;//store sorted stadiums in here
 
-    Graph<QString>* graph;
-    QVector<QString> nameList;
-    QVector<QString> tempList;
-    QVector<QString> selectedList;
 
+    int totalDist;
+    QVector<QString> teamNamesVector;
+
+    /**
+    */
+    QVector<QString> tempTeamNamesVector;
+
+    /**
+    */
+    QString startTeamName;
+
+    graphAM* dijkstrasChooseTeams;
+
+    QVector<QString> allTeamsList;
 };
 
 #endif // MARLINSPATH_H

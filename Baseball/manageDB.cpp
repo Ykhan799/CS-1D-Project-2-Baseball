@@ -894,7 +894,7 @@ void manageDB::addTeam(const QString& team, const QString& stadium, const int& c
  * -----------------------------------------------------------------------
  * This function adds the souvenirs for each new team.
  ************************************************************************/
-void manageDB::addTeamSouvenirs(const QString& team, const QString& souvenir, const double& price)
+void manageDB::addTeamSouvenirs(const QString& team,const QString& stadium, const QString& souvenir, const double& price)
 {
      QSqlQuery query;
      int maxID;
@@ -910,9 +910,10 @@ void manageDB::addTeamSouvenirs(const QString& team, const QString& souvenir, co
          qDebug() << maxID;
 
          // Inserts the ID, team name, souvenir name, and price
-         query.prepare("INSERT INTO SOUVENIRS VALUES(:ID, :TEAM, :SOUVENIR, :PRICE)");
+         query.prepare("INSERT INTO SOUVENIRS VALUES(:ID, :TEAM, :STADIUM, :SOUVENIR, :PRICE)");
          query.bindValue(":ID", maxID); // id is the id of the bottom row + 1
          query.bindValue(":TEAM", team);
+         query.bindValue(":STADIUM", stadium);
          query.bindValue(":SOUVENIR", souvenir);
          query.bindValue(":PRICE", price);
 

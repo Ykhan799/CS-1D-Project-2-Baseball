@@ -7,6 +7,7 @@
 #include <QSqlError>
 #include <QDebug>
 #include "dijkstra.h"
+
 using namespace std;
 
 
@@ -294,7 +295,7 @@ public:
     //! \param souvenir - name of the souvenir being added for the team
     //! \param price - price of the souvenir
     //!
-    void addTeamSouvenirs(const QString& team, const QString& souvenir, const double& price);
+    void addTeamSouvenirs(const QString& team,const QString& stadium, const QString& souvenir, const double& price);
 
     //!
     //! \fn addTeamDistances

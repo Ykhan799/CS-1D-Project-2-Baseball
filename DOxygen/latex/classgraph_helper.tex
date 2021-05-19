@@ -1,0 +1,115 @@
+\hypertarget{classgraph_helper}{}\doxysection{graph\+Helper$<$ T $>$ Class Template Reference}
+\label{classgraph_helper}\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+
+
+{\ttfamily \#include $<$graphhelper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgraph_helper_ad902d1ad8431c80ae9738ee1fc65906b}{graph\+Helper}} (T elements\mbox{[}$\,$\mbox{]}, int size)
+\item 
+\mbox{\hyperlink{classgraph_helper_afcb94bb7a1b3dc82c16feeac0ad12d79}{$\sim$graph\+Helper}} ()
+\item 
+void \mbox{\hyperlink{classgraph_helper_a96ff98c61ba471740f56756bcf79e942}{add\+Edge}} (T start, T end, double weight)
+\item 
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper_a12a7b301f98e587ace95342b425fc647}{DFS}} (T start)
+\item 
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper_ac370e99a12d9ff4d6a9315dbee662069}{BFS}} (T start)
+\item 
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper_a2854ea6a2e5838c8196fb9560b013865}{kruskal\+MST}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class graph\+Helper$<$ T $>$}
+
+Provides the definition of a graph which is then used to implement the DFS, BFS, and MST of the graph. The edges and total distance of the DFS, BFS, and MST is then displayed 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgraph_helper_ad902d1ad8431c80ae9738ee1fc65906b}\label{classgraph_helper_ad902d1ad8431c80ae9738ee1fc65906b}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!graphHelper@{graphHelper}}
+\index{graphHelper@{graphHelper}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{graphHelper()}{graphHelper()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::\mbox{\hyperlink{classgraph_helper}{graph\+Helper}} (\begin{DoxyParamCaption}\item[{T}]{elements\mbox{[}$\,$\mbox{]},  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Initializes a new graph 
+\begin{DoxyParams}{Parameters}
+{\em elements} & -\/ represents an array of type T \\
+\hline
+{\em size} & -\/ represents the size of the elements array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_helper_afcb94bb7a1b3dc82c16feeac0ad12d79}\label{classgraph_helper_afcb94bb7a1b3dc82c16feeac0ad12d79}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!````~graphHelper@{$\sim$graphHelper}}
+\index{````~graphHelper@{$\sim$graphHelper}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$graphHelper()}{~graphHelper()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classgraph_helper}{graph\+Helper}}}
+
+Destroys a graph that goes out of scope 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgraph_helper_a96ff98c61ba471740f56756bcf79e942}\label{classgraph_helper_a96ff98c61ba471740f56756bcf79e942}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{T}]{start,  }\item[{T}]{end,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+Adds edges to a graph 
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+{\em end} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classgraph_helper_ac370e99a12d9ff4d6a9315dbee662069}\label{classgraph_helper_ac370e99a12d9ff4d6a9315dbee662069}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!BFS@{BFS}}
+\index{BFS@{BFS}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::BFS (\begin{DoxyParamCaption}\item[{T}]{start }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ represents the starting point to begin BFS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of edges representing all the discovery edges from the BFS algorithm 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgraph_helper_a12a7b301f98e587ace95342b425fc647}\label{classgraph_helper_a12a7b301f98e587ace95342b425fc647}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!DFS@{DFS}}
+\index{DFS@{DFS}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DFS()}{DFS()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::DFS (\begin{DoxyParamCaption}\item[{T}]{start }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ represents the starting point to begin DFS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of edges which represents all the discovery edges from the DFS algorithm 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgraph_helper_a2854ea6a2e5838c8196fb9560b013865}\label{classgraph_helper_a2854ea6a2e5838c8196fb9560b013865}} 
+\index{graphHelper$<$ T $>$@{graphHelper$<$ T $>$}!kruskalMST@{kruskalMST}}
+\index{kruskalMST@{kruskalMST}!graphHelper$<$ T $>$@{graphHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{kruskalMST()}{kruskalMST()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ T $>$ $>$ \mbox{\hyperlink{classgraph_helper}{graph\+Helper}}$<$ T $>$\+::kruskal\+MST}
+
+Finds the MST of the baseball stadiums using Kruskal\textquotesingle{}s Algorithm \begin{DoxyReturn}{Returns}
+vector of edges which are the edges of the MST. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yaseenkhan/\+Downloads/\+Baseball/graphhelper.\+h\end{DoxyCompactItemize}

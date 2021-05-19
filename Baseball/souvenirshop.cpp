@@ -125,6 +125,8 @@ void souvenirshop::on_nextCollege_button_clicked()
         {
             qDebug() << "Souvenirs updated";
         }
+        else
+            qDebug() << "no work";
 
         model->setQuery(*qry);
 

@@ -1,0 +1,54 @@
+\hypertarget{structcluster_sets}{}\doxysection{cluster\+Sets Struct Reference}
+\label{structcluster_sets}\index{clusterSets@{clusterSets}}
+
+
+{\ttfamily \#include $<$graphhelper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structcluster_sets_ac8ffd70e20292fbb8c2a4fe1c3af040c}\label{structcluster_sets_ac8ffd70e20292fbb8c2a4fe1c3af040c}} 
+{\bfseries cluster\+Sets} (int size)
+\item 
+int \mbox{\hyperlink{structcluster_sets_a215ca7fc59fc8d8e4743769565614120}{find\+Set}} (int u)
+\item 
+\mbox{\Hypertarget{structcluster_sets_ab09fae1085109648f2e298c853311c98}\label{structcluster_sets_ab09fae1085109648f2e298c853311c98}} 
+void {\bfseries merge\+Sets} (int x, int y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structcluster_sets_a0ff907743909261363eae590faa17b88}\label{structcluster_sets_a0ff907743909261363eae590faa17b88}} 
+int $\ast$ {\bfseries parent}
+\item 
+\mbox{\Hypertarget{structcluster_sets_a7396db7d0283965fc402e5d4df37c6ad}\label{structcluster_sets_a7396db7d0283965fc402e5d4df37c6ad}} 
+int $\ast$ {\bfseries rank}
+\item 
+\mbox{\Hypertarget{structcluster_sets_a0e431e8b3c4b5ad36a72122905273c08}\label{structcluster_sets_a0e431e8b3c4b5ad36a72122905273c08}} 
+int {\bfseries size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the parent, rank, and size of a set Functions include creating set, finding set, and merging sets 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structcluster_sets_a215ca7fc59fc8d8e4743769565614120}\label{structcluster_sets_a215ca7fc59fc8d8e4743769565614120}} 
+\index{clusterSets@{clusterSets}!findSet@{findSet}}
+\index{findSet@{findSet}!clusterSets@{clusterSets}}
+\doxysubsubsection{\texorpdfstring{findSet()}{findSet()}}
+{\footnotesize\ttfamily cluster\+Sets\+::find\+Set (\begin{DoxyParamCaption}\item[{int}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds the parent of the parameter u 
+\begin{DoxyParams}{Parameters}
+{\em u} & -\/ represents the element in which the parent is being searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ parent of paremeter u 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yaseenkhan/\+Downloads/\+Baseball/graphhelper.\+h\end{DoxyCompactItemize}

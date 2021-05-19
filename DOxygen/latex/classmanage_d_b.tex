@@ -1,0 +1,600 @@
+\hypertarget{classmanage_d_b}{}\doxysection{manage\+DB Class Reference}
+\label{classmanage_d_b}\index{manageDB@{manageDB}}
+
+
+{\ttfamily \#include $<$manage\+DB.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmanage_d_b_a3a2f28d6cf6259609447c0ed10a323ee}\label{classmanage_d_b_a3a2f28d6cf6259609447c0ed10a323ee}} 
+{\bfseries manage\+DB} (const QString \&path)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_a14fe699acf47794ce68e40ec6847e191}{get\+Team\+Names}} ()
+\item 
+int \mbox{\hyperlink{classmanage_d_b_adef50862c4a9de4432d7f7cb006934dc}{get\+Seating\+Capacity}} ()
+\item 
+int \mbox{\hyperlink{classmanage_d_b_aac1e775487ff613c09ec5c85a8aa7570}{seating\+Capacity}} (const QString \&team)
+\item 
+int \mbox{\hyperlink{classmanage_d_b_a99345cb9fd900a76f3f96de21cbcc984}{date\+Opened}} (const QString \&team)
+\item 
+int \mbox{\hyperlink{classmanage_d_b_a2db697fe926b02ea79db3b9bcfa97b94}{get\+Dist\+To\+Cent\+Field}} (const QString \&team)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_a9981eacfab5a87dea03f67df494c588d}{get\+Roof\+Types}} ()
+\item 
+QString \mbox{\hyperlink{classmanage_d_b_a8cfa3cb1707fdfb6d7df34add6f32088}{set\+Roof\+Type}} (const QString \&team)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_a5b3035a67c1d00a104216e1fed0b6c84}{get\+Surfaces}} ()
+\item 
+QString \mbox{\hyperlink{classmanage_d_b_a34351f948cc704d636fe2c5d45444c18}{set\+Surface\+Type}} (const QString \&team)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_ad0edd3a9681fd201c47cdfb8f08bc342}{get\+Typology}} ()
+\item 
+QString \mbox{\hyperlink{classmanage_d_b_a4cbb69130743c2c63a25b41246eeeb99}{set\+Typology}} (const QString \&team)
+\item 
+int \mbox{\hyperlink{classmanage_d_b_ac6f012c2a63ad0b5c9766318a8609113}{get\+Num\+Open\+Roofs}} ()
+\item 
+QString \mbox{\hyperlink{classmanage_d_b_a3af2ec092aa955a223364b8578c2f913}{get\+Stadium\+Name}} (const QString \&team)
+\item 
+QString \mbox{\hyperlink{classmanage_d_b_a0997745b40a3c5f62e99fab93e790c88}{get\+Location}} (const QString \&team)
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_a0b8e812dfb0263b7a37a7c5cf1928b3d}{get\+Team\+Model}} (const QString \&team)
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_a6c23527eee2af291b4d17b1ee87761d0}{get\+Teams\+Sortedby\+Teams}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_ac7945405729704aa2cc18482b15fa5f2}{get\+Teams\+Sortedby\+Stadiums}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_a784d77dc2aa57aa6c2cb8571a6eed126}{get\+Teamsby\+Date}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_ae5d97a35f2b9c26f446e13cbac8e7347}{get\+Teamsby\+Small\+Dist\+To\+Center\+Field}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_a795f6033029eae4acb793f230202b6a2}{get\+Teamsby\+Large\+Dist\+To\+Center\+Field}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_aca715ed42aa1246c462ab543c3b239f1}{get\+American\+League\+Teams}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_ad28fc561b42ce0bd981ea10ea9d7e5dc}{get\+National\+League\+Teams}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_ac56c0cfe4c60c3a19082c5ffba7aeb3b}{get\+Teams\+By\+Seating\+Capacity}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_a99cb96c9f82935fd55058b032331fe29}{get\+Teams\+By\+Ball\+Park\+Typology}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_ae1acb80340274896ffcab3a05e722946}{get\+Teams\+With\+Open\+Roof}} ()
+\item 
+QSql\+Query\+Model $\ast$ \mbox{\hyperlink{classmanage_d_b_af6e3f80d749025694a5c6a10798114fe}{get\+Souvenirs\+By\+Team}} (const QString \&team)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_a1b81b9953e7cb5c4f470a0d034cb4bf9}{get\+Team\+Souvenirs}} (const QString \&team)
+\item 
+double \mbox{\hyperlink{classmanage_d_b_a3a47c621c5e19255d54b1194e2701224}{get\+Souvenir\+Price}} (const QString \&souvenir, const QString \&team)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_a51f5775e0ca26c6cbe3bd5b1883e2d76}{add\+Souvenir}} (const QString \&team, const QString \&souvenir\+Name, const double \&price)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_a635c749ba7a9135ef3b181ebd422a97f}{remove\+Souvenir}} (const QString \&team, const QString \&souvenir\+Name)
+\item 
+bool \mbox{\hyperlink{classmanage_d_b_a4fc79fb3254a69063e0e29d49068ed79}{souv\+Exists}} (QString \&team, QString \&souvenir\+Name)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_aacc430781e4340035b98717963a319d5}{update\+Souvenirs}} (const QString \&team, const QString \&old\+Name, const QString \&new\+Name, const double \&new\+Price)
+\item 
+bool \mbox{\hyperlink{classmanage_d_b_a9bf5d518bf0ef71a02e0dcec7da26d48}{team\+Exists}} (const QString \&team)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_abb81e446fa1c2d1052a9c466b2b90273}{add\+Team}} (const QString \&team, const QString \&stadium, const int \&capacity, const QString \&location, const QString \&surface, const QString \&league, const int \&date, const QString \&distance, const QString \&typology, const QString \&roof)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_afdf667955e3b151a6ccf02aa0bfefd17}{add\+Team\+Souvenirs}} (const QString \&team, const QString \&souvenir, const double \&price)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_ae743d0e52700c6cd08e23fefae6d6302}{add\+Team\+Distances}} (const QString \&start\+Stadium, const QString \&end\+Stadium, const double \&distances)
+\item 
+void \mbox{\hyperlink{classmanage_d_b_a3b93730ce68833d42d6f57244aa584bf}{update\+Teams}} (const QString \&team, const QString \&new\+Stadium, const int \&capacity, const QString \&new\+Location, const QString \&new\+Surface, const int \&new\+Date, const QString \&new\+Dist\+To\+Cent\+Field, const QString \&new\+Typology, const QString \&new\+Roof)
+\item 
+vector$<$ QString $>$ \mbox{\hyperlink{classmanage_d_b_aca2cc740a1540ed8015168c42763f475}{starting\+Stadiums}} ()
+\item 
+vector$<$ \mbox{\hyperlink{struct_edge}{Edge}}$<$ QString $>$ $>$ \mbox{\hyperlink{classmanage_d_b_a412790e51a5e61d885e573b800603ef3}{get\+Edges}} (const QString \&origin\+Stadium)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides all the functions needed to extract information from the database 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmanage_d_b_a51f5775e0ca26c6cbe3bd5b1883e2d76}\label{classmanage_d_b_a51f5775e0ca26c6cbe3bd5b1883e2d76}} 
+\index{manageDB@{manageDB}!addSouvenir@{addSouvenir}}
+\index{addSouvenir@{addSouvenir}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{addSouvenir()}{addSouvenir()}}
+{\footnotesize\ttfamily manage\+DB\+::add\+Souvenir (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{souvenir\+Name,  }\item[{const double \&}]{price }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ team that souvenir belongs to \\
+\hline
+{\em souvenir\+Name} & -\/ name of new souvenir being added \\
+\hline
+{\em price} & -\/ Price of the new souvenir \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_abb81e446fa1c2d1052a9c466b2b90273}\label{classmanage_d_b_abb81e446fa1c2d1052a9c466b2b90273}} 
+\index{manageDB@{manageDB}!addTeam@{addTeam}}
+\index{addTeam@{addTeam}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{addTeam()}{addTeam()}}
+{\footnotesize\ttfamily manage\+DB\+::add\+Team (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{stadium,  }\item[{const int \&}]{capacity,  }\item[{const QString \&}]{location,  }\item[{const QString \&}]{surface,  }\item[{const QString \&}]{league,  }\item[{const int \&}]{date,  }\item[{const QString \&}]{distance,  }\item[{const QString \&}]{typology,  }\item[{const QString \&}]{roof }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ represents the new team name being added \\
+\hline
+{\em stadium} & -\/ stadium name for the new team \\
+\hline
+{\em capacity} & -\/ capacity of the team\textquotesingle{}s stadium \\
+\hline
+{\em location} & -\/ Where the new team is located \\
+\hline
+{\em surface} & -\/ What the team plays on \\
+\hline
+{\em league} & -\/ Team plays in either National or American \\
+\hline
+{\em date} & -\/ Represents when the stadium opened \\
+\hline
+{\em distance} & -\/ Represents distance to center field \\
+\hline
+{\em typology} & -\/ Represents the typology of the baseball field \\
+\hline
+{\em roof} & -\/ Represents the type of roof for the team \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_ae743d0e52700c6cd08e23fefae6d6302}\label{classmanage_d_b_ae743d0e52700c6cd08e23fefae6d6302}} 
+\index{manageDB@{manageDB}!addTeamDistances@{addTeamDistances}}
+\index{addTeamDistances@{addTeamDistances}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{addTeamDistances()}{addTeamDistances()}}
+{\footnotesize\ttfamily manage\+DB\+::add\+Team\+Distances (\begin{DoxyParamCaption}\item[{const QString \&}]{start\+Stadium,  }\item[{const QString \&}]{end\+Stadium,  }\item[{const double \&}]{distances }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Stadium} & -\/ Represents the starting stadium \\
+\hline
+{\em end\+Stadium} & -\/ Represents the ending stadium \\
+\hline
+{\em distances} & -\/ Represents the distance between the starting and ending stadiums \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_afdf667955e3b151a6ccf02aa0bfefd17}\label{classmanage_d_b_afdf667955e3b151a6ccf02aa0bfefd17}} 
+\index{manageDB@{manageDB}!addTeamSouvenirs@{addTeamSouvenirs}}
+\index{addTeamSouvenirs@{addTeamSouvenirs}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{addTeamSouvenirs()}{addTeamSouvenirs()}}
+{\footnotesize\ttfamily manage\+DB\+::add\+Team\+Souvenirs (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{souvenir,  }\item[{const double \&}]{price }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ name of the new team for the souvenirs being added \\
+\hline
+{\em souvenir} & -\/ name of the souvenir being added for the team \\
+\hline
+{\em price} & -\/ price of the souvenir \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_a99345cb9fd900a76f3f96de21cbcc984}\label{classmanage_d_b_a99345cb9fd900a76f3f96de21cbcc984}} 
+\index{manageDB@{manageDB}!dateOpened@{dateOpened}}
+\index{dateOpened@{dateOpened}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{dateOpened()}{dateOpened()}}
+{\footnotesize\ttfamily manage\+DB\+::date\+Opened (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString representing team name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an int value representing date opened for the stadium 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_aca715ed42aa1246c462ab543c3b239f1}\label{classmanage_d_b_aca715ed42aa1246c462ab543c3b239f1}} 
+\index{manageDB@{manageDB}!getAmericanLeagueTeams@{getAmericanLeagueTeams}}
+\index{getAmericanLeagueTeams@{getAmericanLeagueTeams}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getAmericanLeagueTeams()}{getAmericanLeagueTeams()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+American\+League\+Teams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing the teams and stadiums sorted by team name that play in the American League 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a2db697fe926b02ea79db3b9bcfa97b94}\label{classmanage_d_b_a2db697fe926b02ea79db3b9bcfa97b94}} 
+\index{manageDB@{manageDB}!getDistToCentField@{getDistToCentField}}
+\index{getDistToCentField@{getDistToCentField}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getDistToCentField()}{getDistToCentField()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Dist\+To\+Cent\+Field (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString representing team name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an int value representing the distance to center field for the team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a412790e51a5e61d885e573b800603ef3}\label{classmanage_d_b_a412790e51a5e61d885e573b800603ef3}} 
+\index{manageDB@{manageDB}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Edges (\begin{DoxyParamCaption}\item[{const QString \&}]{origin\+Stadium }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin\+Stadium} & -\/ QString representing the starting stadium between two stadiums \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector containing the all the edges(starting, ending, distance) for all the stadiums 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a0997745b40a3c5f62e99fab93e790c88}\label{classmanage_d_b_a0997745b40a3c5f62e99fab93e790c88}} 
+\index{manageDB@{manageDB}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Location (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString indicating the team location being searched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+location based on the value of team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ad28fc561b42ce0bd981ea10ea9d7e5dc}\label{classmanage_d_b_ad28fc561b42ce0bd981ea10ea9d7e5dc}} 
+\index{manageDB@{manageDB}!getNationalLeagueTeams@{getNationalLeagueTeams}}
+\index{getNationalLeagueTeams@{getNationalLeagueTeams}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getNationalLeagueTeams()}{getNationalLeagueTeams()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+National\+League\+Teams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing the teams and stadiums sorted by stadium name that play in the National League 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ac6f012c2a63ad0b5c9766318a8609113}\label{classmanage_d_b_ac6f012c2a63ad0b5c9766318a8609113}} 
+\index{manageDB@{manageDB}!getNumOpenRoofs@{getNumOpenRoofs}}
+\index{getNumOpenRoofs@{getNumOpenRoofs}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getNumOpenRoofs()}{getNumOpenRoofs()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Num\+Open\+Roofs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+int representing the total number of teams with an open roof 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a9981eacfab5a87dea03f67df494c588d}\label{classmanage_d_b_a9981eacfab5a87dea03f67df494c588d}} 
+\index{manageDB@{manageDB}!getRoofTypes@{getRoofTypes}}
+\index{getRoofTypes@{getRoofTypes}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getRoofTypes()}{getRoofTypes()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Roof\+Types (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector of different roof types 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_adef50862c4a9de4432d7f7cb006934dc}\label{classmanage_d_b_adef50862c4a9de4432d7f7cb006934dc}} 
+\index{manageDB@{manageDB}!getSeatingCapacity@{getSeatingCapacity}}
+\index{getSeatingCapacity@{getSeatingCapacity}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getSeatingCapacity()}{getSeatingCapacity()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Seating\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+int representing the sum of the seating capacity for the entire team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a3a47c621c5e19255d54b1194e2701224}\label{classmanage_d_b_a3a47c621c5e19255d54b1194e2701224}} 
+\index{manageDB@{manageDB}!getSouvenirPrice@{getSouvenirPrice}}
+\index{getSouvenirPrice@{getSouvenirPrice}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getSouvenirPrice()}{getSouvenirPrice()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Souvenir\+Price (\begin{DoxyParamCaption}\item[{const QString \&}]{souvenir,  }\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em souvenir} & -\/ QString representing the name of a souvenir \\
+\hline
+{\em team} & -\/ QString representing the team name of the souvenir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double representing the price of a given souvenir. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_af6e3f80d749025694a5c6a10798114fe}\label{classmanage_d_b_af6e3f80d749025694a5c6a10798114fe}} 
+\index{manageDB@{manageDB}!getSouvenirsByTeam@{getSouvenirsByTeam}}
+\index{getSouvenirsByTeam@{getSouvenirsByTeam}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getSouvenirsByTeam()}{getSouvenirsByTeam()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Souvenirs\+By\+Team (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString indicating the souvenirs being accessed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+model containing all the souvenirs for a given team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a3af2ec092aa955a223364b8578c2f913}\label{classmanage_d_b_a3af2ec092aa955a223364b8578c2f913}} 
+\index{manageDB@{manageDB}!getStadiumName@{getStadiumName}}
+\index{getStadiumName@{getStadiumName}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getStadiumName()}{getStadiumName()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Stadium\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString indicating the team location being searched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QString representing the stadium name of the team. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a5b3035a67c1d00a104216e1fed0b6c84}\label{classmanage_d_b_a5b3035a67c1d00a104216e1fed0b6c84}} 
+\index{manageDB@{manageDB}!getSurfaces@{getSurfaces}}
+\index{getSurfaces@{getSurfaces}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getSurfaces()}{getSurfaces()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Surfaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector of different playing surfaces 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a0b8e812dfb0263b7a37a7c5cf1928b3d}\label{classmanage_d_b_a0b8e812dfb0263b7a37a7c5cf1928b3d}} 
+\index{manageDB@{manageDB}!getTeamModel@{getTeamModel}}
+\index{getTeamModel@{getTeamModel}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamModel()}{getTeamModel()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Team\+Model (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString indicating the team information being accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+model containing the information specific to the value of team. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a14fe699acf47794ce68e40ec6847e191}\label{classmanage_d_b_a14fe699acf47794ce68e40ec6847e191}} 
+\index{manageDB@{manageDB}!getTeamNames@{getTeamNames}}
+\index{getTeamNames@{getTeamNames}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamNames()}{getTeamNames()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Team\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector containing team names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a99cb96c9f82935fd55058b032331fe29}\label{classmanage_d_b_a99cb96c9f82935fd55058b032331fe29}} 
+\index{manageDB@{manageDB}!getTeamsByBallParkTypology@{getTeamsByBallParkTypology}}
+\index{getTeamsByBallParkTypology@{getTeamsByBallParkTypology}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsByBallParkTypology()}{getTeamsByBallParkTypology()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teams\+By\+Ball\+Park\+Typology (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing the team names and their stadium names sorted by ball\+Park typology. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a784d77dc2aa57aa6c2cb8571a6eed126}\label{classmanage_d_b_a784d77dc2aa57aa6c2cb8571a6eed126}} 
+\index{manageDB@{manageDB}!getTeamsbyDate@{getTeamsbyDate}}
+\index{getTeamsbyDate@{getTeamsbyDate}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsbyDate()}{getTeamsbyDate()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teamsby\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing teams and stadiums sorted by oldest date opened to newest date opened 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a795f6033029eae4acb793f230202b6a2}\label{classmanage_d_b_a795f6033029eae4acb793f230202b6a2}} 
+\index{manageDB@{manageDB}!getTeamsbyLargeDistToCenterField@{getTeamsbyLargeDistToCenterField}}
+\index{getTeamsbyLargeDistToCenterField@{getTeamsbyLargeDistToCenterField}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsbyLargeDistToCenterField()}{getTeamsbyLargeDistToCenterField()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teamsby\+Large\+Dist\+To\+Center\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing teams with the largest distance to the center field 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ac56c0cfe4c60c3a19082c5ffba7aeb3b}\label{classmanage_d_b_ac56c0cfe4c60c3a19082c5ffba7aeb3b}} 
+\index{manageDB@{manageDB}!getTeamsBySeatingCapacity@{getTeamsBySeatingCapacity}}
+\index{getTeamsBySeatingCapacity@{getTeamsBySeatingCapacity}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsBySeatingCapacity()}{getTeamsBySeatingCapacity()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teams\+By\+Seating\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing the team names and their stadium names by smallest to largest seating capacity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ae5d97a35f2b9c26f446e13cbac8e7347}\label{classmanage_d_b_ae5d97a35f2b9c26f446e13cbac8e7347}} 
+\index{manageDB@{manageDB}!getTeamsbySmallDistToCenterField@{getTeamsbySmallDistToCenterField}}
+\index{getTeamsbySmallDistToCenterField@{getTeamsbySmallDistToCenterField}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsbySmallDistToCenterField()}{getTeamsbySmallDistToCenterField()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teamsby\+Small\+Dist\+To\+Center\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing team with the smallest distance to the center field 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a1b81b9953e7cb5c4f470a0d034cb4bf9}\label{classmanage_d_b_a1b81b9953e7cb5c4f470a0d034cb4bf9}} 
+\index{manageDB@{manageDB}!getTeamSouvenirs@{getTeamSouvenirs}}
+\index{getTeamSouvenirs@{getTeamSouvenirs}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamSouvenirs()}{getTeamSouvenirs()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Team\+Souvenirs (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString indicating the souvenirs being accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of strings containing all the souvenirs for a team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ac7945405729704aa2cc18482b15fa5f2}\label{classmanage_d_b_ac7945405729704aa2cc18482b15fa5f2}} 
+\index{manageDB@{manageDB}!getTeamsSortedbyStadiums@{getTeamsSortedbyStadiums}}
+\index{getTeamsSortedbyStadiums@{getTeamsSortedbyStadiums}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsSortedbyStadiums()}{getTeamsSortedbyStadiums()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teams\+Sortedby\+Stadiums (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing teams and stadiums sorted by team name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a6c23527eee2af291b4d17b1ee87761d0}\label{classmanage_d_b_a6c23527eee2af291b4d17b1ee87761d0}} 
+\index{manageDB@{manageDB}!getTeamsSortedbyTeams@{getTeamsSortedbyTeams}}
+\index{getTeamsSortedbyTeams@{getTeamsSortedbyTeams}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsSortedbyTeams()}{getTeamsSortedbyTeams()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teams\+Sortedby\+Teams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing teams and stadiums sorted by team name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ae1acb80340274896ffcab3a05e722946}\label{classmanage_d_b_ae1acb80340274896ffcab3a05e722946}} 
+\index{manageDB@{manageDB}!getTeamsWithOpenRoof@{getTeamsWithOpenRoof}}
+\index{getTeamsWithOpenRoof@{getTeamsWithOpenRoof}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTeamsWithOpenRoof()}{getTeamsWithOpenRoof()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Teams\+With\+Open\+Roof (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+model containing all the teams and their stadiums with an open roof sorted by team name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_ad0edd3a9681fd201c47cdfb8f08bc342}\label{classmanage_d_b_ad0edd3a9681fd201c47cdfb8f08bc342}} 
+\index{manageDB@{manageDB}!getTypology@{getTypology}}
+\index{getTypology@{getTypology}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{getTypology()}{getTypology()}}
+{\footnotesize\ttfamily manage\+DB\+::get\+Typology (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector of different typology types 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a635c749ba7a9135ef3b181ebd422a97f}\label{classmanage_d_b_a635c749ba7a9135ef3b181ebd422a97f}} 
+\index{manageDB@{manageDB}!removeSouvenir@{removeSouvenir}}
+\index{removeSouvenir@{removeSouvenir}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{removeSouvenir()}{removeSouvenir()}}
+{\footnotesize\ttfamily manage\+DB\+::remove\+Souvenir (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{souvenir\+Name }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ team that the souvenir belongs to \\
+\hline
+{\em souvenir\+Name} & -\/ The name of the souvenir being removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_aac1e775487ff613c09ec5c85a8aa7570}\label{classmanage_d_b_aac1e775487ff613c09ec5c85a8aa7570}} 
+\index{manageDB@{manageDB}!seatingCapacity@{seatingCapacity}}
+\index{seatingCapacity@{seatingCapacity}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{seatingCapacity()}{seatingCapacity()}}
+{\footnotesize\ttfamily manage\+DB\+::seating\+Capacity (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString representing team name. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an int value representing the seating capacity for the stadium 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a8cfa3cb1707fdfb6d7df34add6f32088}\label{classmanage_d_b_a8cfa3cb1707fdfb6d7df34add6f32088}} 
+\index{manageDB@{manageDB}!setRoofType@{setRoofType}}
+\index{setRoofType@{setRoofType}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{setRoofType()}{setRoofType()}}
+{\footnotesize\ttfamily manage\+DB\+::set\+Roof\+Type (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString representing team name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the roof type based on the team value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a34351f948cc704d636fe2c5d45444c18}\label{classmanage_d_b_a34351f948cc704d636fe2c5d45444c18}} 
+\index{manageDB@{manageDB}!setSurfaceType@{setSurfaceType}}
+\index{setSurfaceType@{setSurfaceType}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{setSurfaceType()}{setSurfaceType()}}
+{\footnotesize\ttfamily manage\+DB\+::set\+Surface\+Type (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ QString representing team name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the surface type based on team value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a4cbb69130743c2c63a25b41246eeeb99}\label{classmanage_d_b_a4cbb69130743c2c63a25b41246eeeb99}} 
+\index{manageDB@{manageDB}!setTypology@{setTypology}}
+\index{setTypology@{setTypology}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{setTypology()}{setTypology()}}
+{\footnotesize\ttfamily manage\+DB\+::set\+Typology (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+typology type based on team value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a4fc79fb3254a69063e0e29d49068ed79}\label{classmanage_d_b_a4fc79fb3254a69063e0e29d49068ed79}} 
+\index{manageDB@{manageDB}!souvExists@{souvExists}}
+\index{souvExists@{souvExists}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{souvExists()}{souvExists()}}
+{\footnotesize\ttfamily manage\+DB\+::souv\+Exists (\begin{DoxyParamCaption}\item[{QString \&}]{team,  }\item[{QString \&}]{souvenir\+Name }\end{DoxyParamCaption})}
+
+Checks if a souvenir exists 
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ team that souvenir belongs to \\
+\hline
+{\em souvenir\+Name} & -\/ souvenir to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if souvenir exists for a given team 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_aca2cc740a1540ed8015168c42763f475}\label{classmanage_d_b_aca2cc740a1540ed8015168c42763f475}} 
+\index{manageDB@{manageDB}!startingStadiums@{startingStadiums}}
+\index{startingStadiums@{startingStadiums}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{startingStadiums()}{startingStadiums()}}
+{\footnotesize\ttfamily manage\+DB\+::starting\+Stadiums (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+vector containing all the starting stadiums for the distances between each stadiums 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_a9bf5d518bf0ef71a02e0dcec7da26d48}\label{classmanage_d_b_a9bf5d518bf0ef71a02e0dcec7da26d48}} 
+\index{manageDB@{manageDB}!teamExists@{teamExists}}
+\index{teamExists@{teamExists}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{teamExists()}{teamExists()}}
+{\footnotesize\ttfamily manage\+DB\+::team\+Exists (\begin{DoxyParamCaption}\item[{const QString \&}]{team }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ name of team being checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the team is in the database. False otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmanage_d_b_aacc430781e4340035b98717963a319d5}\label{classmanage_d_b_aacc430781e4340035b98717963a319d5}} 
+\index{manageDB@{manageDB}!updateSouvenirs@{updateSouvenirs}}
+\index{updateSouvenirs@{updateSouvenirs}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{updateSouvenirs()}{updateSouvenirs()}}
+{\footnotesize\ttfamily manage\+DB\+::update\+Souvenirs (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{old\+Name,  }\item[{const QString \&}]{new\+Name,  }\item[{const double \&}]{new\+Price }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ team that souvenir belongs to \\
+\hline
+{\em old\+Name} & -\/ Original Souvenir\textquotesingle{}s Name \\
+\hline
+{\em new\+Name} & -\/ New Souvenir\textquotesingle{}s Name \\
+\hline
+{\em new\+Price} & -\/ New Price of the souvenir \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmanage_d_b_a3b93730ce68833d42d6f57244aa584bf}\label{classmanage_d_b_a3b93730ce68833d42d6f57244aa584bf}} 
+\index{manageDB@{manageDB}!updateTeams@{updateTeams}}
+\index{updateTeams@{updateTeams}!manageDB@{manageDB}}
+\doxysubsubsection{\texorpdfstring{updateTeams()}{updateTeams()}}
+{\footnotesize\ttfamily manage\+DB\+::update\+Teams (\begin{DoxyParamCaption}\item[{const QString \&}]{team,  }\item[{const QString \&}]{new\+Stadium,  }\item[{const int \&}]{capacity,  }\item[{const QString \&}]{new\+Location,  }\item[{const QString \&}]{new\+Surface,  }\item[{const int \&}]{new\+Date,  }\item[{const QString \&}]{new\+Dist\+To\+Cent\+Field,  }\item[{const QString \&}]{new\+Typology,  }\item[{const QString \&}]{new\+Roof }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & -\/ team name of information being modified \\
+\hline
+{\em new\+Stadium} & -\/ represents the new stadium name of the team \\
+\hline
+{\em capacity} & -\/ represents the seating capacity of the team \\
+\hline
+{\em new\+Location} & -\/ represents the new location of the team \\
+\hline
+{\em new\+Surface} & -\/ represents the new playing surface of the team \\
+\hline
+{\em new\+Date} & -\/ represents the new date opened for the team \\
+\hline
+{\em new\+Dist\+To\+Cent\+Field} & -\/ represents the new distance to center field for a team \\
+\hline
+{\em new\+Typology} & -\/ represents the new typology of the team \\
+\hline
+{\em new\+Roof} & -\/ represents the new roof type of the team. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yaseenkhan/\+Downloads/\+Baseball/manage\+DB.\+h\item 
+/\+Users/yaseenkhan/\+Downloads/\+Baseball/manage\+DB.\+cpp\end{DoxyCompactItemize}
