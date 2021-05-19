@@ -16,7 +16,7 @@ customPath::~customPath()
 
 void customPath::fillComboBox()
 {
-    for (auto &i: database->getStadiumNames())
+    for (auto &i: database->getTeamNames())
     {
         ui->selectStartingStadiums->addItem(i);
         qDebug() << i << " ";
@@ -127,7 +127,7 @@ void customPath::on_planTrip_button_clicked()
                 incidentTeams->enqueue(tempPriority, tempRoute);
             }
         }
-//        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
+        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
         QVector<QString> tempVec = incidentTeams->getShortestTrip();
         tripDistance += incidentTeams->getLowestPriority();
 
