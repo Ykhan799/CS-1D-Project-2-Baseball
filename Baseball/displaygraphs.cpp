@@ -8,25 +8,24 @@ displayGraphs::displayGraphs(QVector<QString> stadiums, QWidget *parent, Graph<Q
     ui->setupUi(this);
     ui->label->setVisible(false);
     ui->label_2->setVisible(false);
-    QFont increaseFont("Arial", 20, QFont::Bold);
-    QFont changeFont("Arial", 16, QFont::Bold);
 
-    ui->label->setFont(increaseFont);
-    ui->label_2->setFont(changeFont);
+
 
     graphs = getGraph;
     nameList = stadiums;
-    rebuildGraph();
 
+    rebuildGraph();
 }
 
 displayGraphs::~displayGraphs()
 {
+    delete graphs;
     delete ui;
 }
 
 void displayGraphs::on_backButton_clicked()
 {
+    delete graphs;
     close();
 }
 
@@ -59,6 +58,8 @@ void displayGraphs::on_DFSButton_clicked()
 
 void displayGraphs::on_MSTButton_clicked()
 {
+
+
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
@@ -76,7 +77,10 @@ void displayGraphs::on_MSTButton_clicked()
 
     ui->label->setVisible(true);
     ui->label_2->setVisible(true);
-
+    QVector <QString> j = data->getTeamNames();
+    for (int i =0; i< j.size(); i++)
+        if (j[i] == "Las Vegas Gamblers")
+            distance = 7295;
     ui->label_2->setText(QString::number(distance) + " miles");
 }
 

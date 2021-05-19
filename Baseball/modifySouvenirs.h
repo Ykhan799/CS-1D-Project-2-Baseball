@@ -64,6 +64,8 @@ private slots:
     //!
     void on_addButton_clicked();
 
+
+
 private:
     //!
     //! \brief ui - sets up the ui

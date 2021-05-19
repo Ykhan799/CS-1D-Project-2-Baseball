@@ -96,7 +96,7 @@ void modifySouvenirs::on_teamSouvenirComboBox_currentIndexChanged(const QString&
 void modifySouvenirs::on_souvenirNameComboBox_currentIndexChanged(const QString& arg1)
 {
     // populates the nameLine and spin box
-    ui->nameLineEdit->setText(arg1);
+    ui->nameLineEdit->setText(ui->souvenirNameComboBox->currentText());
     ui->priceSpinBox->setValue(database->getSouvenirPrice(ui->souvenirNameComboBox->currentText(), ui->teamSouvenirComboBox->currentText()));
 }
 

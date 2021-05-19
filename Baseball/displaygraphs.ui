@@ -63,7 +63,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>MST(Kruskal)</string>
+     <string>MST(Prim)</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -125,7 +125,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
