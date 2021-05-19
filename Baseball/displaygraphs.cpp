@@ -65,7 +65,7 @@ void displayGraphs::on_MSTButton_clicked()
     ui->View->setWidget(container);
 
     int distance = graphs->startMST();
-    QString pathStr = "MST Edges:\n";
+    QString pathStr = "\n";
     pathStr += graphs->mstString;
 
     QLabel *label = new QLabel;

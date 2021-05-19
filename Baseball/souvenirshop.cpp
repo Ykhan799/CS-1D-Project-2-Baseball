@@ -8,7 +8,7 @@ souvenirshop::souvenirshop(double distance, QVector<QString> stadiumVector, QWid
 {
     ui->setupUi(this);
 
-    ui->label_collegeName->setText(stadiumVector[stadiumCount]);
+    ui->label_collegeName->setText(stadiumVector[stadiumCount]+ " (" + convert->stadiumToTeam(stadiumVector[stadiumCount]) + ")");
     distanceTraveled = distance;
     selectedStadiums = stadiumVector;
 
@@ -107,12 +107,13 @@ void souvenirshop::on_souvenir_tableView_clicked(const QModelIndex &index)
 
 void souvenirshop::on_nextCollege_button_clicked()
 {
+
     clicked = false;
     subCostList.append(QString::number(subCostAtStadium,'f', 2)); //adding subcost to list as a string
 
     if(stadiumCount < selectedStadiums.size())
     {
-        ui->label_collegeName->setText(selectedStadiums[stadiumCount]);
+        ui->label_collegeName->setText(selectedStadiums[stadiumCount]+ " (" + convert->stadiumToTeam(selectedStadiums[stadiumCount]) + ")");
 
         QSqlQueryModel* model=new QSqlQueryModel();
 

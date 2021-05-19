@@ -22,7 +22,7 @@ tripSummary::tripSummary(QString totalDistance, QString totalCost, QVector<QStri
     for(int i = 0; i < stadiumNames.size(); i++)
     {
         //stadiumLabel = new QLabel(stadiumNames[i] + "\t\t" + costAtEachStadium[i]);
-        stadiumLabel = new QLabel(stadiumNames[i] + " (Spent $" + costAtEachStadium.at(i) + ")");
+        stadiumLabel = new QLabel(convert->stadiumToTeam(stadiumNames[i]) + " [" +stadiumNames[i]+"]"  + " (Spent $" + costAtEachStadium.at(i) + ")");
         vBoxLayout->addWidget(stadiumLabel);
     }
 }

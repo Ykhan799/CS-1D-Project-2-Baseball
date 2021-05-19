@@ -33,7 +33,7 @@
    <widget class="QScrollArea" name="scrollArea_displayTrip">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>430</x>
       <y>160</y>
       <width>371</width>
       <height>361</height>
@@ -66,20 +66,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#3f3f3f;&quot;&gt;Order of stadiums for trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#3f3f3f;&quot;&gt;Order of teams for trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="startStadiumHeader_5">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>250</y>
       <width>371</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;Select stadiums in order for your trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;Select teams in order for your trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QToolButton" name="startTrip_button">
@@ -127,7 +127,7 @@
       <x>30</x>
       <y>280</y>
       <width>381</width>
-      <height>101</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -137,17 +137,17 @@
    <widget class="QPushButton" name="planTrip_button_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>400</y>
-      <width>301</width>
-      <height>31</height>
+      <x>150</x>
+      <y>350</y>
+      <width>121</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Add Stadium</string>
+     <string>Add Team</string>
     </property>
    </widget>
   </widget>

@@ -1,5 +1,5 @@
-#ifndef STARTTOENDPATH_H
-#define STARTTOENDPATH_H
+#ifndef DODGERPATH_H
+#define DODGERPATH_H
 #include "souvenirshop.h"
 #include "DataBase.h"
 #include "manageDB.h"
@@ -33,6 +33,8 @@ private slots:
     void on_backButton_clicked();
 
     void on_planTrip_button_clicked();
+
+    void on_startTrip_button_clicked();
 
 private:
     Ui::dodgerpath *ui;
@@ -72,4 +74,4 @@ private:
 
 };
 
-#endif // STARTTOENDPATH_H
+#endif // DODGERPATH_H

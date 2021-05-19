@@ -33,7 +33,7 @@
    <widget class="QLabel" name="admin_label">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>150</x>
       <y>10</y>
       <width>571</width>
       <height>41</height>
@@ -79,7 +79,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;Select stadium on your trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#550000;&quot;&gt;Select teams on your trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QToolButton" name="startTrip_button">
@@ -129,8 +129,8 @@
      <rect>
       <x>430</x>
       <y>160</y>
-      <width>371</width>
-      <height>361</height>
+      <width>381</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -144,8 +144,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>369</width>
-       <height>359</height>
+       <width>379</width>
+       <height>369</height>
       </rect>
      </property>
     </widget>
@@ -160,20 +160,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#005500;&quot;&gt;Select starting stadium:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#005500;&quot;&gt;Select starting team:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="startStadiumHeader_6">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>410</x>
       <y>130</y>
       <width>411</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#3f3f3f;&quot;&gt;Order of stadiums for trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; color:#3f3f3f;&quot;&gt;Order of teams for trip:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QComboBox" name="selectStartingStadiums">

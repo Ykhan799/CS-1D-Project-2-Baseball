@@ -78,6 +78,7 @@ void orderedPath::on_planTrip_button_2_clicked()
         vBoxLayout->addWidget(temp);
 
     }
+
     //customTeamNameList.clear(); //clears the custom name list after the start button is clicked
     //ui->CTO_comboBox->clear();  //clears the combo box and reloads it
     //fillStartTeam();
@@ -91,7 +92,17 @@ void orderedPath::on_planTrip_button_2_clicked()
 
 void orderedPath::on_startTrip_button_clicked()
 {
-
+    QVector <QString> convertedStadNames;
+    for(int i = 0; i<fastestRoute.size(); i++)
+        convertedStadNames.push_back(database->getStadiumName(fastestRoute[i]));
+    auto* souvenir  = new souvenirshop(totalDist, convertedStadNames);
+    hide();
+    souvenir -> show();
 }
 
 
+
+void orderedPath::on_backButton_clicked()
+{
+    close();
+}

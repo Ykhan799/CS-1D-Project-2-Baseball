@@ -12,6 +12,7 @@ SOURCES += \
     DataBase.cpp \
     custompath.cpp \
     displaygraphs.cpp \
+    dodgerpath.cpp \
     grapher.cpp \
     login.cpp \
     main.cpp \
@@ -22,7 +23,6 @@ SOURCES += \
     modifyTeams.cpp \
     orderedpath.cpp \
     souvenirshop.cpp \
-    startToEndPath.cpp \
     tripsummary.cpp
 
 HEADERS += \
@@ -30,6 +30,7 @@ HEADERS += \
     custompath.h \
     dijkstra.h \
     displaygraphs.h \
+    dodgerpath.h \
     grapher.h \
     login.h \
     mainwindow.h \
@@ -40,13 +41,13 @@ HEADERS += \
     orderedpath.h \
     pqueue.h \
     souvenirshop.h \
-    startToEndPath.h \
     tripsummary.h
 
 FORMS += \
     DataBase.ui \
     custompath.ui \
     displaygraphs.ui \
+    dodgerpath.ui \
     login.ui \
     mainwindow.ui \
     marlinspath.ui \
@@ -54,7 +55,6 @@ FORMS += \
     modifyTeams.ui \
     orderedpath.ui \
     souvenirshop.ui \
-    startToEndPath.ui \
     tripsummary.ui
 
 # Default rules for deployment.

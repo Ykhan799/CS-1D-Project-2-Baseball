@@ -13,6 +13,7 @@
 #include "DataBase.h"
 #include "manageDB.h"
 #include "tripsummary.h"
+
 namespace Ui {
 class souvenirshop;
 }
@@ -37,9 +38,10 @@ private slots:
     void on_endTour_button_clicked();
 
 private:
+
     Ui::souvenirshop *ui;
     double distanceTraveled = 0;
-
+    graphAM* convert;
     /**
     * @brief total cost for trip
     */

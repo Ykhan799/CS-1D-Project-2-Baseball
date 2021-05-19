@@ -44,7 +44,8 @@ void customPath::fillScrollArea()
             checkBox->setCheckState(Qt::CheckState::Unchecked);
             checkBoxVector.push_back(checkBox);
             //connect(checkBox, &QCheckBox::stateChanged, this, &pathCustom::CheckboxChanged);
-            teamNamesVector.push_back(i);
+            tempTeamNamesVector.push_back(i);
+
         }
     }
 
@@ -60,12 +61,14 @@ void customPath::CheckboxChanged()
     qDebug() << "Signal caught";
 
 
+    teamNamesVector.push_back(startTeamName);
     for(int i = 0; i < checkBoxVector.size(); i++)
     {
         if(checkBoxVector[i]->checkState() == Qt::CheckState::Checked)
         {
-           // qDebug() << teamNamesVector[i] << Qt::endl;
-            teamNamesVector.push_back(teamNamesVector[i]);
+            qDebug() << tempTeamNamesVector[i] << Qt::endl;
+            teamNamesVector.push_back(tempTeamNamesVector[i]);
+
         }
     }
 
@@ -73,6 +76,8 @@ void customPath::CheckboxChanged()
     qDebug() << "Other Stadiums: ";
     for(int i = 0; i < teamNamesVector.size(); i++)
         qDebug() << teamNamesVector[i] << Qt::endl;
+
+
 
 }
 
@@ -89,16 +94,17 @@ void customPath::on_backButton_clicked()
 
 void customPath::on_planTrip_button_clicked()
 {
-    CheckboxChanged();
+    qDebug() << "QUESI";
+
+
 
     teamNamesVector.clear();
     startTeamName = ui->selectStartingStadiums->currentText();
-    teamNamesVector.push_back(startTeamName);
+
     CheckboxChanged();
     dijkstrasChooseTeams = new graphAM();
 
     pQueue<QVector<QString>> *incidentTeams;
-
     QMap<QString, bool> isVisited;
     QList<QString> finalTrip;
     QString lastTeam;
@@ -127,7 +133,7 @@ void customPath::on_planTrip_button_clicked()
                 incidentTeams->enqueue(tempPriority, tempRoute);
             }
         }
-        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
+//        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
         QVector<QString> tempVec = incidentTeams->getShortestTrip();
         tripDistance += incidentTeams->getLowestPriority();
 
@@ -142,8 +148,8 @@ void customPath::on_planTrip_button_clicked()
     finalTrip.push_back(lastTeam);
 
 
-    totalDist= tripDistance;
 
+    totalDist = tripDistance;
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
@@ -156,14 +162,20 @@ void customPath::on_planTrip_button_clicked()
         temp = new QLabel(QString::number(i+1) + ". " + finalTrip[i]);
         vBoxLayout->addWidget(temp);
     }
+    temp = new QLabel("Total Distance: " + QString::number(totalDist) + " miles");
+    vBoxLayout->addWidget(temp);
+
+
 }
 
 
 
 void customPath::on_startTrip_button_clicked()
 {
-
-    auto* souvenir  = new souvenirshop(totalDist, teamNamesVector);
+    QVector <QString> convertedStadNames;
+    for(int i = 0; i<teamNamesVector.size(); i++)
+        convertedStadNames.push_back(database->getStadiumName(teamNamesVector[i]));
+    auto* souvenir  = new souvenirshop(totalDist, convertedStadNames);
     hide();
     souvenir -> show();
 }

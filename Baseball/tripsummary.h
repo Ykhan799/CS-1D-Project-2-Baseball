@@ -5,7 +5,7 @@
 #include <QWidget>
 #include "QVBoxLayout"
 #include <QLabel>
-
+#include "grapher.h"
 namespace Ui {
 class tripSummary;
 }
@@ -45,6 +45,7 @@ private slots:
     void on_done_button_clicked();
 
 private:
+    graphAM* convert;
     /**
     * @brief points to tripSummary UI
     */

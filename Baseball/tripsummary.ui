@@ -117,7 +117,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Total Cost from each Campus:</string>
+    <string>Total Cost from each Stadium:</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

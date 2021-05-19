@@ -45,10 +45,12 @@ void marlinsPath::initalizeMarlinsPath()
 void marlinsPath::on_startTrip_button_clicked()
 {
 
-  /*  auto* souvenir  = new souvenirshop(4234, orderedStadiumNames);
+    QVector <QString> convertedStadNames;
+    for(int i = 0; i<teamNamesVector.size(); i++)
+        convertedStadNames.push_back(database->getStadiumName(teamNamesVector[i]));
+    auto* souvenir  = new souvenirshop(totalDist, convertedStadNames);
     hide();
     souvenir -> show();
-    */
 }
 
 void marlinsPath::on_backButton_clicked()
@@ -107,30 +109,29 @@ void marlinsPath::on_planTrip_button_clicked()
                 incidentTeams->enqueue(tempPriority, tempRoute);
             }
         }
-        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
+//        qDebug() << incidentTeams->getShortestTrip() << "    " << incidentTeams->getLowestPriority();
         QVector<QString> tempVec = incidentTeams->getShortestTrip();
         tripDistance += incidentTeams->getLowestPriority();
 
-     /*   for (int k = 0; k < tempVec.size() - 1; k++)
+        for (int k = 0; k < tempVec.size() - 1; k++)
         {
             finalTrip.push_back(tempVec[k]);
         }
         currentTeam = tempVec[tempVec.size() - 1];
-        lastTeam = tempVec[tempVec.size() - 1];*/
+        lastTeam = tempVec[tempVec.size() - 1];
     }
 
-   // finalTrip.push_back(lastTeam);
+    finalTrip.push_back(lastTeam);
 
 
-    ui->textBrowser_MiamiMarlins->append("Distance: " + QString::number(tripDistance) + "\n");
+
     ui->textBrowser_MiamiMarlins->setAlignment(Qt::AlignLeft);
-   /* for(int i = 0; i < finalTrip.size(); i++)
+    for(int i = 0; i < finalTrip.size(); i++)
     {
-        QString stadiumName = dijkstrasChooseTeams->teamToStadium(finalTrip[i]);
-        ui->textBrowser_MiamiMarlins->append(QString::number(i+1) + ". " + finalTrip[i] + "\n    (" + stadiumName + ")\n");
-    }*/
+        ui->textBrowser_MiamiMarlins->append(QString::number(i+1) + ". " + finalTrip[i]);
+    }
 
+    ui->textBrowser_MiamiMarlins->append("\nTotal Distance: " + QString::number(tripDistance) + " miles\n");
 
-    dijkstrasChooseTeams->printGraph();
     totalDist = tripDistance;
 }

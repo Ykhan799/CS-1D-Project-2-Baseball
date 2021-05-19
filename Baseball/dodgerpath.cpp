@@ -1,5 +1,5 @@
 
-#include "startToEndPath.h"
+#include "dodgerpath.h"
 #include "ui_dodgerpath.h"
 
 dodgerpath::dodgerpath(QVector<QString> stadiums, QWidget *parent, Graph<QString>* getGraph) :
@@ -39,7 +39,7 @@ void dodgerpath::on_backButton_clicked()
 void dodgerpath::on_planTrip_button_clicked()
 {
     stadiums.clear();
-    ui->textBrowser_SSR->clear();
+
     orderedStadiums.clear();
     SSRstartClicked = true;
 
@@ -56,19 +56,45 @@ void dodgerpath::on_planTrip_button_clicked()
     dijkstras = new graphAM();
     orderedStadiums.clear();
     orderedStadiums = dijkstras->dijkstra1to1(stadiums[0], stadiums[1]);
-    ui->textBrowser_SSR->setAlignment(Qt::AlignCenter);
-    ui->textBrowser_SSR->append("Distance: " + QString::number(dijkstras->getDistance()) + "\n");
-    ui->textBrowser_SSR->setAlignment(Qt::AlignLeft);
+
+    totalDist = dijkstras->getDistance();
+    QWidget *container = new QWidget;
+    QVBoxLayout *vBoxLayout = new QVBoxLayout;
+
+    container->setLayout(vBoxLayout);
+
+    ui->scrollArea->setWidget(container);
+
+
+    QLabel* temp;
+
 
     for(int i = 0; i < orderedStadiums.size(); i++)
     {
         QString stadiumName = dijkstras->teamToStadium(orderedStadiums[i]);
-        ui->textBrowser_SSR->append(QString::number(i+1) + ". " + orderedStadiums.at(i) + '\n' + "  (" + stadiumName + ")\n");
-    }
 
-    ui->textBrowser_SSR->selectAll();
-    dijkstras->dijkstraAll(database->getTeamNames());
+            temp = new QLabel(QString::number(i+1) + ". " +orderedStadiums[i]);
+            vBoxLayout->addWidget(temp);
 
+        }
+
+
+        temp = new QLabel("Distance: " + QString::number( totalDist ) + " miles");
+        vBoxLayout->addWidget(temp);
+
+
+
+    dijkstras->printGraph();
 
 }
 
+
+void dodgerpath::on_startTrip_button_clicked()
+{
+    QVector <QString> convertedStadNames;
+    for(int i = 0; i<orderedStadiums.size(); i++)
+        convertedStadNames.push_back(database->getStadiumName(orderedStadiums[i]));
+    auto* souvenir  = new souvenirshop(totalDist, convertedStadNames);
+    hide();
+    souvenir -> show();
+}
