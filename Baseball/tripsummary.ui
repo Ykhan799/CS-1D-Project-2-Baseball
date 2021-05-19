@@ -81,7 +81,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_TotalCost">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -102,7 +102,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="label_stadiumTotalCost">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -162,12 +162,12 @@
     <string>Exit</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_TotalDistance">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>500</x>
      <y>150</y>
-     <width>251</width>
+     <width>281</width>
      <height>41</height>
     </rect>
    </property>

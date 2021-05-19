@@ -6,9 +6,13 @@ displayGraphs::displayGraphs(QVector<QString> stadiums, QWidget *parent, Graph<Q
     ui(new Ui::displayGraphs)
 {
     ui->setupUi(this);
-   // ui->tableWidget->clear();
     ui->label->setVisible(false);
     ui->label_2->setVisible(false);
+    QFont increaseFont("Arial", 20, QFont::Bold);
+    QFont changeFont("Arial", 16, QFont::Bold);
+
+    ui->label->setFont(increaseFont);
+    ui->label_2->setFont(changeFont);
 
     graphs = getGraph;
     nameList = stadiums;
@@ -32,7 +36,6 @@ void displayGraphs::on_DFSButton_clicked()
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -60,7 +63,6 @@ void displayGraphs::on_MSTButton_clicked()
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -80,12 +82,10 @@ void displayGraphs::on_MSTButton_clicked()
 
 void displayGraphs::on_BFSButton_clicked()
 {
-
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     container->setLayout(vBoxLayout);
-   // QVector<QLabel> texts;
 
     ui->View->setWidget(container);
 
@@ -104,14 +104,11 @@ void displayGraphs::on_BFSButton_clicked()
 
         ui->label->setVisible(true);
         ui->label_2->setVisible(true);
-
         ui->label_2->setText(QString::number(start) + " miles");
  }
 
 void displayGraphs::rebuildGraph()
 {
-
-
     // populate QVectors and comboBox
     nameList = data->startingStadiums();
     tempList = nameList;

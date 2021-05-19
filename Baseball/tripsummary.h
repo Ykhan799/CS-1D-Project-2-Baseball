@@ -6,6 +6,7 @@
 #include "QVBoxLayout"
 #include <QLabel>
 #include "grapher.h"
+#include <QFont>
 namespace Ui {
 class tripSummary;
 }

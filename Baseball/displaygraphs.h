@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QSqlQuery>
 #include <QVBoxLayout>
+#include <QFont>
 
 namespace Ui {
 class displayGraphs;

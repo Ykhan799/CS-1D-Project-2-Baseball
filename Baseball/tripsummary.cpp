@@ -8,8 +8,16 @@ tripSummary::tripSummary(QString totalDistance, QString totalCost, QVector<QStri
 {
     ui->setupUi(this);
 
+    QFont changeFont("Arial", 18, QFont::Bold);
+    QFont increaseFont("Arial", 24, QFont::Bold);
+
+    ui->label_TotalDistance->setFont(increaseFont);
+    ui->label_TotalCost->setFont(increaseFont);
+    ui->label_stadiumTotalCost->setFont(increaseFont);
     ui->label_totalDistance->setText(totalDistance);
+    ui->label_totalDistance->setFont(changeFont);
     ui->label_totalCost->setText(totalCost);
+    ui->label_totalCost->setFont(changeFont);
 
     QWidget *container = new QWidget;
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
