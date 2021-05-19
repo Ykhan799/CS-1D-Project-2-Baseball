@@ -1,0 +1,133 @@
+\hypertarget{class_graph}{}\doxysection{Graph$<$ Type $>$ Class Template Reference}
+\label{class_graph}\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$dijkstra.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_graph_a825481635939ff3cf27105b60a4aeed4}{add\+Node}} (const Type obj)
+\item 
+void \mbox{\hyperlink{class_graph_abf489b731fa56717d206a64fc3c73b74}{add\+Edge}} (const Type \&objU, const Type \&objV, int weight)
+\item 
+int \mbox{\hyperlink{class_graph_ab32c702650a1adae6c78d75ecc186609}{start\+MST}} ()
+\item 
+int \mbox{\hyperlink{class_graph_a631cdfe6c78b9aa05475e3cd12a45e93}{start\+DFS}} (const Type \&start)
+\item 
+int \mbox{\hyperlink{class_graph_a0211a52dd2a14cf7b1f8d564ab144821}{start\+BFS}} (const Type \&start)
+\item 
+int \mbox{\hyperlink{class_graph_a0a0c82b6feac930302fb813ade292d1b}{start\+Shortest\+Path}} (const Type \&start)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_a9c08a9f4afc64f534f8375b3d6ee1e18}\label{class_graph_a9c08a9f4afc64f534f8375b3d6ee1e18}} 
+QVector$<$ Type $>$ \mbox{\hyperlink{class_graph_a9c08a9f4afc64f534f8375b3d6ee1e18}{dfs\+Order}}
+\begin{DoxyCompactList}\small\item\em dfs\+Order Contains the DFS traversal of nodes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a17c48036845b453ba0b45fc1b5d963a1}\label{class_graph_a17c48036845b453ba0b45fc1b5d963a1}} 
+QVector$<$ Type $>$ \mbox{\hyperlink{class_graph_a17c48036845b453ba0b45fc1b5d963a1}{bfs\+Order}}
+\begin{DoxyCompactList}\small\item\em bfs\+Order Contains the BFS order of nodes \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a19a05e8d4432417d71dbd375dff4b720}\label{class_graph_a19a05e8d4432417d71dbd375dff4b720}} 
+QVector$<$ Type $>$ \mbox{\hyperlink{class_graph_a19a05e8d4432417d71dbd375dff4b720}{shortest\+Order}}
+\begin{DoxyCompactList}\small\item\em shortest\+Order Vists all nodes using distance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_ab9f43a7b442063cae4e3181b244e87b8}\label{class_graph_ab9f43a7b442063cae4e3181b244e87b8}} 
+QString \mbox{\hyperlink{class_graph_ab9f43a7b442063cae4e3181b244e87b8}{mst\+String}}
+\begin{DoxyCompactList}\small\item\em mst\+String Gets the edges of the MST \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Type$>$\newline
+class Graph$<$ Type $>$}
+
+Contains the implementation of a graph 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_abf489b731fa56717d206a64fc3c73b74}\label{class_graph_abf489b731fa56717d206a64fc3c73b74}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const Type \&}]{objU,  }\item[{const Type \&}]{objV,  }\item[{int}]{weight }\end{DoxyParamCaption})}
+
+Adds an edge between two nodes 
+\begin{DoxyParams}{Parameters}
+{\em objU} & -\/ first node type \\
+\hline
+{\em objV} & Name of second node \\
+\hline
+{\em weight} & Weight of edge \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a825481635939ff3cf27105b60a4aeed4}\label{class_graph_a825481635939ff3cf27105b60a4aeed4}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!addNode@{addNode}}
+\index{addNode@{addNode}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+void \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::add\+Node (\begin{DoxyParamCaption}\item[{const Type}]{obj }\end{DoxyParamCaption})}
+
+Adds node to the graph 
+\begin{DoxyParams}{Parameters}
+{\em obj} & -\/ Object to add to graph \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a0211a52dd2a14cf7b1f8d564ab144821}\label{class_graph_a0211a52dd2a14cf7b1f8d564ab144821}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!startBFS@{startBFS}}
+\index{startBFS@{startBFS}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{startBFS()}{startBFS()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::start\+BFS (\begin{DoxyParamCaption}\item[{const Type \&}]{start }\end{DoxyParamCaption})}
+
+Begins BFS traversal 
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ starting node for BFS \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total Distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a631cdfe6c78b9aa05475e3cd12a45e93}\label{class_graph_a631cdfe6c78b9aa05475e3cd12a45e93}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!startDFS@{startDFS}}
+\index{startDFS@{startDFS}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{startDFS()}{startDFS()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::start\+DFS (\begin{DoxyParamCaption}\item[{const Type \&}]{start }\end{DoxyParamCaption})}
+
+Begins DFS Traversal 
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ Beginning node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ab32c702650a1adae6c78d75ecc186609}\label{class_graph_ab32c702650a1adae6c78d75ecc186609}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!startMST@{startMST}}
+\index{startMST@{startMST}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{startMST()}{startMST()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::start\+MST}
+
+Uses Prim\textquotesingle{}s Algorithm \begin{DoxyReturn}{Returns}
+Total distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a0a0c82b6feac930302fb813ade292d1b}\label{class_graph_a0a0c82b6feac930302fb813ade292d1b}} 
+\index{Graph$<$ Type $>$@{Graph$<$ Type $>$}!startShortestPath@{startShortestPath}}
+\index{startShortestPath@{startShortestPath}!Graph$<$ Type $>$@{Graph$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{startShortestPath()}{startShortestPath()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ Type $>$\+::start\+Shortest\+Path (\begin{DoxyParamCaption}\item[{const Type \&}]{start }\end{DoxyParamCaption})}
+
+Gets the Shortest\+Path 
+\begin{DoxyParams}{Parameters}
+{\em start} & -\/ Starting node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance traveled across the path 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yaseenkhan/\+Downloads/\+CS-\/1\+D-\/\+Project-\/2-\/\+Baseball-\/final\+Branch2/\+Baseball/dijkstra.\+h\end{DoxyCompactItemize}

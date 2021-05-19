@@ -46,7 +46,7 @@ private slots:
     void on_done_button_clicked();
 
 private:
-    graphAM* convert;
+    graphHELPER* convert;
     /**
     * @brief points to tripSummary UI
     */

@@ -46,7 +46,7 @@ private:
     */
     QString startTeamName;
 
-    graphAM* chooseOrder;
+    graphHELPER* chooseOrder;
 
     QVector<QString> customTeamNameList;
 

@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['seatingcapacity_54',['seatingCapacity',['../classmanage_d_b.html#aac1e775487ff613c09ec5c85a8aa7570',1,'manageDB']]],
-  ['setrooftype_55',['setRoofType',['../classmanage_d_b.html#a8cfa3cb1707fdfb6d7df34add6f32088',1,'manageDB']]],
-  ['setsurfacetype_56',['setSurfaceType',['../classmanage_d_b.html#a34351f948cc704d636fe2c5d45444c18',1,'manageDB']]],
-  ['settypology_57',['setTypology',['../classmanage_d_b.html#a4cbb69130743c2c63a25b41246eeeb99',1,'manageDB']]],
-  ['souvenirshop_58',['souvenirshop',['../classsouvenirshop.html',1,'']]],
-  ['souvexists_59',['souvExists',['../classmanage_d_b.html#a4fc79fb3254a69063e0e29d49068ed79',1,'manageDB']]],
-  ['startingstadiums_60',['startingStadiums',['../classmanage_d_b.html#aca2cc740a1540ed8015168c42763f475',1,'manageDB']]]
+  ['team_5fname_5fdestination_68',['team_name_destination',['../structdistance_edge.html#ae46b06feb4c35fcbaa198ddda8b4e8e1',1,'distanceEdge']]],
+  ['team_5fname_5forigin_69',['team_name_origin',['../structdistance_edge.html#ab76099a4d0397c36f1295243f696b396',1,'distanceEdge']]],
+  ['teamexists_70',['teamExists',['../classmanage_d_b.html#a9bf5d518bf0ef71a02e0dcec7da26d48',1,'manageDB']]],
+  ['tripsummary_71',['tripSummary',['../classtrip_summary.html',1,'tripSummary'],['../classtrip_summary.html#a8b4b3b65daceb9cd996dc48759a9df0e',1,'tripSummary::tripSummary()']]]
 ];

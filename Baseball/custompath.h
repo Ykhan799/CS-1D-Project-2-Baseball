@@ -57,7 +57,7 @@ private:
     */
     QString startTeamName;
 
-    graphAM* dijkstrasChooseTeams;
+    graphHELPER* dijkstrasChooseTeams;
 
     QVector<QString> allTeamsList;
 

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['teamexists_61',['teamExists',['../classmanage_d_b.html#a9bf5d518bf0ef71a02e0dcec7da26d48',1,'manageDB']]]
+  ['u_72',['u',['../struct_edge.html#a60a34279415f9bff8844f0c0a8675ae3',1,'Edge']]],
+  ['updatesouvenirs_73',['updateSouvenirs',['../classmanage_d_b.html#aacc430781e4340035b98717963a319d5',1,'manageDB']]],
+  ['updateteams_74',['updateTeams',['../classmanage_d_b.html#adaffd4005163f96893856428cc524a2b',1,'manageDB']]]
 ];

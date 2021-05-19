@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bfs_89',['BFS',['../classgraph_helper.html#ac370e99a12d9ff4d6a9315dbee662069',1,'graphHelper']]]
+  ['dateopened_101',['dateOpened',['../classmanage_d_b.html#a99345cb9fd900a76f3f96de21cbcc984',1,'manageDB']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['loggedin_121',['loggedIn',['../classlogin.html#a6b0c0886ac0fe76eecaec7a7878bef9b',1,'login']]]
+  ['teamexists_142',['teamExists',['../classmanage_d_b.html#a9bf5d518bf0ef71a02e0dcec7da26d48',1,'manageDB']]],
+  ['tripsummary_143',['tripSummary',['../classtrip_summary.html#a8b4b3b65daceb9cd996dc48759a9df0e',1,'tripSummary']]]
 ];

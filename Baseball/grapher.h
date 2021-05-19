@@ -72,13 +72,13 @@ struct Vertex
     vertexTag vTag;
 };
 
-class graphAM
+class graphHELPER
 {
 public:
     /**
     * @brief adjacency matrix constructor
     */
-    graphAM();
+    graphHELPER();
 
     /**
     * @brief loads graph from database

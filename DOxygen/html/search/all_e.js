@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_64',['Vertex',['../struct_vertex.html',1,'']]]
+  ['weight_76',['weight',['../struct_edge.html#a4d58e1f4de38fa55549497175981ebab',1,'Edge']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bfs_5',['BFS',['../classgraph_helper.html#ac370e99a12d9ff4d6a9315dbee662069',1,'graphHelper']]]
+  ['bfsorder_6',['bfsOrder',['../class_graph.html#a17c48036845b453ba0b45fc1b5d963a1',1,'Graph']]]
 ];

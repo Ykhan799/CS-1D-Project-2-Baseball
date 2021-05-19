@@ -102,7 +102,7 @@ void customPath::on_planTrip_button_clicked()
     startTeamName = ui->selectStartingStadiums->currentText();
 
     CheckboxChanged();
-    dijkstrasChooseTeams = new graphAM();
+    dijkstrasChooseTeams = new graphHELPER();
 
     pQueue<QVector<QString>> *incidentTeams;
     QMap<QString, bool> isVisited;

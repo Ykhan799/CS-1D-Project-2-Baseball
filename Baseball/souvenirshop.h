@@ -41,7 +41,7 @@ private:
 
     Ui::souvenirshop *ui;
     double distanceTraveled = 0;
-    graphAM* convert;
+    graphHELPER* convert;
     /**
     * @brief total cost for trip
     */

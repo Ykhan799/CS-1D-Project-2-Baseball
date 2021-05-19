@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['mainwindow_48',['MainWindow',['../class_main_window.html',1,'']]],
-  ['managedb_49',['manageDB',['../classmanage_d_b.html',1,'']]],
-  ['marlinspath_50',['marlinsPath',['../classmarlins_path.html',1,'']]],
-  ['modifysouvenirs_51',['modifySouvenirs',['../classmodify_souvenirs.html',1,'']]],
-  ['modifyteams_52',['modifyTeams',['../classmodify_teams.html',1,'']]]
+  ['removesouvenir_54',['removeSouvenir',['../classmanage_d_b.html#a635c749ba7a9135ef3b181ebd422a97f',1,'manageDB']]]
 ];

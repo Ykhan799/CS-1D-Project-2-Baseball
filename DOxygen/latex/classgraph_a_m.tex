@@ -1,0 +1,74 @@
+\hypertarget{classgraph_a_m}{}\doxysection{graph\+AM Class Reference}
+\label{classgraph_a_m}\index{graphAM@{graphAM}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a6b74935831ac24792154da7a740d20f1}\label{classgraph_a_m_a6b74935831ac24792154da7a740d20f1}} 
+void {\bfseries load\+Graph\+From\+DB} ()
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a88ad109b265401c773efe4eb61a61abf}\label{classgraph_a_m_a88ad109b265401c773efe4eb61a61abf}} 
+void {\bfseries add\+Edge} (QString city1, QString city2, int weight)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a29f499d55ffa619def971353fdf9938a}\label{classgraph_a_m_a29f499d55ffa619def971353fdf9938a}} 
+int {\bfseries get\+Location\+Of} (QString vertex)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a7ca32d3934ae86955e9fea5b1cf74161}\label{classgraph_a_m_a7ca32d3934ae86955e9fea5b1cf74161}} 
+\mbox{\hyperlink{struct_vertex}{Vertex}} {\bfseries find\+Closest\+Vertex} (\mbox{\hyperlink{struct_vertex}{Vertex}} vertex)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_ac37b4974fb334a2bffc1ccfdeab3bc85}\label{classgraph_a_m_ac37b4974fb334a2bffc1ccfdeab3bc85}} 
+int {\bfseries get\+Weight\+Between} (\mbox{\hyperlink{struct_vertex}{Vertex}} vertex1, \mbox{\hyperlink{struct_vertex}{Vertex}} vertex2)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a62c3628972b0adf330894f9c1405c45b}\label{classgraph_a_m_a62c3628972b0adf330894f9c1405c45b}} 
+int {\bfseries unvisited\+Siblings} (\mbox{\hyperlink{struct_vertex}{Vertex}} vertex)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a0b6743dc46c852a181f680451a477a97}\label{classgraph_a_m_a0b6743dc46c852a181f680451a477a97}} 
+void {\bfseries print\+Graph} ()
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a171f137356d37ac4ecabeffd2b0e397f}\label{classgraph_a_m_a171f137356d37ac4ecabeffd2b0e397f}} 
+QList$<$ QString $>$ {\bfseries get\+Route} ()
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a153134abcadd3c3cd02425d36dc762d5}\label{classgraph_a_m_a153134abcadd3c3cd02425d36dc762d5}} 
+int {\bfseries get\+Distance} ()
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a76f522195471401b7060314d4f8c58b4}\label{classgraph_a_m_a76f522195471401b7060314d4f8c58b4}} 
+QVector$<$ QString $>$ {\bfseries dijkstra\+All} (QVector$<$ QString $>$ selected\+Teams)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a3fa1037caa8300fc9e2359c595e6de9a}\label{classgraph_a_m_a3fa1037caa8300fc9e2359c595e6de9a}} 
+QVector$<$ QString $>$ {\bfseries dijkstra1to1} (QString start, QString end)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a544bd5885b1ec02270ea09acdb5dc4a6}\label{classgraph_a_m_a544bd5885b1ec02270ea09acdb5dc4a6}} 
+QVector$<$ QString $>$ {\bfseries dijkstra\+Recursive} (QVector$<$ QString $>$ selected\+Teams)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a0925a46fc01f4afe547a7a98a738b521}\label{classgraph_a_m_a0925a46fc01f4afe547a7a98a738b521}} 
+int {\bfseries min\+Distance} (int dist\mbox{[}$\,$\mbox{]}, bool spt\+Set\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{classgraph_a_m_ad57e86ec1ea76e31f19239d69030386b}\label{classgraph_a_m_ad57e86ec1ea76e31f19239d69030386b}} 
+void {\bfseries print\+Path} (int parent\mbox{[}$\,$\mbox{]}, int j)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_ac03849b818e2f67d10ba874decc5ddc3}\label{classgraph_a_m_ac03849b818e2f67d10ba874decc5ddc3}} 
+void {\bfseries print\+Solution} (int dist\mbox{[}$\,$\mbox{]}, int parent\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{classgraph_a_m_abcb638b31a710c6fdb0916d2cba2337c}\label{classgraph_a_m_abcb638b31a710c6fdb0916d2cba2337c}} 
+void {\bfseries print1to1} (int dist\mbox{[}$\,$\mbox{]}, int parent\mbox{[}$\,$\mbox{]}, QString start, QString end)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_ad60f85709fd56e939eb85cb17db41825}\label{classgraph_a_m_ad60f85709fd56e939eb85cb17db41825}} 
+QString {\bfseries team\+To\+Stadium} (QString team\+Name)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_ade3c2b218d7de00bbed04badcdb3ad2f}\label{classgraph_a_m_ade3c2b218d7de00bbed04badcdb3ad2f}} 
+QString {\bfseries stadium\+To\+Team} (QString stadium\+Name)
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a05b4177e434c3621ff23bc01727a1ec8}\label{classgraph_a_m_a05b4177e434c3621ff23bc01727a1ec8}} 
+void {\bfseries prim\+MST} ()
+\item 
+\mbox{\Hypertarget{classgraph_a_m_a7ee543fbe3e7613fea913d2559df5761}\label{classgraph_a_m_a7ee543fbe3e7613fea913d2559df5761}} 
+void {\bfseries print\+MST} (int parent\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{classgraph_a_m_aabf090f69b1f334dc6fb2c83142adc91}\label{classgraph_a_m_aabf090f69b1f334dc6fb2c83142adc91}} 
+QVector$<$ QString $>$ {\bfseries get\+Non\+Distance\+Vector} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/yaseenkhan/\+Downloads/\+CS-\/1\+D-\/\+Project-\/2-\/\+Baseball-\/final\+Branch2/\+Baseball/grapher.\+h\item 
+/\+Users/yaseenkhan/\+Downloads/\+CS-\/1\+D-\/\+Project-\/2-\/\+Baseball-\/final\+Branch2/\+Baseball/grapher.\+cpp\end{DoxyCompactItemize}

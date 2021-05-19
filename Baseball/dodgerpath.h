@@ -62,14 +62,14 @@ private:
 
     int totalDist;
 
-    graphAM* graphAdjMatr;
+    graphHELPER* graphAdjMatr;
 
 
-    graphAM* dijkstras;
+    graphHELPER* dijkstras;
 
 
 
-    graphAM* chooseOrder;
+    graphHELPER* chooseOrder;
 
 
 };

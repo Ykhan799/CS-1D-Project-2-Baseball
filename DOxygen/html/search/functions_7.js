@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['removesouvenir_122',['removeSouvenir',['../classmanage_d_b.html#a635c749ba7a9135ef3b181ebd422a97f',1,'manageDB']]]
+  ['updatesouvenirs_144',['updateSouvenirs',['../classmanage_d_b.html#aacc430781e4340035b98717963a319d5',1,'manageDB']]],
+  ['updateteams_145',['updateTeams',['../classmanage_d_b.html#adaffd4005163f96893856428cc524a2b',1,'manageDB']]]
 ];

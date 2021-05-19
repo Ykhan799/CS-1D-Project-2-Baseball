@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['database_9',['DataBase',['../class_data_base.html',1,'']]],
-  ['dateopened_10',['dateOpened',['../classmanage_d_b.html#a99345cb9fd900a76f3f96de21cbcc984',1,'manageDB']]],
-  ['dfs_11',['DFS',['../classgraph_helper.html#a12a7b301f98e587ace95342b425fc647',1,'graphHelper']]],
-  ['disjointsets_12',['DisjointSets',['../struct_disjoint_sets.html',1,'']]],
-  ['displaygraph_13',['displayGraph',['../classgraph.html#aabce09a2c73942041122293ae9f0fe88',1,'graph']]],
+  ['database_8',['DataBase',['../class_data_base.html',1,'']]],
+  ['dateopened_9',['dateOpened',['../classmanage_d_b.html#a99345cb9fd900a76f3f96de21cbcc984',1,'manageDB']]],
+  ['dfsorder_10',['dfsOrder',['../class_graph.html#a9c08a9f4afc64f534f8375b3d6ee1e18',1,'Graph']]],
+  ['displaygraphs_11',['displayGraphs',['../classdisplay_graphs.html',1,'']]],
+  ['distance_12',['distance',['../structdistance_edge.html#ad53bbcb62e1b1056e48a310a6246598e',1,'distanceEdge']]],
+  ['distanceedge_13',['distanceEdge',['../structdistance_edge.html',1,'']]],
   ['dodgerpath_14',['dodgerpath',['../classdodgerpath.html',1,'']]]
 ];

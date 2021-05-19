@@ -4,13 +4,13 @@
 #include "grapher.h"
 
 
-graphAM::graphAM()
+graphHELPER::graphHELPER()
 {
     loadGraphFromDB();
     travelDistance = 0;
 }
 
-void graphAM::loadGraphFromDB()
+void graphHELPER::loadGraphFromDB()
 {
     // ------- Fills a list of each stadium -------
     QSqlQuery* qryStadiums = new QSqlQuery();
@@ -67,7 +67,7 @@ void graphAM::loadGraphFromDB()
     // --------------------------------------------
 }
 
-void graphAM::addEdge(QString city1, QString city2, int weight)
+void graphHELPER::addEdge(QString city1, QString city2, int weight)
 {
 
     int start = 0;
@@ -94,7 +94,7 @@ void graphAM::addEdge(QString city1, QString city2, int weight)
     vertices[start].edges.push_back(edgeForward);
 }
 
-void graphAM::printGraph()
+void graphHELPER::printGraph()
 {
 
     for (int i = 0; i < vertexCount; i++)
@@ -108,7 +108,7 @@ void graphAM::printGraph()
     }
 }
 
-void graphAM::breadthFirstSearch(QString start)
+void graphHELPER::breadthFirstSearch(QString start)
 {
     route = "";
     travelDistance = 0;
@@ -128,7 +128,7 @@ void graphAM::breadthFirstSearch(QString start)
     //qDebug() << travelDistanceance;
 }
 
-void graphAM::breadthFirstHelper(QString start)
+void graphHELPER::breadthFirstHelper(QString start)
 {
     QList<Vertex> vertexContainer;
 
@@ -173,7 +173,7 @@ void graphAM::breadthFirstHelper(QString start)
     }
 }
 
-int graphAM::getLocationOf(QString vertex)
+int graphHELPER::getLocationOf(QString vertex)
 {
     for (int i = 0; i < vertexCount; i++)
     {
@@ -184,7 +184,7 @@ int graphAM::getLocationOf(QString vertex)
     }
 }
 
-Vertex graphAM::findClosestVertex(Vertex vertex)
+Vertex graphHELPER::findClosestVertex(Vertex vertex)
 {
     int indexToCompare;
     int tempWeight = 0;
@@ -219,7 +219,7 @@ Vertex graphAM::findClosestVertex(Vertex vertex)
     return vertices[indexToCompare];
 }
 
-int graphAM::getWeightBetween(Vertex vertex1, Vertex vertex2) // YES
+int graphHELPER::getWeightBetween(Vertex vertex1, Vertex vertex2) // YES
 {
 
     QList<Edge2> temp1 = vertex1.edges;
@@ -234,7 +234,7 @@ int graphAM::getWeightBetween(Vertex vertex1, Vertex vertex2) // YES
     return -999;
 }
 
-int graphAM::unvisitedSiblings(Vertex vertex)
+int graphHELPER::unvisitedSiblings(Vertex vertex)
 {
     QList<Edge2> tempEdges = vertex.edges;
     int count = 0;
@@ -246,18 +246,18 @@ int graphAM::unvisitedSiblings(Vertex vertex)
     return count;
 }
 
-QList<QString> graphAM::getRoute()
+QList<QString> graphHELPER::getRoute()
 {
     return routeAM;
 }
 
-int graphAM::getDistance()
+int graphHELPER::getDistance()
 {
     return travelDistance;
 }
 
 //-----------------Dijkastras-----------------//
-QVector<QString> graphAM::dijkstraAll(QVector<QString> selectedTeams)
+QVector<QString> graphHELPER::dijkstraAll(QVector<QString> selectedTeams)
 {
     dijkstraRoute.clear();
     travelDistance = 0;
@@ -305,7 +305,7 @@ QVector<QString> graphAM::dijkstraAll(QVector<QString> selectedTeams)
     return temp;
 }
 
-QVector<QString> graphAM::dijkstra1to1(QString start, QString end)
+QVector<QString> graphHELPER::dijkstra1to1(QString start, QString end)
 {
     dijkstraRoute.clear();
     travelDistance = 0;
@@ -353,7 +353,7 @@ QVector<QString> graphAM::dijkstra1to1(QString start, QString end)
 }
 
 
-QVector<QString> graphAM::dijkstraRecursive(QVector<QString> selectedTeams)
+QVector<QString> graphHELPER::dijkstraRecursive(QVector<QString> selectedTeams)
 {
     QVector<QString> temp;
 
@@ -409,7 +409,7 @@ QVector<QString> graphAM::dijkstraRecursive(QVector<QString> selectedTeams)
     return temp;
 }
 
-int graphAM::minDistance(int dist[], bool sptSet[])
+int graphHELPER::minDistance(int dist[], bool sptSet[])
 {
     int min = infinity;
     int minIndex = -1;
@@ -425,7 +425,7 @@ int graphAM::minDistance(int dist[], bool sptSet[])
     return minIndex;
 }
 
-void graphAM::printPath(int parent[], int j)
+void graphHELPER::printPath(int parent[], int j)
 {
     bool found = false;
     QString searchKey;
@@ -451,7 +451,7 @@ void graphAM::printPath(int parent[], int j)
     }
 }
 
-void graphAM::printSolution(int dist[], int parent[])
+void graphHELPER::printSolution(int dist[], int parent[])
 {
     //Use push front to add DIST to front of vector
     //dijkstraRoute.push_back(QString::number(dist[selectedTeams.size() - 1]));
@@ -464,7 +464,7 @@ void graphAM::printSolution(int dist[], int parent[])
     }
 }
 
-void graphAM::print1to1(int dist[], int parent[], QString start, QString end)
+void graphHELPER::print1to1(int dist[], int parent[], QString start, QString end)
 {
     startIndex = getLocationOf(start);
     int endIndex = getLocationOf(end);
@@ -498,7 +498,7 @@ void graphAM::print1to1(int dist[], int parent[], QString start, QString end)
     }
 }
 
-QString graphAM::teamToStadium(QString teamName)
+QString graphHELPER::teamToStadium(QString teamName)
 {
     QString stadiumName;
     QSqlQuery* query = new QSqlQuery();
@@ -519,7 +519,7 @@ QString graphAM::teamToStadium(QString teamName)
     return stadiumName;
 }
 
-QString graphAM::stadiumToTeam(QString stadiumName)
+QString graphHELPER::stadiumToTeam(QString stadiumName)
 {
     QString teamName;
     QSqlQuery* query = new QSqlQuery();
@@ -540,7 +540,7 @@ QString graphAM::stadiumToTeam(QString stadiumName)
     return teamName;
 }
 
-void graphAM::primMST()
+void graphHELPER::primMST()
 {
     int parent[vertexCount];
     int key[vertexCount];
@@ -573,7 +573,7 @@ void graphAM::primMST()
     printMST(parent);
 }
 
-void graphAM::printMST(int parent[])
+void graphHELPER::printMST(int parent[])
 {
 //    ===== THIS CODE PRINTS TO THE CONSOLE =====
 //    int totalDistance= 0;

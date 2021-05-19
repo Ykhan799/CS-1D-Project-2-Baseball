@@ -79,7 +79,7 @@ void marlinsPath::on_planTrip_button_clicked()
         }
     }
 
-    dijkstrasChooseTeams = new graphAM();
+    dijkstrasChooseTeams = new graphHELPER();
 
     pQueue<QVector<QString>> *incidentTeams;
     QMap<QString, bool> isVisited;

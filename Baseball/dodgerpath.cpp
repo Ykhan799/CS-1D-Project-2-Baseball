@@ -53,7 +53,7 @@ void dodgerpath::on_planTrip_button_clicked()
     stadiums.push_back(ui->selectStadium->currentText());
     stadiums.push_back(ui->selectStadium_2->currentText());
 
-    dijkstras = new graphAM();
+    dijkstras = new graphHELPER();
     orderedStadiums.clear();
     orderedStadiums = dijkstras->dijkstra1to1(stadiums[0], stadiums[1]);
 

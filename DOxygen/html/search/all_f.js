@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egraphhelper_65',['~graphHelper',['../classgraph_helper.html#afcb94bb7a1b3dc82c16feeac0ad12d79',1,'graphHelper']]]
+  ['_7etripsummary_77',['~tripSummary',['../classtrip_summary.html#aaccf37c3e9d1691c8dcf1dd9349b2ea2',1,'tripSummary']]]
 ];

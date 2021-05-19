@@ -1,6 +1,30 @@
 var searchData=
 [
-  ['dateopened_90',['dateOpened',['../classmanage_d_b.html#a99345cb9fd900a76f3f96de21cbcc984',1,'manageDB']]],
-  ['dfs_91',['DFS',['../classgraph_helper.html#a12a7b301f98e587ace95342b425fc647',1,'graphHelper']]],
-  ['displaygraph_92',['displayGraph',['../classgraph.html#aabce09a2c73942041122293ae9f0fe88',1,'graph']]]
+  ['getamericanleagueteams_102',['getAmericanLeagueTeams',['../classmanage_d_b.html#aca715ed42aa1246c462ab543c3b239f1',1,'manageDB']]],
+  ['getdistance_103',['getDistance',['../classmanage_d_b.html#a71561f6d7df827c50aef1aed05c2a236',1,'manageDB']]],
+  ['getdistances_104',['getDistances',['../classmanage_d_b.html#aad04f3df2bc8636a5d977e47e5b3e266',1,'manageDB']]],
+  ['getdisttocentfield_105',['getDistToCentField',['../classmanage_d_b.html#a2db697fe926b02ea79db3b9bcfa97b94',1,'manageDB']]],
+  ['getleague_106',['getLeague',['../classmanage_d_b.html#a32f297189fcaedbe501434777ea4ea76',1,'manageDB']]],
+  ['getlocation_107',['getLocation',['../classmanage_d_b.html#a0997745b40a3c5f62e99fab93e790c88',1,'manageDB']]],
+  ['getnationalleagueteams_108',['getNationalLeagueTeams',['../classmanage_d_b.html#ad28fc561b42ce0bd981ea10ea9d7e5dc',1,'manageDB']]],
+  ['getnumopenroofs_109',['getNumOpenRoofs',['../classmanage_d_b.html#ac6f012c2a63ad0b5c9766318a8609113',1,'manageDB']]],
+  ['getrooftypes_110',['getRoofTypes',['../classmanage_d_b.html#a9981eacfab5a87dea03f67df494c588d',1,'manageDB']]],
+  ['getseatingcapacity_111',['getSeatingCapacity',['../classmanage_d_b.html#adef50862c4a9de4432d7f7cb006934dc',1,'manageDB']]],
+  ['getsouvenirprice_112',['getSouvenirPrice',['../classmanage_d_b.html#a3a47c621c5e19255d54b1194e2701224',1,'manageDB']]],
+  ['getsouvenirsbyteam_113',['getSouvenirsByTeam',['../classmanage_d_b.html#af6e3f80d749025694a5c6a10798114fe',1,'manageDB']]],
+  ['getstadiumname_114',['getStadiumName',['../classmanage_d_b.html#a3af2ec092aa955a223364b8578c2f913',1,'manageDB']]],
+  ['getstadiumnames_115',['getStadiumNames',['../classmanage_d_b.html#ae0d0ce4099ed6a299201493ee097bf23',1,'manageDB']]],
+  ['getsurfaces_116',['getSurfaces',['../classmanage_d_b.html#a5b3035a67c1d00a104216e1fed0b6c84',1,'manageDB']]],
+  ['getteammodel_117',['getTeamModel',['../classmanage_d_b.html#a0b8e812dfb0263b7a37a7c5cf1928b3d',1,'manageDB']]],
+  ['getteamnames_118',['getTeamNames',['../classmanage_d_b.html#a14fe699acf47794ce68e40ec6847e191',1,'manageDB']]],
+  ['getteamsbyballparktypology_119',['getTeamsByBallParkTypology',['../classmanage_d_b.html#a99cb96c9f82935fd55058b032331fe29',1,'manageDB']]],
+  ['getteamsbydate_120',['getTeamsbyDate',['../classmanage_d_b.html#a784d77dc2aa57aa6c2cb8571a6eed126',1,'manageDB']]],
+  ['getteamsbylargedisttocenterfield_121',['getTeamsbyLargeDistToCenterField',['../classmanage_d_b.html#a795f6033029eae4acb793f230202b6a2',1,'manageDB']]],
+  ['getteamsbyseatingcapacity_122',['getTeamsBySeatingCapacity',['../classmanage_d_b.html#ac56c0cfe4c60c3a19082c5ffba7aeb3b',1,'manageDB']]],
+  ['getteamsbysmalldisttocenterfield_123',['getTeamsbySmallDistToCenterField',['../classmanage_d_b.html#ae5d97a35f2b9c26f446e13cbac8e7347',1,'manageDB']]],
+  ['getteamsouvenirs_124',['getTeamSouvenirs',['../classmanage_d_b.html#a1b81b9953e7cb5c4f470a0d034cb4bf9',1,'manageDB']]],
+  ['getteamssortedbystadiums_125',['getTeamsSortedbyStadiums',['../classmanage_d_b.html#ac7945405729704aa2cc18482b15fa5f2',1,'manageDB']]],
+  ['getteamssortedbyteams_126',['getTeamsSortedbyTeams',['../classmanage_d_b.html#a6c23527eee2af291b4d17b1ee87761d0',1,'manageDB']]],
+  ['getteamswithopenroof_127',['getTeamsWithOpenRoof',['../classmanage_d_b.html#ae1acb80340274896ffcab3a05e722946',1,'manageDB']]],
+  ['gettypology_128',['getTypology',['../classmanage_d_b.html#ad0edd3a9681fd201c47cdfb8f08bc342',1,'manageDB']]]
 ];

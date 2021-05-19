@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['_7etripsummary_88',['~tripSummary',['../classtrip_summary.html#aaccf37c3e9d1691c8dcf1dd9349b2ea2',1,'tripSummary']]]
+];

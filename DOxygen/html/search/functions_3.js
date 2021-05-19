@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['findset_93',['findSet',['../structcluster_sets.html#a215ca7fc59fc8d8e4743769565614120',1,'clusterSets']]]
+  ['loggedin_129',['loggedIn',['../classlogin.html#a6b0c0886ac0fe76eecaec7a7878bef9b',1,'login']]]
 ];

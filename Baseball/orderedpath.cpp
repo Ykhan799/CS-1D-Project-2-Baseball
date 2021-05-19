@@ -50,12 +50,12 @@ void orderedPath::on_planTrip_button_2_clicked()
     fastestRoute.clear();
     if(customTeamNameList.size() > 2)
     {
-        chooseOrder = new graphAM();
+        chooseOrder = new graphHELPER();
         fastestRoute = chooseOrder->dijkstraRecursive(customTeamNameList);
     }
     else if(customTeamNameList.size() == 2)
     {
-        chooseOrder = new graphAM();
+        chooseOrder = new graphHELPER();
 
         fastestRoute = chooseOrder->dijkstra1to1(customTeamNameList[0], customTeamNameList[1]);
     }
