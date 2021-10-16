@@ -51,5 +51,4 @@ Create a Baseball Application to allow baseball fans to view information about s
 <img width="592" alt="Screen Shot 2021-10-16 at 11 43 34 AM" src="https://user-images.githubusercontent.com/78000116/137598791-8744d8f0-e5d9-427f-9597-218241cd38dd.png">
 
 #### Admin Screen
-
-
+<img width="923" alt="Screen Shot 2021-10-16 at 11 45 46 AM" src="https://user-images.githubusercontent.com/78000116/137598817-4ff5107a-5833-4f26-bdbd-631426ad813d.png">
