@@ -2,5 +2,4 @@
 ## Group Members:
 * Liam Knight - Scrum Master/Programmer
 * Yaseen Khan - Product Owner/Programmer
-* Justin Bowen - Programmer
 * Quan Nguyen - Programmer
