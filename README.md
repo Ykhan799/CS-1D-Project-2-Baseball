@@ -30,3 +30,14 @@ Create a Baseball Application to allow baseball fans to view information about s
 #### End of Trip Summary
 <img width="790" alt="Screen Shot 2021-10-16 at 11 36 52 AM" src="https://user-images.githubusercontent.com/78000116/137598595-98cdefda-6c9f-4899-a738-721b1046c9e4.png">
 
+
+### Marlins Trip
+<img width="797" alt="Screen Shot 2021-10-16 at 11 38 22 AM" src="https://user-images.githubusercontent.com/78000116/137598634-960968d2-dc65-44ea-bfe4-1577b040165d.png">
+
+### Ordered Trip
+<img width="835" alt="Screen Shot 2021-10-16 at 11 40 07 AM" src="https://user-images.githubusercontent.com/78000116/137598660-0ed0c51f-4987-4af1-8083-f8faa10746fd.png">
+
+### Custom Trip
+<img width="853" alt="Screen Shot 2021-10-16 at 11 40 51 AM" src="https://user-images.githubusercontent.com/78000116/137598687-bcb683e3-3a15-4dd5-8277-27d45c889cf8.png">
+
+
