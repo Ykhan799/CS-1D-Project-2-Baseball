@@ -15,3 +15,7 @@ Create a Baseball Application to allow baseball fans to view information about s
 ### View Teams and Souvenirs
 <img width="920" alt="Screen Shot 2021-10-16 at 11 31 14 AM" src="https://user-images.githubusercontent.com/78000116/137598454-e95e9d7d-7a7a-4dc3-9f58-6d8d23b52758.png">
 <img width="921" alt="Screen Shot 2021-10-16 at 11 31 26 AM" src="https://user-images.githubusercontent.com/78000116/137598455-8839d198-4994-4714-a95c-d239bc29aa15.png">
+
+
+### BFS/DFS/MST
+<img width="800" alt="Screen Shot 2021-10-16 at 11 33 14 AM" src="https://user-images.githubusercontent.com/78000116/137598507-9967d49c-4cc1-4eec-9902-001653458131.png">
