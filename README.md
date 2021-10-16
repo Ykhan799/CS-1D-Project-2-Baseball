@@ -40,4 +40,16 @@ Create a Baseball Application to allow baseball fans to view information about s
 ### Custom Trip
 <img width="853" alt="Screen Shot 2021-10-16 at 11 40 51 AM" src="https://user-images.githubusercontent.com/78000116/137598687-bcb683e3-3a15-4dd5-8277-27d45c889cf8.png">
 
+### Admin Functions
+#### Logging In
+<img width="397" alt="Screen Shot 2021-10-16 at 11 42 19 AM" src="https://user-images.githubusercontent.com/78000116/137598734-5a5295f5-a0cb-4183-8dc3-0b272c3c1818.png">
+
+#### Adding, Deleting, Modifying Souvenirs
+<img width="574" alt="Screen Shot 2021-10-16 at 11 43 24 AM" src="https://user-images.githubusercontent.com/78000116/137598771-db946b93-8fc5-4db9-8f03-0a4434f60785.png">
+
+#### Modifying and Adding teams 
+<img width="592" alt="Screen Shot 2021-10-16 at 11 43 34 AM" src="https://user-images.githubusercontent.com/78000116/137598791-8744d8f0-e5d9-427f-9597-218241cd38dd.png">
+
+#### Admin Screen
+
 
